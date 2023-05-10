@@ -36,8 +36,9 @@ function App() {
     return (
       <div className={`${darkMode === "dark" ? "dark" : ""}`}>
         <div
-          className="bg-primary-150 dark:bg-primary-500 min-h-screen
-        text-primary-600 dark:text-primary-100"
+          className="w-full bg-primary-150 dark:bg-primary-500
+          min-h-screen text-primary-600 dark:text-primary-100
+          overflow-x-hidden"
         >
           <Routes>
             <Route path="/*" element={<Main />} />

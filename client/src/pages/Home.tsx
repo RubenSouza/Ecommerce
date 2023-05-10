@@ -8,8 +8,8 @@ import ComingSoon from "../components/ComingSoon";
 
 const Home = () => {
   return (
-    <div className="flex flex-col">
-      <section className="flex items-center justify-center h-full w-full px-5">
+    <div className="w-full flex flex-col">
+      <section className="flex items-center justify-center h-full w-full">
         <Thumb />
       </section>
       <section className="flex items-center justify-center w-full">

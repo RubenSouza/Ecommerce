@@ -4,17 +4,21 @@ import buttonTeste from "../assets/buttonTeste.svg";
 
 const Thumb = () => {
   return (
-    <div className="flex items-center justify-center pb-10 w-[1024px]">
-      <div className="relative w-full">
+    <div className="flex pb-10 w-full md:w-[1024px] items-center justify-center">
+      <div className="w-full relative">
         <img
           src={gameThumb}
           alt="game thumb"
-          className="w-[1024px] rounded-md"
+          className="rounded-md md:w-[1024px] min-w-full"
         />
-        <img src={badge} alt="badge" className="absolute top-5 right-0" />
+        <img
+          src={badge}
+          alt="badge"
+          className="absolute top-5 right-0 md:-right-4 w-[110px] md:w-[150px]"
+        />
         <div
-          className="absolute bottom-0 right-5 left-5 bg-primary-700/80 h-[170px] 
-        px-10 pt-6 "
+          className="bg-slate-950 md:absolute bottom-0 right-5 left-5 md:bg-primary-700/80 md:h-[170px] 
+        h-[200px] px-10 pt-6 "
         >
           <h3 className="text-xl font-bold">Desafie a morte</h3>
           <p className="pt-2">

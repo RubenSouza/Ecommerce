@@ -1,6 +1,6 @@
 const SideExplorer = () => {
   return (
-    <div className="space-y-2 w-[200px]">
+    <div className="space-y-4 w-[250px]">
       <ul className="flex flex-col space-y-2">
         <div>
           <h3 className="text-lg">Preço</h3>
