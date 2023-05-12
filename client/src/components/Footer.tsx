@@ -4,12 +4,12 @@ const Footer = () => {
   return (
     <div className="w-full h-full">
       <div
-        className="px-24 flex flex-col bg-white py-6
+        className="w-full h-full px-5 lg:px-24 flex flex-col bg-white py-6
     text-primary-600 text-sm items-center"
       >
-        <div className="w-[1024px]">
+        <div className="w-full h-full lg:w-[1024px] space-y-2">
           <img src={darkLogo} alt="dark logo" className="w-24" />
-          <div className="flex justify-between space-x-6">
+          <div className="w-full h-full grid grid-cols-2 gap-x-16 gap-y-5 md:flex justify-between">
             <div>
               <h5 className="font-bold">Contact</h5>
               <div className="h-1 bg-[#33ddc9] w-8" />

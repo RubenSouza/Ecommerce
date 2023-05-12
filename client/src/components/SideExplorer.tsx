@@ -67,11 +67,12 @@ const SideExplorer = () => {
           <h3 className="text-lg">Ordernar por</h3>
           <li className="bg-[#3CD3C1] h-1 w-6" />
         </div>
-        <div>
+        <div className="text-sm">
           <li className="flex items-center space-x-2">
             <input
               type="radio"
               name="order"
+              defaultChecked
               className="bg-transparent border-[2px] border-primary-400 text-[#F231A5] 
               checked:bg-[#F231A5] w-4 h-4 rounded-full focus:ring-0 focus:ring-offset-0"
             />

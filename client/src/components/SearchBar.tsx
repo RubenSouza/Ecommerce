@@ -13,7 +13,7 @@ const SearchBar = () => {
           autoComplete="off"
           id="search-field"
           className="bg-transparent border-none placeholder-gray-500 outline-none 
-      text-sm text-primary-50 py-1 pr-10 leading-8 transition-colors duration-200
+      text-sm text-primary-50 py-1 w-full leading-8 transition-colors duration-200
       ease-in-out focus:ring-0"
           placeholder="O que você procura?"
           type="search"
