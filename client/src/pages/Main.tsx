@@ -14,7 +14,7 @@ const Main = () => {
       <div className="flex flex-col justify-center items-center relative w-full h-20 ">
         <NavBar />
       </div>
-      <div className="relative min-h-screen w-full py-10">
+      <div className="relative min-h-screen w-full">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/explorer" element={<Explorer />} />

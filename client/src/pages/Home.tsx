@@ -3,18 +3,31 @@
 import FreeGames from "../components/FreeGames";
 import MostPopulars from "../components/MostPopulars";
 import Releases from "../components/Releases";
-import Thumb from "../components/Thumb";
 import ComingSoon from "../components/ComingSoon";
-import Carousel from "../components/Carousel";
+import HomeCarousel from "../components/HomeCarousel";
+import Thumb from "../components/Thumb";
 
 const Home = () => {
+  const slides = [
+    <Thumb />,
+    <Thumb />,
+    <Thumb />,
+    <Thumb />,
+    <Thumb />,
+    <Thumb />,
+    <Thumb />,
+    <Thumb />,
+    <Thumb />,
+    <Thumb />,
+    <Thumb />,
+    <Thumb />,
+  ];
+
   return (
     <div className="w-full flex flex-col">
-      <section className="flex items-center justify-center h-full w-full">
-        <div className="w-full h-full flex justify-center items-center">
-          <div className="h-[570px] w-full lg:w-[1400px] ">
-            <Carousel />
-          </div>
+      <section className="w-full h-full flex justify-center items-start">
+        <div className="h-[500px] lg:h-[650px] w-full lg:w-[1400px]">
+          <HomeCarousel slides={slides} />
         </div>
       </section>
       <section className="flex items-center justify-center w-full">

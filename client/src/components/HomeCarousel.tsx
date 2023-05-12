@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 // Import Swiper React components
 
@@ -10,10 +10,10 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from "swiper";
-import Thumb from "./Thumb";
 
-export default function Carousel() {
+import { Autoplay, Pagination, Navigation } from "swiper";
+
+export default function HomeCarousel(props: any) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -41,27 +41,14 @@ export default function Carousel() {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <Thumb />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Thumb />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Thumb />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Thumb />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Thumb />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Thumb />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Thumb />
-        </SwiperSlide>
+        {props.slides.map(
+          (
+            slide: any,
+            index: number // slides.slides is the array of slides
+          ) => (
+            <SwiperSlide key={index}>{slide}</SwiperSlide>
+          )
+        )}
       </Swiper>
     </div>
   );

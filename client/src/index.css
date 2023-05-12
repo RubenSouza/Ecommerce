@@ -28,7 +28,7 @@ body {
 }
 
 .swiper-slide {
-  text-align: start;
+  text-align: center;
   font-size: 18px;
 
   /* Center slide text vertically */
@@ -37,9 +37,9 @@ body {
   align-items: center;
 }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.swiper-pagination-bullet {
+  background-color: #e5e7eb; /* define a cor de fundo desejada */
+  width: 8px; /* define a largura dos pontos */
+  height: 8px; /* define a altura dos pontos */
+  border-radius: 50%; /* define a forma dos pontos como redonda */
 }

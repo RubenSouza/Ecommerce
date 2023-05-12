@@ -10,7 +10,7 @@ const Explorer = () => {
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
   return (
-    <div className="w-full h-full flex justify-center">
+    <div className="w-full h-full flex justify-center py-10">
       <div className="w-full px-5 md:w-[1400px] h-full flex">
         <div className="hidden md:inline flex-1 w-full">
           <SideExplorer />
