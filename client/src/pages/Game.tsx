@@ -13,6 +13,9 @@ import image08 from "../assets/screenshots/08.jpg";
 import image09 from "../assets/screenshots/09.jpg";
 import image10 from "../assets/screenshots/10.jpg";
 import GalleryCarousel from "../components/GalleryCarousel";
+import GameItem from "../components/GameItem";
+import GameCarousel from "../components/GameCarousel";
+import popularBadge from "../assets/popularBadge.svg";
 
 const Game = () => {
   const gallery = [
@@ -28,20 +31,34 @@ const Game = () => {
     <img src={image10} alt="screenshot" className="w-[900px]" />,
   ];
 
+  const games = [
+    <GameItem />,
+    <GameItem />,
+    <GameItem />,
+    <GameItem />,
+    <GameItem />,
+    <GameItem />,
+    <GameItem />,
+    <GameItem />,
+  ];
+
   return (
     <div className="w-screen flex flex-col items-center py-10">
-      <div className="h-[600px]">
+      <div className="w-full lg:h-[600px] h-[300px]">
         <img
           src="https://images.gog-statics.com/c75e674590b8947542c809924df30bbef2190341163dd08668e243c266be70c5.png"
           alt="game wallpaper"
-          className="w-full absolute right-0 left-0 top-0 h-[600px] object-cover object-top"
+          className="w-full absolute right-0 left-0 top-0 h-[300px] md:h-[600px] object-cover object-top"
         />
       </div>
-      <div className="w-[1100px] flex justify-between">
+      <div
+        className="w-full lg:w-[1100px] flex flex-col 
+      md:flex-row justify-between px-4 lg:px-0 space-y-4"
+      >
         <h3 className="text-3xl font-semibold">CyberPunk 2077</h3>
         <div
           className="bg-primary-700 rounded-md shadow-md shadow-gray-800 flex flex-col
-        justify-center items h-[170px] w-[400px] p-5 space-y-2 lg:absolute top-[550px] right-[380px]
+        justify-center items h-[170px] w-full md:w-[400px] p-5 space-y-2 lg:absolute top-[550px] right-[380px]
         "
         >
           <p className="text-4xl font-semibold">R$ 199.99</p>
@@ -60,11 +77,14 @@ const Game = () => {
           </div>
         </div>
       </div>
-      <div className="w-[1100px] h-[270px] my-8">
+      <div className="w-full px-4 lg:px-0 lg:w-[1100px] h-[210px] lg:h-[270px] my-8">
         <GalleryCarousel slides={gallery} />
       </div>
-      <div className="w-[1100px] flex  justify-between text-base">
-        <div className="w-[600px] space-y-8">
+      <div
+        className="w-full lg:w-[1100px] px-4 lg:px-0 space-y-5 lg:space-y-0
+      flex flex-col lg:flex-row justify-between text-base"
+      >
+        <div className="w-full lg:w-[600px] space-y-8">
           <div className="space-y-5">
             <div className="flex space-x-2">
               <div className="bg-[#3CD3C1] h-8 w-1" />
@@ -86,7 +106,10 @@ const Game = () => {
               <div className="bg-[#3CD3C1] h-8 w-1" />
               <h3 className="text-2xl font-semibold">System requirements</h3>
             </div>
-            <div className="w-full flex justify-between space-x-10">
+            <div
+              className="w-full flex flex-col lg:flex-row  justify-between lg:space-x-10
+            space-y-10 lg:space-y-0"
+            >
               <div className="space-y-2 w-[300px]">
                 <h4 className="font-bold">MÍNIMOS</h4>
                 <div className="space-x-2">
@@ -160,7 +183,10 @@ const Game = () => {
           </div>
         </div>
         <div className="flex w-[300px] flex-col space-y-4 font-light text-md">
-          <h3 className="text-2xl font-semibold">About</h3>
+          <div className="flex space-x-2">
+            <div className="bg-[#3CD3C1] h-8 w-1" />
+            <h3 className="text-2xl font-semibold">About</h3>
+          </div>
           <div className="flex justify-between">
             <p className="">Genre:</p>
             <p className="">RPG, Ação</p>
@@ -178,6 +204,21 @@ const Game = () => {
             <p className="">Company:</p>
             <p className="">CD PROJEKT RED</p>
           </div>
+        </div>
+      </div>
+      <div className="w-full lg:w-[1100px] py-10 lg:px-0 space-y-4">
+        <div className="flex space-x-2 px-4">
+          <div className="bg-[#3CD3C1] h-8 w-1" />
+          <h3 className="text-2xl font-semibold">You may also like</h3>
+        </div>
+        <div className="w-full">
+          <img src={popularBadge} className="w-full lg:w-[1100px]" />
+        </div>
+        <div
+          className="flex justify-between w-full h-[240px] md:h-[270px] 
+  px-4 lg:px-0"
+        >
+          <GameCarousel slides={games} />
         </div>
       </div>
     </div>
