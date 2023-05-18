@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const GameItem = () => {
   return (
-    <div className="min-w-[180px] lg:w-[230px] bg-red-300 relative">
+    <div className="min-w-[180px] lg:w-[230px] relative">
       <img src={gameImage} alt="game image" className="w-full" />
       <div
         className="flex flex-col lg:flex-row justify-between items-start lg:justify-between bg-white 

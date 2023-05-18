@@ -4,8 +4,8 @@ const initialState = {
   mode: localStorage.getItem("mode") || "dark",
 };
 
-const topButtonsSlice = createSlice({
-  name: "topButtons",
+const darkModeSlice = createSlice({
+  name: "darkMode",
   initialState,
   reducers: {
     setMode: (state, action) => {
@@ -15,6 +15,6 @@ const topButtonsSlice = createSlice({
   },
 });
 
-export const { setMode } = topButtonsSlice.actions;
+export const { setMode } = darkModeSlice.actions;
 
-export default topButtonsSlice.reducer;
+export default darkModeSlice.reducer;

@@ -68,11 +68,11 @@ const Game = () => {
             rounded-md bg-[#f76195] h-12 w-full space-x-2 text-primary-50 font-semibold"
             >
               <BsFillCartPlusFill className="w-4 h-4" />
-              <button>Adicionar</button>
+              <button>Add to Cart</button>
             </div>
             <div className="flex justify-center space-x-2 text-[#f231a5] font-semibold w-full">
               <AiOutlineHeart className="w-6 h-6" />
-              <p>Lista de desejos</p>
+              <p>Wishlist it</p>
             </div>
           </div>
         </div>
@@ -207,7 +207,7 @@ const Game = () => {
         </div>
       </div>
       <div className="w-full lg:w-[1100px] py-10 lg:px-0 space-y-4">
-        <div className="flex space-x-2 px-4">
+        <div className="flex space-x-2 px-4 lg:px-0">
           <div className="bg-[#3CD3C1] h-8 w-1" />
           <h3 className="text-2xl font-semibold">You may also like</h3>
         </div>

@@ -1,6 +1,7 @@
 import gameThumb from "../assets/gameThumb.svg";
 import badge from "../assets/badge.svg";
-import buttonTeste from "../assets/buttonTeste.svg";
+import Button from "./Button";
+import { Link } from "react-router-dom";
 
 const Thumb = () => {
   return (
@@ -26,8 +27,10 @@ const Thumb = () => {
               <span className="text-pink-600 font-bold ">CrashLands</span>
             </p>
           </div>
-          <div className="w-[150px]">
-            <img src={buttonTeste} className="w-36 py-4" />
+          <div className="w-[150px] py-3">
+            <Link to={"/game/12313344"}>
+              <Button className="w-full h-[48px]" content="Buy Now" />
+            </Link>
           </div>
         </div>
       </div>

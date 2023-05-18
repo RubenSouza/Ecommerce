@@ -8,7 +8,7 @@ import Loading from "./components/Loading";
 import { useSelector } from "react-redux";
 
 function App() {
-  const user = JSON.parse(localStorage.getItem("user") as string) || null;
+  const user = useSelector((state: any) => state.userLogged.user);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isLogged, setIsLogged] = useState<boolean>(false);
 
@@ -16,8 +16,9 @@ function App() {
 
   useEffect(() => {
     setIsLoading(false);
-    if (user) {
-      const decodedToken: any = jwtDecode(user?.accessToken);
+    if (user !== null) {
+      const jsonUser = JSON.parse(user);
+      const decodedToken: any = jwtDecode(jsonUser?.accessToken);
 
       if (decodedToken.exp * 1000 < Date.now()) {
         localStorage.removeItem("user");

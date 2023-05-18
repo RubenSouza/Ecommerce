@@ -4,9 +4,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import DarkMode from "../components/DarkMode";
 import Logo from "../components/Logo";
+import { setUser } from "../redux/features/userLogged";
+import { useSelector, useDispatch } from "react-redux";
 
 const Login = () => {
-  const user = JSON.parse(localStorage.getItem("user") as string) || null;
+  const dispatch = useDispatch();
+  const user = useSelector((state: any) => state.userLogged.user);
+  const token = user?.accessToken;
+  console.log(token);
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
 
@@ -23,16 +28,16 @@ const Login = () => {
       userData
     );
     if (fetchUserLogin) {
-      localStorage.setItem("user", JSON.stringify(fetchUserLogin.data));
+      dispatch(setUser(fetchUserLogin.data));
       window.location.href = "/";
     }
   };
 
   useEffect(() => {
-    if (user) {
+    if (user !== null) {
       window.location.href = "/";
     }
-  }, [user]);
+  }, []);
 
   return (
     <div className="h-screen">
@@ -46,7 +51,7 @@ const Login = () => {
             className="flex flex-col space-y-2 justify-center items-center 
           h-full w-full px-8 pt-8"
           >
-            <Logo width="48" />
+            <Logo className="w-38" />
             <h1 className="text-[33px] font-bold py-3">
               Login to Your Account
             </h1>

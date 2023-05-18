@@ -43,3 +43,39 @@ body {
   height: 8px; /* define a altura dos pontos */
   border-radius: 50%; /* define a forma dos pontos como redonda */
 }
+
+.bubble {
+  width: 140px;
+  height: 130px;
+  border-radius: 10px;
+}
+
+.bubble3 {
+  @extend .bubble;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 70%;
+    width: 0;
+    height: 0;
+    border: 13px solid transparent;
+    border-bottom-color: #0b0b0b;
+    border-top: 0;
+    margin-left: -13px;
+    margin-top: -13px;
+  }
+}
+
+.bottom {
+  clip-path: polygon(0 20px, 100% 0, 100% 100%, 0 100%);
+  margin-top: -40px;
+}
+
+@media (min-width: 640px) {
+  .bottom {
+    clip-path: polygon(0 40px, 100% 0, 100% 100%, 0 100%);
+    margin-top: -40px;
+  }
+}
