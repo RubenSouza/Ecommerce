@@ -1,6 +1,7 @@
 import borderlands from "../assets/borderlands.svg";
 import GameCarousel from "./GameCarousel";
 import GameItem from "./GameItem";
+import { Title } from "./Title";
 
 const ComingSoon = () => {
   const games = [
@@ -16,9 +17,8 @@ const ComingSoon = () => {
 
   return (
     <div className="w-full lg:w-[1024px] h-full flex flex-col ">
-      <div className="flex px-4 lg:px-0 space-x-2 py-4">
-        <div className="bg-[#3CD3C1] h-8 w-1" />
-        <h3 className="font-semibold text-2xl">Coming Soon</h3>
+      <div className="px-4 lg:px-0">
+        <Title title="Coming Soon" />
       </div>
       <div
         className="flex px-4 lg:px-0 justify-between space-x-6 w-full

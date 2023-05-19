@@ -62,6 +62,7 @@ const SideExplorer = () => {
           </li>
         </div>
       </ul>
+      <div className="w-[200px] h-[2px] bg-primary-460 my-16" />
       <ul className="flex flex-col space-y-2">
         <div>
           <h3 className="text-lg">Ordernar por</h3>
@@ -89,6 +90,7 @@ const SideExplorer = () => {
           </li>
         </div>
       </ul>
+      <div className="w-[200px] h-[2px] bg-primary-460 my-16" />
       <ul className="flex flex-col space-y-2">
         <div>
           <h3 className="text-lg">Plataforma</h3>
@@ -123,6 +125,7 @@ const SideExplorer = () => {
           </li>
         </div>
       </ul>
+      <div className="w-[200px] h-[2px] bg-primary-460 my-16" />
       <ul className="flex flex-col space-y-2">
         <div>
           <h3 className="text-lg">Categoria</h3>

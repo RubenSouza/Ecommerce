@@ -16,6 +16,7 @@ import GalleryCarousel from "../components/GalleryCarousel";
 import GameItem from "../components/GameItem";
 import GameCarousel from "../components/GameCarousel";
 import popularBadge from "../assets/popularBadge.svg";
+import { Title } from "../components/Title";
 
 const Game = () => {
   const gallery = [
@@ -86,10 +87,7 @@ const Game = () => {
       >
         <div className="w-full lg:w-[600px] space-y-8">
           <div className="space-y-5">
-            <div className="flex space-x-2">
-              <div className="bg-[#3CD3C1] h-8 w-1" />
-              <h3 className="text-2xl font-semibold">Description</h3>
-            </div>
+            <Title title="Description" />
             <p className="text-base font-light">
               Cyberpunk 2077 é uma história de ação e aventura de mundo aberto
               dos criadores de The Witcher 3: Wild Hunt, que se passa em Night
@@ -102,10 +100,7 @@ const Game = () => {
             </p>
           </div>
           <div className="space-y-5 w-full text-sm">
-            <div className="flex space-x-2">
-              <div className="bg-[#3CD3C1] h-8 w-1" />
-              <h3 className="text-2xl font-semibold">System requirements</h3>
-            </div>
+            <Title title="System requirements" />
             <div
               className="w-full flex flex-col lg:flex-row  justify-between lg:space-x-10
             space-y-10 lg:space-y-0"
@@ -207,10 +202,7 @@ const Game = () => {
         </div>
       </div>
       <div className="w-full lg:w-[1100px] py-10 lg:px-0 space-y-4">
-        <div className="flex space-x-2 px-4 lg:px-0">
-          <div className="bg-[#3CD3C1] h-8 w-1" />
-          <h3 className="text-2xl font-semibold">You may also like</h3>
-        </div>
+        <Title title="You may also like" />
         <div className="w-full">
           <img src={popularBadge} className="w-full lg:w-[1100px]" />
         </div>

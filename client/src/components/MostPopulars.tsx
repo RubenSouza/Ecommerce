@@ -1,6 +1,7 @@
 import popularBadge from "../assets/popularBadge.svg";
 import GameCarousel from "./GameCarousel";
 import GameItem from "./GameItem";
+import { Title } from "./Title";
 
 const MostPopulars = () => {
   const games = [
@@ -16,9 +17,8 @@ const MostPopulars = () => {
 
   return (
     <div className="w-full  lg:w-[1024px] h-full flex flex-col">
-      <div className="flex space-x-2 py-4 px-4 lg:px-0">
-        <div className="bg-[#3CD3C1] h-8 w-1" />
-        <h3 className="font-semibold text-2xl">Most Populars</h3>
+      <div className="px-4 lg:px-0">
+        <Title title="Most Populars" />
       </div>
       <div className="w-full py-2">
         <img src={popularBadge} className="w-full lg:w-[1024px]" />

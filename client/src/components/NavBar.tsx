@@ -7,7 +7,7 @@ import { AiOutlineClose, AiOutlineHeart } from "react-icons/ai";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { BiUserCircle } from "react-icons/bi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "./Button";
 import { useSelector, useDispatch } from "react-redux";
 import { setUser } from "../redux/features/userLogged";
@@ -151,10 +151,13 @@ const NavBar = () => {
           </div>
           <div className="flex space-x-4 items-center justify-center">
             <AiOutlineSearch className="w-6 h-6" />
-            <MdOutlineShoppingCart className="w-6 h-6" />
+            <Link to={"/cart"}>
+              {" "}
+              <MdOutlineShoppingCart className="w-6 h-6" />
+            </Link>
 
             {user ? (
-              <div className=" hidden lg:flex flex-col relative">
+              <div className=" hidden lg:flex flex-col relative" id="userMenu">
                 <div
                   className="hidden md:flex space-x-1 items-center 
                 justify-center cursor-pointer w-[100px]"
@@ -166,9 +169,9 @@ const NavBar = () => {
                 </div>
                 {isUserMenuOpen && (
                   <div
-                    className=" bg-primary-700 rounded-md shadow-md shadow-gray-800 hidden
+                    className=" bg-primary-700 rounded-md shadow-sm shadow-gray-800 hidden
                      absolute top-10 -right-6 lg:flex flex-col justify-center items-center 
-                     text-primary-100 font-semibold text-sm space-y-3 bubble bubble3"
+                     text-primary-100 font-semibold text-sm space-y-3 bubble bubble3 menuButton"
                     onClick={() => setIsUserMenuOpen(false)}
                   >
                     <Link to={"/profile"}>

@@ -17,7 +17,7 @@ const Thumb = () => {
           />
         </div>
         <div
-          className="bg-slate-950 md:absolute bottom-0 right-5 left-5 md:bg-primary-700/80 md:h-[170px] 
+          className="bg-slate-950 md:absolute bottom-0 right-0 left-0 md:bg-primary-700/80 md:h-[170px] 
         h-[200px] px-10 pt-6 "
         >
           <div className="w-full ">

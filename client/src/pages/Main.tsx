@@ -6,6 +6,7 @@ import Explorer from "./Explorer";
 import Game from "./Game";
 import Profile from "./Profile";
 import Favorites from "./Favorites";
+import Cart from "./Cart";
 
 const Main = () => {
   return (
@@ -23,6 +24,7 @@ const Main = () => {
           <Route path="/game/:id" element={<Game />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/favorites" element={<Favorites />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </div>
       <div className="w-full h-full bottom">
