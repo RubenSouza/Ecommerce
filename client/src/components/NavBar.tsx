@@ -174,8 +174,8 @@ const NavBar = () => {
                      text-primary-100 font-semibold text-sm space-y-3 bubble bubble3 menuButton"
                     onClick={() => setIsUserMenuOpen(false)}
                   >
-                    <Link to={"/profile"}>
-                      <div className="flex space-x-1 justify-start items-center w-[90px] ">
+                    <Link to={"/user/"}>
+                      <div className="flex space-x-1 justify-start items-center w-[90px]  ">
                         <BiUserCircle className="w-6 h-6" />
                         <p>Profile</p>
                       </div>

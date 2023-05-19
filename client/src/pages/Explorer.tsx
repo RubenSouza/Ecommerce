@@ -42,7 +42,7 @@ const Explorer = () => {
               className="hidden md:flex justify-between items-center bg-[#3c3c3c67] px-3 rounded-sm 
           text-sm space-x-2 text-gray-500 cursor-pointer"
             >
-              <p>Menor Preço</p>
+              <p>Lowest price</p>
               <IoIosArrowDown />
             </div>
             <IoFilter

@@ -15,7 +15,7 @@ const SearchBar = () => {
           className="bg-transparent border-none placeholder-gray-500 outline-none 
       text-sm text-primary-50 py-1 w-full leading-8 transition-colors duration-200
       ease-in-out focus:ring-0"
-          placeholder="O que você procura?"
+          placeholder="What are you looking for?"
           type="search"
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}

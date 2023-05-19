@@ -4,9 +4,9 @@ import Footer from "../components/Footer";
 import Home from "./Home";
 import Explorer from "./Explorer";
 import Game from "./Game";
-import Profile from "./Profile";
 import Favorites from "./Favorites";
 import Cart from "./Cart";
+import User from "./User";
 
 const Main = () => {
   return (
@@ -22,9 +22,9 @@ const Main = () => {
           <Route path="/" element={<Home />} />
           <Route path="/explorer" element={<Explorer />} />
           <Route path="/game/:id" element={<Game />} />
-          <Route path="/profile" element={<Profile />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/user/*" element={<User />} />
         </Routes>
       </div>
       <div className="w-full h-full bottom">
