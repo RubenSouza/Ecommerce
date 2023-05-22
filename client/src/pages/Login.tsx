@@ -1,3 +1,4 @@
+import toast, { Toaster } from "react-hot-toast";
 import waves from "../assets/waves.svg";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -23,13 +24,17 @@ const Login = () => {
       password,
     };
 
-    const fetchUserLogin = await axios.post(
-      "http://localhost:3001/v1/api/users/login",
-      userData
-    );
-    if (fetchUserLogin) {
-      dispatch(setUser(fetchUserLogin.data));
-      window.location.href = "/";
+    try {
+      const fetchUserLogin = await axios.post(
+        "http://localhost:3001/v1/api/users/login",
+        userData
+      );
+      if (fetchUserLogin) {
+        dispatch(setUser(fetchUserLogin.data));
+        window.location.href = "/";
+      }
+    } catch (error: any) {
+      toast.error(error.response.data);
     }
   };
 
@@ -59,12 +64,14 @@ const Login = () => {
               <input
                 className="w-full h-14 rounded-lg mb-3 p-6 bg-primary-50 shadow-md dark:bg-primary-600"
                 placeholder="Email"
+                required={true}
                 type="email"
                 onChange={e => setEmail(e.target.value)}
               />
               <input
                 className="w-full h-14 rounded-lg mb-3 p-6 bg-primary-50 shadow-md dark:bg-primary-600"
                 placeholder="Password"
+                required={true}
                 type="password"
                 onChange={e => setPassword(e.target.value)}
               />
@@ -97,6 +104,7 @@ const Login = () => {
           className="absolute -bottom-0 w-[100%] shadow-lg z-10"
         />
       </div>
+      <Toaster />
     </div>
   );
 };

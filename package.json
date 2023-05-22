@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "react-hot-toast": "^2.4.1",
     "react-modal-image": "^2.6.0"
   }
 }
