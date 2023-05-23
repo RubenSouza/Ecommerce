@@ -5,32 +5,32 @@ const auth = require("../../auth");
 
 const { validate } = require("express-validation");
 
-const categoryValidation = require("../../../controllers/validations/categoryValidation");
+const CategoryValidation = require("../../../controllers/validations/categoryValidation");
 
 router.get("/", CategoryController.index);
 router.get(
   "/:id",
-  validate(categoryValidation.show, {}, {}),
+  validate(CategoryValidation.show, {}, {}),
   CategoryController.show
 );
 router.post(
   "/",
   auth.required,
-  validate(categoryValidation.register, {}, {}),
+  validate(CategoryValidation.register, {}, {}),
   adminValidation.admin,
   CategoryController.register
 );
 router.put(
   "/:id",
   auth.required,
-  validate(categoryValidation.update, {}, {}),
+  validate(CategoryValidation.update, {}, {}),
   adminValidation.admin,
   CategoryController.update
 );
 router.delete(
   "/:id",
   auth.required,
-  validate(categoryValidation.delete, {}, {}),
+  validate(CategoryValidation.delete, {}, {}),
   adminValidation.admin,
   CategoryController.delete
 );

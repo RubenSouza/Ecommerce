@@ -104,7 +104,7 @@ const UserController = {
         return res.status(401).json({ errors: "Usuário não registrado" });
       }
       return user
-        .remove()
+        .deleteOne()
         .then(() => {
           return res.json({ deletado: true });
         })

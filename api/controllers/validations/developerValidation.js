@@ -1,12 +1,18 @@
 const Joi = require("joi");
 
-const CategoryValidation = {
+const DeveloperValidation = {
   show: {
     params: Joi.object({
       id: Joi.string().required(),
     }),
   },
 
+  register: {
+    body: Joi.object({
+      name: Joi.string().required(),
+      slug: Joi.string().required(),
+    }),
+  },
   update: {
     params: Joi.object({
       id: Joi.string().required(),
@@ -17,14 +23,6 @@ const CategoryValidation = {
       games: Joi.array().items(Joi.string()).optional(),
     }),
   },
-
-  register: {
-    body: Joi.object({
-      name: Joi.string().required(),
-      slug: Joi.string().required(),
-    }),
-  },
-
   delete: {
     params: Joi.object({
       id: Joi.string().required(),
@@ -32,4 +30,4 @@ const CategoryValidation = {
   },
 };
 
-module.exports = CategoryValidation;
+module.exports = DeveloperValidation;

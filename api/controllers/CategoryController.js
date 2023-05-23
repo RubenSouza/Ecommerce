@@ -6,11 +6,10 @@ const CategoryController = {
 
   //POST REGISTER
 
-  async register(req, res) {
+  async register(req, res, next) {
     const { name, slug } = req.body;
     try {
       const category = await Category.create({ name, slug });
-
       return res.json({ category });
     } catch (error) {
       next(error);
@@ -19,7 +18,7 @@ const CategoryController = {
 
   //PUT UPDATE
 
-  async update(req, res) {
+  async update(req, res, next) {
     const { name, slug, games } = req.body;
     const id = req.params.id;
     try {
@@ -36,7 +35,7 @@ const CategoryController = {
 
   //DELETE DELETE
 
-  async delete(req, res) {
+  async delete(req, res, next) {
     const id = req.params.id;
     try {
       const category = await Category.findById(id);
@@ -51,7 +50,7 @@ const CategoryController = {
 
   //GET ALL
 
-  async index(req, res) {
+  async index(req, res, next) {
     try {
       const category = await Category.find();
       return res.json({ category });
@@ -62,7 +61,7 @@ const CategoryController = {
 
   //GET BY ID
 
-  async show(req, res) {
+  async show(req, res, next) {
     const id = req.params.id;
     try {
       const category = await Category.findById(id);
