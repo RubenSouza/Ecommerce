@@ -153,9 +153,6 @@ const UserController = {
       let user = query
         ? await User.find().sort({ _id: -1 }).limit(10)
         : await User.find();
-      if (!user) {
-        return res.status(401).json({ errors: "Usuário não registrado" });
-      }
       return res.json({ user });
     } catch (error) {
       return res.status(401).json({ errors: error });
