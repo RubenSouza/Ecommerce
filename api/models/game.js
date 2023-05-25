@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const aggregatePaginate = require("mongoose-aggregate-paginate-v2");
 
 const GameSchema = new mongoose.Schema(
   {
@@ -9,11 +10,11 @@ const GameSchema = new mongoose.Schema(
     price: { type: Number, required: true },
     rating: { type: Number, required: true, default: 0 },
     release_date: { type: Date, required: true },
-    thumbnail: { type: String, required: true },
+    cover: { type: String, required: true },
     gallery: [{ type: String, required: true }],
-    categories: { type: mongoose.Schema.Types.ObjectId, ref: "Category" },
-    developer: { type: mongoose.Schema.Types.ObjectId, ref: "Developer" },
-    publisher: { type: mongoose.Schema.Types.ObjectId, ref: "Publisher" },
+    categories: [{ type: mongoose.Schema.Types.ObjectId, ref: "Category" }],
+    developers: [{ type: mongoose.Schema.Types.ObjectId, ref: "Developer" }],
+    publishers: [{ type: mongoose.Schema.Types.ObjectId, ref: "Publisher" }],
     platforms: [{ type: mongoose.Schema.Types.ObjectId, ref: "Platform" }],
     system_requirement: {
       type: mongoose.Schema.Types.ObjectId,
@@ -23,5 +24,7 @@ const GameSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+GameSchema.plugin(aggregatePaginate);
 
 module.exports = mongoose.model("Game", GameSchema);
