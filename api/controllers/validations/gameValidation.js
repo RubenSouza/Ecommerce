@@ -22,7 +22,7 @@ const GameValidation = {
       developers: Joi.array().items(Joi.string()).required(),
       publishers: Joi.array().items(Joi.string()).required(),
       platforms: Joi.array().items(Joi.string()).required(),
-      system_requirement: Joi.string().required(),
+      system_requirement: Joi.object().required(),
     }),
   },
 
@@ -41,7 +41,7 @@ const GameValidation = {
       developers: Joi.array().items(Joi.string()).optional(),
       publishers: Joi.array().items(Joi.string()).optional(),
       platforms: Joi.array().items(Joi.string()).optional(),
-      system_requirement: Joi.string().optional(),
+      system_requirement: Joi.object().optional(),
     }),
   },
 

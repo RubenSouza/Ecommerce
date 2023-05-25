@@ -12,7 +12,7 @@ router.get("/:id", validate(GameValidation.show, {}, {}), GameController.show);
 router.post(
   "/",
   auth.required,
-  // validate(GameValidation.register, {}, {}),
+  validate(GameValidation.register, {}, {}),
   adminValidation.admin,
   GameController.register
 );
