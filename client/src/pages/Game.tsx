@@ -32,16 +32,16 @@ const Game = () => {
     <img src={image10} alt="screenshot" className="w-[900px]" />,
   ];
 
-  const games = [
-    <GameItem />,
-    <GameItem />,
-    <GameItem />,
-    <GameItem />,
-    <GameItem />,
-    <GameItem />,
-    <GameItem />,
-    <GameItem />,
-  ];
+  // const games = [
+  //   <GameItem />,
+  //   <GameItem />,
+  //   <GameItem />,
+  //   <GameItem />,
+  //   <GameItem />,
+  //   <GameItem />,
+  //   <GameItem />,
+  //   <GameItem />,
+  // ];
 
   return (
     <div className="w-screen flex flex-col items-center py-10">
@@ -210,7 +210,7 @@ const Game = () => {
           className="flex justify-between w-full h-[240px] md:h-[270px] 
   px-4 lg:px-0"
         >
-          <GameCarousel slides={games} />
+          {/* <GameCarousel slides={games} /> */}
         </div>
       </div>
     </div>

@@ -297,10 +297,22 @@ const GameController = {
   //get show
 
   async show(req, res, next) {
-    const id = req.params.id;
+    const { id } = req.params;
+    let game;
 
     try {
-      const game = await Game.findById(id);
+      // Verificar se o parâmetro é um ID válido (formato ObjectId)
+      if (mongoose.Types.ObjectId.isValid(id)) {
+        // Consulta por ID
+        game = await Game.findOne({ _id: id });
+      } else {
+        // Consulta por slug
+        game = await Game.findOne({ slug: id });
+      }
+
+      if (!game) {
+        return res.status(400).json({ error: "Game not found" });
+      }
 
       return res.json({ game });
     } catch (error) {

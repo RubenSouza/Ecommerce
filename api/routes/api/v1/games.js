@@ -9,6 +9,7 @@ const GameValidation = require("../../../controllers/validations/gameValidation"
 
 router.get("/", GameController.index);
 router.get("/:id", validate(GameValidation.show, {}, {}), GameController.show);
+
 router.post(
   "/",
   auth.required,

@@ -5,9 +5,17 @@ import SideExplorer from "../components/SideExplorer";
 import GameItem from "../components/GameItem";
 import { IoFilter } from "react-icons/io5";
 import { AiOutlineClose } from "react-icons/ai";
+import { useGetGamesQuery } from "../redux/services/games";
 
 const Explorer = () => {
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
+  const [page, setPage] = useState(1);
+
+  const {
+    data: games,
+    isLoading,
+    isError,
+  } = useGetGamesQuery({ pageId: page });
 
   return (
     <div className="w-full h-full flex justify-center py-10">
@@ -52,30 +60,20 @@ const Explorer = () => {
           </div>
 
           <div
-            className="w-full grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 
-          gap-5 md:gap-10
+            className="w-full grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 
+          gap-4 md:gap-10
           lg:gap-x-10 lg:gap-y-5"
           >
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
+            {games?.games?.docs.map((game: any) => (
+              <GameItem
+                name={game?.name}
+                cover={game?.cover}
+                price={game?.price}
+                developer={game?.developers[0]}
+                key={game?._id}
+                slug={game?.slug}
+              />
+            ))}
           </div>
         </div>
       </div>
