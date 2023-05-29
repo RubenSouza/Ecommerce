@@ -284,7 +284,7 @@ const GameController = {
     const myAggregate = Game.aggregate();
     const options = {
       page: req.query.page || 1,
-      limit: 10,
+      limit: 20,
     };
     try {
       const games = await Game.aggregatePaginate(myAggregate, options);

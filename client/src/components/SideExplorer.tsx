@@ -1,4 +1,4 @@
-import { Subtitle } from "./SubTitle";
+import { Subtitle } from "./Subtitle";
 
 const SideExplorer = () => {
   return (
