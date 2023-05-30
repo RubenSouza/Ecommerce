@@ -70,6 +70,18 @@ const CategoryController = {
       next(error);
     }
   },
+
+  //GET GAMES BY CATEGORY
+
+  async showGames(req, res, next) {
+    const id = req.params.id;
+    try {
+      const category = await Category.findById(id).populate("games");
+      return res.json({ category });
+    } catch (error) {
+      next(error);
+    }
+  },
 };
 
 module.exports = CategoryController;

@@ -17,10 +17,10 @@ export const gameApi = createApi({
     getGames: builder.query({
       query: ({ pageId }) => `/games/?page=${pageId}`,
     }),
-    getDeveloper: builder.query({
-      query: ({ developerId }) => `/developers/${developerId}`,
+    getGame: builder.query({
+      query: ({ gameId }) => `/games/${gameId}`,
     }),
   }),
 });
 
-export const { useGetGamesQuery, useGetDeveloperQuery } = gameApi;
+export const { useGetGamesQuery, useGetGameQuery } = gameApi;

@@ -35,4 +35,8 @@ router.delete(
   CategoryController.delete
 );
 
+//GAMES ROUTE
+
+router.get("/:id/games", CategoryController.showGames);
+
 module.exports = router;

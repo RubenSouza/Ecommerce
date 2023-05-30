@@ -69,7 +69,7 @@ const Explorer = () => {
                 name={game?.name}
                 cover={game?.cover}
                 price={game?.price}
-                developer={game?.developers[0]}
+                developer={game?.developers?.[0].name}
                 key={game?._id}
                 slug={game?.slug}
               />

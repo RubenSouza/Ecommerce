@@ -282,10 +282,20 @@ const GameController = {
 
   async index(req, res, next) {
     const myAggregate = Game.aggregate();
+
+    // Adicione o estágio de $lookup para fazer o populate dos developers
+    myAggregate.lookup({
+      from: "developers", // Nome da coleção de desenvolvedores no banco de dados
+      localField: "developers", // Campo de referência no documento de Game
+      foreignField: "_id", // Campo de referência no documento de Developer
+      as: "developers", // Nome do campo para armazenar os dados dos desenvolvedores
+    });
+
     const options = {
       page: req.query.page || 1,
       limit: 20,
     };
+
     try {
       const games = await Game.aggregatePaginate(myAggregate, options);
       return res.json({ games });
@@ -304,10 +314,22 @@ const GameController = {
       // Verificar se o parâmetro é um ID válido (formato ObjectId)
       if (mongoose.Types.ObjectId.isValid(id)) {
         // Consulta por ID
-        game = await Game.findOne({ _id: id });
+        game = await Game.findOne({ _id: id }).populate([
+          "categories",
+          "developers",
+          "publishers",
+          "platforms",
+          "system_requirement",
+        ]);
       } else {
         // Consulta por slug
-        game = await Game.findOne({ slug: id });
+        game = await Game.findOne({ slug: id }).populate([
+          "categories",
+          "developers",
+          "publishers",
+          "platforms",
+          "system_requirement",
+        ]);
       }
 
       if (!game) {

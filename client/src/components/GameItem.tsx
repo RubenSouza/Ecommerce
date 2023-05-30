@@ -1,6 +1,5 @@
 import { AiOutlineHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { useGetDeveloperQuery } from "../redux/services/games";
 
 type Props = {
   name: string;
@@ -11,13 +10,7 @@ type Props = {
 };
 
 const GameItem = ({ name, cover, developer, slug, price }: Props) => {
-  const {
-    data: developerData,
-    isLoading,
-    isError,
-  } = useGetDeveloperQuery({ developerId: developer });
-
-  const developerName = developerData?.name;
+  const developerName = developer;
 
   return (
     <div className="min-w-[160px] lg:w-[230px] relative">
