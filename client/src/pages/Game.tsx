@@ -1,7 +1,6 @@
+import { useEffect } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
-
 import { BsFillCartPlusFill } from "react-icons/bs";
-
 import GalleryCarousel from "../components/GalleryCarousel";
 import GameItem from "../components/GameItem";
 import GameCarousel from "../components/GameCarousel";
@@ -29,18 +28,27 @@ const Game = () => {
     isLoading: relatedGamesIsLoading,
     isError: relatedGamesIsError,
   } = useGetCategoryGamesQuery({
-    categoryId: gameData?.game.categories?.[1]?._id,
+    categoryId: gameData?.game?.categories?.[0]?._id,
   });
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
+    return () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    };
+  }, [gameData]);
 
   const relatedGamesList = relatedGamesData?.category?.games?.slice(0, 8);
-
-  console.log(relatedGamesList);
 
   if (isLoading) return <Loading />;
 
   const game = gameData?.game;
-
-  console.log(game);
 
   const minimunRequirement = game?.system_requirements?.minimum;
   const recommendedRequirement = game?.system_requirements?.recommended;

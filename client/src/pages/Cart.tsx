@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import { useState } from "react";
 import CardItem from "../components/CardItem";
-import { Subtitle } from "../components/SubTitle";
+import { Subtitle } from "../components/Subtitle";
 
 const Cart = () => {
   const [cardOpen, setCardOpen] = useState(false);
