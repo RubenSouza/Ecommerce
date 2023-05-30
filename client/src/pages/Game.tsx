@@ -8,7 +8,10 @@ import GameCarousel from "../components/GameCarousel";
 import popularBadge from "../assets/popularBadge.svg";
 import { Title } from "../components/Title";
 import { useParams } from "react-router-dom";
-import { useGetGameQuery } from "../redux/services/games";
+import {
+  useGetCategoryGamesQuery,
+  useGetGameQuery,
+} from "../redux/services/games";
 import Loading from "../components/Loading";
 
 const Game = () => {
@@ -20,6 +23,18 @@ const Game = () => {
     isLoading,
     isError,
   } = useGetGameQuery({ gameId: id });
+
+  const {
+    data: relatedGamesData,
+    isLoading: relatedGamesIsLoading,
+    isError: relatedGamesIsError,
+  } = useGetCategoryGamesQuery({
+    categoryId: gameData?.game.categories?.[1]?._id,
+  });
+
+  const relatedGamesList = relatedGamesData?.category?.games?.slice(0, 8);
+
+  console.log(relatedGamesList);
 
   if (isLoading) return <Loading />;
 
@@ -50,16 +65,16 @@ const Game = () => {
     <img src={image} alt="game screenshot" className="w-full max-w-[1200px]" />
   ));
 
-  // const games = [
-  //   <GameItem />,
-  //   <GameItem />,
-  //   <GameItem />,
-  //   <GameItem />,
-  //   <GameItem />,
-  //   <GameItem />,
-  //   <GameItem />,
-  //   <GameItem />,
-  // ];
+  const relatedGames = relatedGamesList?.map((game: any) => (
+    <GameItem
+      name={game?.name}
+      cover={game?.cover}
+      price={game?.price}
+      developer={game?.developers?.[0].name}
+      key={game?._id}
+      slug={game?.slug}
+    />
+  ));
 
   return (
     <div className="w-screen flex flex-col items-center py-10">
@@ -233,7 +248,7 @@ const Game = () => {
           className="flex justify-between w-full h-[240px] md:h-[270px] 
   px-4 lg:px-0"
         >
-          {/* <GameCarousel slides={games} /> */}
+          {relatedGames && <GameCarousel slides={relatedGames} />}
         </div>
       </div>
     </div>

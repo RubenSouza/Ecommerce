@@ -13,7 +13,7 @@ const GameItem = ({ name, cover, developer, slug, price }: Props) => {
   const developerName = developer;
 
   return (
-    <div className="min-w-[160px] lg:w-[230px] relative">
+    <div className="min-w-[160px] w-full md:w-[240px] relative">
       <img
         src={cover}
         alt="game image"

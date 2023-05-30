@@ -62,7 +62,7 @@ const Explorer = () => {
           <div
             className="w-full grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 
           gap-4 md:gap-10
-          lg:gap-x-10 lg:gap-y-5"
+          lg:gap-x-5 xl:gap-x-10 lg:gap-y-5"
           >
             {games?.games?.docs.map((game: any) => (
               <GameItem

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Category = mongoose.model("Category");
+const Game = mongoose.model("Game");
 
 const CategoryController = {
   /* ADMIN ROUTES */
@@ -76,7 +77,17 @@ const CategoryController = {
   async showGames(req, res, next) {
     const id = req.params.id;
     try {
-      const category = await Category.findById(id).populate("games");
+      const category = await Category.findById(id).populate({
+        path: "games",
+        populate: {
+          path: "developers",
+        },
+      });
+
+      if (!category) {
+        return res.status(400).json({ error: "Category not found" });
+      }
+
       return res.json({ category });
     } catch (error) {
       next(error);
