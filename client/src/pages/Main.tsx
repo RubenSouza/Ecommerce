@@ -20,7 +20,7 @@ const Main = () => {
       <div className="relative min-h-screen w-full pb-20">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/explorer" element={<Explorer />} />
+          <Route path="/explorer/*" element={<Explorer />} />
           <Route path="/game/:id" element={<Game />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/cart" element={<Cart />} />

@@ -11,25 +11,38 @@ import {
   useGetCategoryGamesQuery,
   useGetGameQuery,
 } from "../redux/services/games";
-import Loading from "../components/Loading";
+import ScreenLoading from "../components/ScreenLoading";
+import { useSelector } from "react-redux";
 
 const Game = () => {
   const params = useParams<{ id: string }>();
   const id = params.id;
+  const page = useSelector((state: any) => state.paginate.page);
+  const sort = useSelector((state: any) => state.paginate.sort);
 
   const {
     data: gameData,
     isLoading,
+    isFetching,
     isError,
   } = useGetGameQuery({ gameId: id });
+
+  const relatedCategory =
+    gameData?.game?.categories?.[1]?._id ||
+    gameData?.game?.categories?.[0]?._id ||
+    "action";
 
   const {
     data: relatedGamesData,
     isLoading: relatedGamesIsLoading,
+    isFetching: relatedGamesIsFetching,
     isError: relatedGamesIsError,
   } = useGetCategoryGamesQuery({
-    categoryId: gameData?.game?.categories?.[0]?._id,
+    categoryId: relatedCategory,
+    pageId: page,
+    sort,
   });
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -44,9 +57,15 @@ const Game = () => {
     };
   }, [gameData]);
 
-  const relatedGamesList = relatedGamesData?.category?.games?.slice(0, 8);
+  const relatedGamesList = relatedGamesData?.games?.docs?.slice(0, 8);
 
-  if (isLoading) return <Loading />;
+  if (
+    isLoading ||
+    isFetching ||
+    relatedGamesIsLoading ||
+    relatedGamesIsFetching
+  )
+    return <ScreenLoading />;
 
   const game = gameData?.game;
 

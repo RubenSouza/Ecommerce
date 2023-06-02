@@ -2,6 +2,20 @@ const mongoose = require("mongoose");
 const Category = mongoose.model("Category");
 const Game = mongoose.model("Game");
 
+const getSort = sortType => {
+  switch (sortType) {
+    case "a-to-z":
+      return { name: 1 };
+    case "lowest-price":
+      return { price: 1 };
+    case "biggest-price":
+      return { price: -1 };
+
+    default:
+      return {};
+  }
+};
+
 const CategoryController = {
   /* ADMIN ROUTES */
 
@@ -64,8 +78,17 @@ const CategoryController = {
 
   async show(req, res, next) {
     const id = req.params.id;
+    let category;
     try {
-      const category = await Category.findById(id);
+      if (mongoose.Types.ObjectId.isValid(id)) {
+        category = await Category.findOne({ _id: id });
+      } else {
+        const encodedSlug = encodeURIComponent(id);
+        category = await Category.findOne({ slug: encodedSlug });
+      }
+      if (!category) {
+        return res.status(400).json({ error: "Category not found" });
+      }
       return res.json({ category });
     } catch (error) {
       next(error);
@@ -76,19 +99,45 @@ const CategoryController = {
 
   async showGames(req, res, next) {
     const id = req.params.id;
-    try {
-      const category = await Category.findById(id).populate({
-        path: "games",
-        populate: {
-          path: "developers",
-        },
-      });
+    let category;
 
+    try {
+      const objectIdPattern = /^[0-9a-fA-F]{24}$/;
+
+      if (objectIdPattern.test(id)) {
+        category = await Category.findOne({ _id: id });
+      } else {
+        category = await Category.findOne({ slug: id });
+      }
       if (!category) {
         return res.status(400).json({ error: "Category not found" });
       }
 
-      return res.json({ category });
+      const aggregate = Game.aggregate([
+        {
+          $match: {
+            categories: { $in: [new mongoose.Types.ObjectId(category._id)] },
+          },
+        },
+        {
+          $lookup: {
+            from: "developers",
+            localField: "developers",
+            foreignField: "_id",
+            as: "developers",
+          },
+        },
+      ]);
+
+      const options = {
+        page: req.query.page || 1,
+        limit: 16,
+        sort: getSort(req.query.sort),
+      };
+
+      const games = await Game.aggregatePaginate(aggregate, options);
+
+      return res.json({ games });
     } catch (error) {
       next(error);
     }

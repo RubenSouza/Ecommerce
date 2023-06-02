@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   page: 1,
+  sort: "a-to-z",
 };
 
 const paginateSlice = createSlice({
@@ -11,9 +12,12 @@ const paginateSlice = createSlice({
     setPage: (state, action) => {
       state.page = action.payload;
     },
+    setSort: (state, action) => {
+      state.sort = action.payload;
+    },
   },
 });
 
-export const { setPage } = paginateSlice.actions;
+export const { setPage, setSort } = paginateSlice.actions;
 
 export default paginateSlice.reducer;

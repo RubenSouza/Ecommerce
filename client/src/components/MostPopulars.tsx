@@ -5,14 +5,14 @@ import { Title } from "./Title";
 
 const MostPopulars = () => {
   const games = [
-    <GameItem />,
-    <GameItem />,
-    <GameItem />,
-    <GameItem />,
-    <GameItem />,
-    <GameItem />,
-    <GameItem />,
-    <GameItem />,
+    // <GameItem />,
+    // <GameItem />,
+    // <GameItem />,
+    // <GameItem />,
+    // <GameItem />,
+    // <GameItem />,
+    // <GameItem />,
+    // <GameItem />,
   ];
 
   return (
@@ -27,7 +27,7 @@ const MostPopulars = () => {
         className="flex justify-between w-full h-[240px] md:h-[270px] 
       px-4 lg:px-0"
       >
-        <GameCarousel slides={games} />
+        {/* <GameCarousel slides={games} /> */}
       </div>
     </div>
   );

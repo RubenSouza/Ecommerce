@@ -36,12 +36,12 @@ const Home = () => {
       <section className="flex items-center justify-center w-full">
         <MostPopulars />
       </section>
-      <section className="flex items-center justify-center w-full">
+      {/* <section className="flex items-center justify-center w-full">
         <ComingSoon />
-      </section>
-      <section className="flex items-center justify-center w-full">
+      </section> */}
+      {/* <section className="flex items-center justify-center w-full">
         <FreeGames />
-      </section>
+      </section> */}
     </div>
   );
 };

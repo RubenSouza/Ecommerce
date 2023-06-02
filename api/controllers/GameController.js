@@ -6,6 +6,20 @@ const Publisher = mongoose.model("Publisher");
 const Platform = mongoose.model("Platform");
 const SystemRequirement = mongoose.model("SystemRequirement");
 
+const getSort = sortType => {
+  switch (sortType) {
+    case "a-to-z":
+      return { name: 1 };
+    case "lowest-price":
+      return { price: 1 };
+    case "biggest-price":
+      return { price: -1 };
+
+    default:
+      return {};
+  }
+};
+
 const GameController = {
   /* ADMIN ROUTES */
 
@@ -283,17 +297,17 @@ const GameController = {
   async index(req, res, next) {
     const myAggregate = Game.aggregate();
 
-    // Adicione o estágio de $lookup para fazer o populate dos developers
     myAggregate.lookup({
-      from: "developers", // Nome da coleção de desenvolvedores no banco de dados
-      localField: "developers", // Campo de referência no documento de Game
-      foreignField: "_id", // Campo de referência no documento de Developer
-      as: "developers", // Nome do campo para armazenar os dados dos desenvolvedores
+      from: "developers",
+      localField: "developers",
+      foreignField: "_id",
+      as: "developers",
     });
 
     const options = {
       page: req.query.page || 1,
-      limit: 20,
+      limit: 16,
+      sort: getSort(req.query.sort),
     };
 
     try {
@@ -307,12 +321,13 @@ const GameController = {
   //get show
 
   async show(req, res, next) {
-    const { id } = req.params;
+    const id = req.params.id;
     let game;
 
     try {
-      // Verificar se o parâmetro é um ID válido (formato ObjectId)
-      if (mongoose.Types.ObjectId.isValid(id)) {
+      const objectIdPattern = /^[0-9a-fA-F]{24}$/;
+
+      if (objectIdPattern.test(id)) {
         // Consulta por ID
         game = await Game.findOne({ _id: id }).populate([
           "categories",

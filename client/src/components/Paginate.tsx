@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-import { useDispatch } from "react-redux";
+import { useNavigate, useLocation } from "react-router-dom";
 import { setPage } from "../redux/features/paginate";
+import { useDispatch } from "react-redux";
 
 type Props = {
   totalPages: number;
@@ -10,18 +11,22 @@ type Props = {
 
 export default function BasicPagination({ totalPages }: Props) {
   const dispatch = useDispatch();
-  const [currentPage, setCurrentPage] = useState(1);
-
-  useEffect(() => {
-    dispatch(setPage(currentPage));
-  }, [currentPage]);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const currentPage = parseInt(searchParams.get("page") || "1", 10);
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
     page: number
   ) => {
-    setCurrentPage(page); // Atualiza o estado com o número da página selecionada
+    searchParams.set("page", page.toString());
+    navigate({ search: searchParams.toString() });
   };
+
+  useEffect(() => {
+    dispatch(setPage(currentPage));
+  }, [currentPage]);
 
   return (
     <Stack spacing={2} className="w-full">

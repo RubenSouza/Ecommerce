@@ -4,7 +4,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import jwtDecode from "jwt-decode";
 import { useEffect, useState } from "react";
-import Loading from "./components/Loading";
+import Loading from "./components/ScreenLoading";
 import { useSelector } from "react-redux";
 
 function App() {

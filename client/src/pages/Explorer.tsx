@@ -2,40 +2,19 @@ import { useState, useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import SearchBar from "../components/SearchBar";
 import SideExplorer from "../components/SideExplorer";
-import GameItem from "../components/GameItem";
 import { IoFilter } from "react-icons/io5";
 import { AiOutlineClose } from "react-icons/ai";
-import { useGetGamesQuery } from "../redux/services/games";
-import Loading from "../components/Loading";
-import Paginate from "../components/Paginate";
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import GamesExplorerContent from "../components/GamesExplorerContent";
+import { Route, Routes, useLocation } from "react-router-dom";
+import CategoryExplorerContent from "../components/CategoryExplorerContent";
 
 const Explorer = () => {
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
-  const page = useSelector((state: any) => state.paginate.page);
 
-  const {
-    data: games,
-    isLoading,
-    isError,
-  } = useGetGamesQuery({ pageId: page });
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
 
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-
-    return () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    };
-  }, [games]);
-
-  if (isLoading) return <Loading />;
+  const genre = searchParams.get("genre");
 
   return (
     <div className="w-full h-full flex justify-center py-10">
@@ -79,27 +58,12 @@ const Explorer = () => {
             />
           </div>
 
-          <div className="flex flex-col items-center space-y-4 w-full h-full">
-            <div
-              className="w-full grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 
-          gap-4 md:gap-10
-          lg:gap-x-5 xl:gap-x-10 lg:gap-y-5"
-            >
-              {games?.games?.docs.map((game: any) => (
-                <GameItem
-                  name={game?.name}
-                  cover={game?.cover}
-                  price={game?.price}
-                  developer={game?.developers?.[0]?.name}
-                  key={game?._id}
-                  slug={game?.slug}
-                />
-              ))}
-            </div>
-            <div className="h-[50px]">
-              {games && <Paginate totalPages={games?.games?.totalPages} />}
-            </div>
-          </div>
+          {/* <Routes>
+            <Route path="/" element={<GamesExplorerContent />} />
+            <Route path="/:id" element={<CategoryExplorerContent />} />
+          </Routes> */}
+
+          {genre ? <CategoryExplorerContent /> : <GamesExplorerContent />}
         </div>
       </div>
     </div>

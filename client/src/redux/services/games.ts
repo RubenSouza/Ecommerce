@@ -15,16 +15,24 @@ export const gameApi = createApi({
   }),
   endpoints: builder => ({
     getGames: builder.query({
-      query: ({ pageId }) => `/games/?page=${pageId}`,
+      query: ({ pageId, sort }) => `/games/?page=${pageId}&sort=${sort}`,
     }),
     getGame: builder.query({
       query: ({ gameId }) => `/games/${gameId}`,
     }),
     getCategoryGames: builder.query({
-      query: ({ categoryId }) => `/categories/${categoryId}/games`,
+      query: ({ categoryId, pageId, sort }) =>
+        `/categories/${categoryId}/games/?page=${pageId}&sort=${sort}`,
+    }),
+    getCategories: builder.query({
+      query: () => "/categories",
     }),
   }),
 });
 
-export const { useGetGamesQuery, useGetGameQuery, useGetCategoryGamesQuery } =
-  gameApi;
+export const {
+  useGetGamesQuery,
+  useGetGameQuery,
+  useGetCategoryGamesQuery,
+  useGetCategoriesQuery,
+} = gameApi;
