@@ -15,14 +15,15 @@ export const gameApi = createApi({
   }),
   endpoints: builder => ({
     getGames: builder.query({
-      query: ({ pageId, sort }) => `/games/?page=${pageId}&sort=${sort}`,
+      query: ({ pageId, sort, price }) =>
+        `/games/?page=${pageId}&sort=${sort}&price=${price}`,
     }),
     getGame: builder.query({
       query: ({ gameId }) => `/games/${gameId}`,
     }),
     getCategoryGames: builder.query({
-      query: ({ categoryId, pageId, sort }) =>
-        `/categories/${categoryId}/games/?page=${pageId}&sort=${sort}`,
+      query: ({ categoryId, pageId, sort, price }) =>
+        `/categories/${categoryId}/games/?page=${pageId}&sort=${sort}&price=${price}`,
     }),
     getCategories: builder.query({
       query: () => "/categories",

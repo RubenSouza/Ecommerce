@@ -99,6 +99,7 @@ const CategoryController = {
 
   async showGames(req, res, next) {
     const id = req.params.id;
+    const price = Number(req.query.price) || 999;
     let category;
 
     try {
@@ -117,6 +118,7 @@ const CategoryController = {
         {
           $match: {
             categories: { $in: [new mongoose.Types.ObjectId(category._id)] },
+            price: { $lt: price },
           },
         },
         {

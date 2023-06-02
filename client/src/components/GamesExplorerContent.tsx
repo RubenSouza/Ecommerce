@@ -8,13 +8,14 @@ import ComponentLoading from "./ComponentLoading";
 const GamesExplorerContent = () => {
   const page = useSelector((state: any) => state.paginate.page);
   const sort = useSelector((state: any) => state.paginate.sort);
+  const price = useSelector((state: any) => state.price.price);
 
   const {
     data: games,
     isLoading,
     isFetching,
     isError,
-  } = useGetGamesQuery({ pageId: page, sort: sort });
+  } = useGetGamesQuery({ pageId: page, sort: sort, price });
 
   useEffect(() => {
     window.scrollTo({

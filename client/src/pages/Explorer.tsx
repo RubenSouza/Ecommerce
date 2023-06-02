@@ -58,11 +58,6 @@ const Explorer = () => {
             />
           </div>
 
-          {/* <Routes>
-            <Route path="/" element={<GamesExplorerContent />} />
-            <Route path="/:id" element={<CategoryExplorerContent />} />
-          </Routes> */}
-
           {genre ? <CategoryExplorerContent /> : <GamesExplorerContent />}
         </div>
       </div>

@@ -295,7 +295,15 @@ const GameController = {
   //get index
 
   async index(req, res, next) {
-    const myAggregate = Game.aggregate();
+    const price = Number(req.query.price) || 999;
+
+    const myAggregate = Game.aggregate([
+      {
+        $match: {
+          price: { $lt: price },
+        },
+      },
+    ]);
 
     myAggregate.lookup({
       from: "developers",

@@ -9,6 +9,7 @@ const CategoryExplorerContent = () => {
   const page = useSelector((state: any) => state.paginate.page);
   const sort = useSelector((state: any) => state.paginate.sort);
   const genre = useSelector((state: any) => state.genre.genre);
+  const price = useSelector((state: any) => state.price.price);
 
   const {
     data: games,
@@ -19,6 +20,7 @@ const CategoryExplorerContent = () => {
     categoryId: genre,
     pageId: page,
     sort: sort,
+    price,
   });
 
   useEffect(() => {
