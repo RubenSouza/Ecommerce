@@ -109,11 +109,11 @@ const Cart = () => {
               className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4
             xl:grid-cols-5 gap-5 md:gap-10 lg:gap-x-10 lg:gap-y-5"
             >
+              {/* <GameItem />
               <GameItem />
               <GameItem />
               <GameItem />
-              <GameItem />
-              <GameItem />
+              <GameItem /> */}
             </div>
           </div>
         </div>

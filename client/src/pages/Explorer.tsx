@@ -19,9 +19,9 @@ const Explorer = () => {
   const search = searchParams.get("search");
 
   return (
-    <div className="w-full h-full flex justify-center py-10">
+    <div className="w-full h-full flex justify-center py-10 px-5 ">
       <div className="w-full md:w-[1400px] h-full flex">
-        <div className="hidden md:inline w-[300px] px-5">
+        <div className="hidden md:inline w-[300px]">
           <SideExplorer />
         </div>
         {isMobileFilterOpen && (

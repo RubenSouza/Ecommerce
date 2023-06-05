@@ -30,8 +30,8 @@ const NavBar = () => {
   };
 
   return (
-    <div className="w-full fixed top-0 px-6 flex items-center justify-center z-20 bg-primary-500">
-      <div className="w-[1400px] flex space-x-5 py-6 text-sm justify-between">
+    <div className="w-full fixed top-0 px-5 flex items-center justify-center z-20 bg-primary-500">
+      <div className="w-[1400px] flex py-6 text-sm justify-between">
         <div className="md:hidden flex items-center justify-center cursor-pointer">
           <HiOutlineMenuAlt1
             className="w-8 h-8"
@@ -45,7 +45,7 @@ const NavBar = () => {
         </div>
         <div className="flex items-center justify-between md:w-full">
           <div className="flex items-center justify-center">
-            <div className="hidden md:flex space-x-4 items-center font-semibold">
+            <div className="hidden md:flex px-6 space-x-5 items-center font-semibold">
               <NavLink
                 to={"/"}
                 end

@@ -86,8 +86,8 @@ const SideExplorer = () => {
               type="checkbox"
               className="bg-transparent border-[1px] border-primary-400 text-[#F231A5] 
               checked:bg-[#F231A5] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
-              onChange={() => handlePrice("11")}
-              checked={priceFilter === "11"}
+              onChange={() => handlePrice("10.01")}
+              checked={priceFilter === "10.01"}
             />
             <label>From R$0,00 to R$10,00</label>
           </li>
@@ -96,8 +96,8 @@ const SideExplorer = () => {
               type="checkbox"
               className="bg-transparent border-[1px] border-primary-400 text-[#F231A5] 
               checked:bg-[#F231A5] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
-              onChange={() => handlePrice("16")}
-              checked={priceFilter === "16"}
+              onChange={() => handlePrice("15.01")}
+              checked={priceFilter === "15.01"}
             />
 
             <label>Under R$15</label>
@@ -107,8 +107,8 @@ const SideExplorer = () => {
               type="checkbox"
               className="bg-transparent border-[1px] border-primary-400 text-[#F231A5] 
               checked:bg-[#F231A5] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
-              onChange={() => handlePrice("26")}
-              checked={priceFilter === "26"}
+              onChange={() => handlePrice("25.01")}
+              checked={priceFilter === "25.01"}
             />
 
             <label>Under R$25</label>
@@ -118,8 +118,8 @@ const SideExplorer = () => {
               type="checkbox"
               className="bg-transparent border-[1px] border-primary-400 text-[#F231A5] 
               checked:bg-[#F231A5] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
-              onChange={() => handlePrice("51")}
-              checked={priceFilter === "51"}
+              onChange={() => handlePrice("50.01")}
+              checked={priceFilter === "50.01"}
             />
 
             <label>Under R$50</label>
@@ -129,8 +129,8 @@ const SideExplorer = () => {
               type="checkbox"
               className="bg-transparent border-[1px] border-primary-400 text-[#F231A5] 
               checked:bg-[#F231A5] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
-              onChange={() => handlePrice("76")}
-              checked={priceFilter === "76"}
+              onChange={() => handlePrice("75.01")}
+              checked={priceFilter === "75.01"}
             />
 
             <label>Under R$75</label>
@@ -140,8 +140,8 @@ const SideExplorer = () => {
               type="checkbox"
               className="bg-transparent border-[1px] border-primary-400 text-[#F231A5] 
               checked:bg-[#F231A5] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
-              onChange={() => handlePrice("101")}
-              checked={priceFilter === "101"}
+              onChange={() => handlePrice("100.01")}
+              checked={priceFilter === "100.01"}
             />
 
             <label>Under R$100</label>

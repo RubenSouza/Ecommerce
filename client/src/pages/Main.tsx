@@ -14,7 +14,7 @@ const Main = () => {
       className="flex flex-col h-full w-full
     items-center"
     >
-      <div className="flex flex-col justify-center items-center relative w-full h-20 ">
+      <div className="flex flex-col justify-center items-center relative w-full h-20">
         <NavBar />
       </div>
       <div className="relative min-h-screen w-full pb-20">

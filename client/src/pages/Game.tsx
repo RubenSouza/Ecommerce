@@ -17,8 +17,8 @@ import { useSelector } from "react-redux";
 const Game = () => {
   const params = useParams<{ id: string }>();
   const id = params.id;
-  const page = useSelector((state: any) => state.paginate.page);
-  const sort = useSelector((state: any) => state.paginate.sort);
+  const page = useSelector((state: any) => state.querys.page);
+  const sort = useSelector((state: any) => state.querys.sort);
 
   const {
     data: gameData,
