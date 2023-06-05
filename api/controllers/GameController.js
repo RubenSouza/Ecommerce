@@ -364,6 +364,40 @@ const GameController = {
       next(error);
     }
   },
+
+  // search
+
+  async search(req, res, next) {
+    const search = req.query.search;
+
+    const myAggregate = Game.aggregate([
+      {
+        $match: {
+          name: { $regex: search, $options: "i" },
+        },
+      },
+    ]);
+
+    myAggregate.lookup({
+      from: "developers",
+      localField: "developers",
+      foreignField: "_id",
+      as: "developers",
+    });
+
+    const options = {
+      page: req.query.page || 1,
+      limit: 16,
+      sort: getSort(req.query.sort),
+    };
+
+    try {
+      const games = await Game.aggregatePaginate(myAggregate, options);
+      return res.json({ games });
+    } catch (error) {
+      next(error);
+    }
+  },
 };
 
 module.exports = GameController;

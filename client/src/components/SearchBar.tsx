@@ -1,8 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setIsSearching, setSearch } from "../redux/features/querys";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (searchTerm === "") {
+      searchParams.delete("search");
+      dispatch(setIsSearching(false));
+      navigate({ search: searchParams.toString() });
+    } else {
+      searchParams.set("search", searchTerm.toString());
+      dispatch(setIsSearching(true));
+      navigate({ search: searchParams.toString() });
+    }
+    dispatch(setSearch(searchTerm));
+  }, [searchTerm]);
 
   return (
     <div>

@@ -8,6 +8,11 @@ const { validate } = require("express-validation");
 const GameValidation = require("../../../controllers/validations/gameValidation");
 
 router.get("/", GameController.index);
+router.get(
+  "/search",
+  validate(GameValidation.search, {}, {}),
+  GameController.search
+);
 router.get("/:id", validate(GameValidation.show, {}, {}), GameController.show);
 
 router.post(

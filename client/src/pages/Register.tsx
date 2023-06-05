@@ -4,7 +4,6 @@ import waves from "../assets/waves.svg";
 import { Link } from "react-router-dom";
 
 import axios from "axios";
-import DarkMode from "../components/DarkMode";
 import Logo from "../components/Logo";
 
 const Register = () => {
@@ -44,11 +43,9 @@ const Register = () => {
 
   return (
     <div className="h-screen">
-      <DarkMode />
-
       <div className="flex justify-center items-center h-full ">
         <div
-          className="bg-primary-110/90 dark:bg-primary-450 h-[590px] w-[450px] z-20 rounded-lg
+          className="bg-primary-450 h-[590px] w-[450px] z-20 rounded-lg
         shadow-lg shadow-black"
         >
           <div
@@ -59,21 +56,21 @@ const Register = () => {
             <h1 className="text-[33px] font-bold py-3">Create Your Account</h1>
             <form onSubmit={handleSubmit}>
               <input
-                className="w-full h-14 rounded-lg mb-3 p-6 bg-primary-50 shadow-md dark:bg-primary-600"
+                className="w-full h-14 rounded-lg mb-3 p-6  shadow-md bg-primary-600"
                 placeholder="Username"
                 required={true}
                 type="text"
                 onChange={e => setUsername(e.target.value)}
               />
               <input
-                className="w-full h-14 rounded-lg mb-3 p-6 bg-primary-50 shadow-md dark:bg-primary-600"
+                className="w-full h-14 rounded-lg mb-3 p-6  shadow-md bg-primary-600"
                 placeholder="Email"
                 required={true}
                 type="email"
                 onChange={e => setEmail(e.target.value)}
               />
               <input
-                className="w-full h-14 rounded-lg mb-3 p-6 bg-primary-50 shadow-md dark:bg-primary-600"
+                className="w-full h-14 rounded-lg mb-3 p-6  shadow-md bg-primary-600"
                 placeholder="Password"
                 required={true}
                 type="password"

@@ -11,7 +11,7 @@ const ComponentLoading = () => {
   const [color, setColor] = useState("#ffffff");
 
   return (
-    <div className="bg-[#121212] h-screen w-[1200px] flex items-center justify-center">
+    <div className="bg-[#121212] h-screen w-full flex items-center justify-center">
       <HashLoader
         color={"#ffffff"}
         cssOverride={override}

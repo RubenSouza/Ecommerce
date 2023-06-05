@@ -6,9 +6,9 @@ import Paginate from "../components/Paginate";
 import ComponentLoading from "./ComponentLoading";
 
 const GamesExplorerContent = () => {
-  const page = useSelector((state: any) => state.paginate.page);
-  const sort = useSelector((state: any) => state.paginate.sort);
-  const price = useSelector((state: any) => state.price.price);
+  const page = useSelector((state: any) => state.querys.page);
+  const sort = useSelector((state: any) => state.querys.sort);
+  const price = useSelector((state: any) => state.querys.price);
 
   const {
     data: games,
@@ -36,9 +36,8 @@ const GamesExplorerContent = () => {
   return (
     <div className="flex flex-col items-center space-y-4 w-full h-full">
       <div
-        className="w-full grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 
-  gap-4 md:gap-10
-  lg:gap-x-5 xl:gap-x-10 lg:gap-y-5"
+        className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4
+        gap-4"
       >
         {games?.games?.docs.map((game: any) => (
           <GameItem

@@ -12,8 +12,6 @@ function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isLogged, setIsLogged] = useState<boolean>(false);
 
-  const darkMode = useSelector((state: any) => state.darkMode.mode);
-
   useEffect(() => {
     setIsLoading(false);
     if (user !== null) {
@@ -35,10 +33,10 @@ function App() {
   if (isLoading) return <Loading />;
   else {
     return (
-      <div className={`${darkMode === "dark" ? "dark" : ""}`}>
+      <div>
         <div
-          className="w-full bg-primary-150 dark:bg-primary-500
-          min-h-screen text-primary-600 dark:text-primary-100
+          className="w-full bg-primary-500
+          min-h-screen text-primary-100
           overflow-x-hidden"
         >
           <Routes>

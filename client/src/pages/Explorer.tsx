@@ -7,6 +7,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import GamesExplorerContent from "../components/GamesExplorerContent";
 import { Route, Routes, useLocation } from "react-router-dom";
 import CategoryExplorerContent from "../components/CategoryExplorerContent";
+import GamesSearched from "../components/GamesSearched";
 
 const Explorer = () => {
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
@@ -15,11 +16,12 @@ const Explorer = () => {
   const searchParams = new URLSearchParams(location.search);
 
   const genre = searchParams.get("genre");
+  const search = searchParams.get("search");
 
   return (
     <div className="w-full h-full flex justify-center py-10">
-      <div className="w-full px-5 md:w-[1400px] h-full flex">
-        <div className="hidden md:inline w-[300px]">
+      <div className="w-full md:w-[1400px] h-full flex">
+        <div className="hidden md:inline w-[300px] px-5">
           <SideExplorer />
         </div>
         {isMobileFilterOpen && (
@@ -40,7 +42,7 @@ const Explorer = () => {
             </div>
           </div>
         )}
-        <div className="flex flex-col h-full space-y-8 ">
+        <div className="flex flex-col h-full space-y-8 w-full">
           <div className="flex justify-between w-full space-x-8">
             <div className="w-full md:w-[250px]">
               <SearchBar />
@@ -58,7 +60,13 @@ const Explorer = () => {
             />
           </div>
 
-          {genre ? <CategoryExplorerContent /> : <GamesExplorerContent />}
+          {search ? (
+            <GamesSearched />
+          ) : genre ? (
+            <CategoryExplorerContent />
+          ) : (
+            <GamesExplorerContent />
+          )}
         </div>
       </div>
     </div>

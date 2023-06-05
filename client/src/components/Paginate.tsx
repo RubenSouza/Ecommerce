@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { useNavigate, useLocation } from "react-router-dom";
-import { setPage } from "../redux/features/paginate";
 import { useDispatch } from "react-redux";
+import { setPage } from "../redux/features/querys";
 
 type Props = {
   totalPages: number;

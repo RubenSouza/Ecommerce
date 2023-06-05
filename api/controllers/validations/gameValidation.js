@@ -7,6 +7,14 @@ const GameValidation = {
     }),
   },
 
+  search: {
+    query: Joi.object({
+      search: Joi.string().required(),
+      sort: Joi.string().optional(),
+      page: Joi.number().optional(),
+    }),
+  },
+
   register: {
     body: Joi.object({
       name: Joi.string().required(),

@@ -1,27 +1,21 @@
+import { useGetSearchedGamesQuery } from "../redux/services/games";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import GameItem from "../components/GameItem";
 import Paginate from "../components/Paginate";
-import { useGetCategoryGamesQuery } from "../redux/services/games";
 import ComponentLoading from "./ComponentLoading";
 
-const CategoryExplorerContent = () => {
+const GamesSearched = () => {
   const page = useSelector((state: any) => state.querys.page);
   const sort = useSelector((state: any) => state.querys.sort);
-  const genre = useSelector((state: any) => state.querys.genre);
-  const price = useSelector((state: any) => state.querys.price);
+  const search = useSelector((state: any) => state.querys.search);
 
   const {
     data: games,
     isLoading,
     isFetching,
     isError,
-  } = useGetCategoryGamesQuery({
-    categoryId: genre,
-    pageId: page,
-    sort: sort,
-    price,
-  });
+  } = useGetSearchedGamesQuery({ pageId: page, sort: sort, search });
 
   useEffect(() => {
     window.scrollTo({
@@ -42,8 +36,8 @@ const CategoryExplorerContent = () => {
   return (
     <div className="flex flex-col items-center space-y-4 w-full h-full">
       <div
-        className="w-full grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 
-  gap-4 md:gap-10 lg:gap-x-5 xl:gap-x-10 lg:gap-y-5"
+        className="w-full grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4
+        gap-4"
       >
         {games?.games?.docs.map((game: any) => (
           <GameItem
@@ -61,8 +55,14 @@ const CategoryExplorerContent = () => {
           <Paginate totalPages={games?.games?.totalPages} />
         )}
       </div>
+
+      {games?.games?.docs.length === 0 && (
+        <div className="w-full h-full flex justify-center items-center">
+          <p className="text-2xl font-semibold">No games found</p>
+        </div>
+      )}
     </div>
   );
 };
 
-export default CategoryExplorerContent;
+export default GamesSearched;
