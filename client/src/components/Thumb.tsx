@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Thumb = () => {
   return (
-    <div className="flex w-full h-full md:w-[1024px] items-center justify-center">
+    <div className="flex w-full h-full md:w-[1024px] items-center justify-center px-5 lg:px-0">
       <div className="w-full relative">
         <img src={gameThumb} alt="game thumb" className="rounded-md" />
 

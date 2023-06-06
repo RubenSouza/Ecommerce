@@ -243,22 +243,24 @@ const Game = () => {
             <p className="">Genre:</p>
             <p className="">{`${firstGenre}, ${secondGenre || ""}`}</p>
           </div>
-
+          <div className="w-full h-[2px] bg-primary-460 my-2" />
           <div className="flex justify-between">
             <p className="">Release date:</p>
             <p className="">{formattedDate}</p>
           </div>
-          <div className="flex justify-between">
+          <div className="w-full h-[2px] bg-primary-460 my-2" />
+          <div className="flex justify-between items-center">
             <p className="">Developer:</p>
-            <div className="flex flex-col items-end">
-              <p className="">{firstDeveloper}</p>
+            <div className="flex flex-col items-end w-[150px] text-end">
+              <p className="">{firstDeveloper},</p>
               <p className="">{secondDeveloper}</p>
             </div>
           </div>
-          <div className="flex justify-between">
+          <div className="w-full h-[2px] bg-primary-460 my-2" />
+          <div className="flex justify-between items-center">
             <p className="">Company:</p>
-            <div className="flex flex-col items-end">
-              <p className="">{firstPublisher}</p>
+            <div className="flex flex-col items-end w-[150px] text-end">
+              <p className="">{firstPublisher},</p>
               <p className="">{secondPublisher}</p>
             </div>
           </div>

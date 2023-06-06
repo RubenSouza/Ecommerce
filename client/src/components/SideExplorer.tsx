@@ -21,6 +21,16 @@ const SideExplorer = () => {
   const firstPrice = searchParams.get("price");
 
   const { data: categories, isLoading, isError } = useGetCategoriesQuery("");
+
+  const categoriesList = categories?.category
+    .slice(0, 17)
+    .sort((a: any, b: any) => {
+      if (a.name > b.name) return 1;
+      if (a.name < b.name) return -1;
+      if (a.name === b.name) return 0;
+      return 0;
+    });
+
   const [sort, setSort] = useState("a-to-z");
   const [categoryFilter, setCategoryFilter] = useState<string>(
     firstGenre || ""
@@ -198,7 +208,7 @@ const SideExplorer = () => {
       <ul className="flex flex-col space-y-2">
         <Subtitle title="Genres" />
         <div className="text-xs sm:text-sm space-y-2">
-          {categories?.category?.map((category: any, i: number) => (
+          {categoriesList?.map((category: any, i: number) => (
             <li className="flex items-center space-x-2" key={i}>
               <input
                 type="checkbox"

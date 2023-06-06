@@ -24,7 +24,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full flex flex-col space-y-5">
       <section className="w-full h-full flex justify-center items-start">
         <div className="h-[500px] lg:h-[650px] w-full lg:w-[1400px]">
           <HomeCarousel slides={slides} />
@@ -33,9 +33,9 @@ const Home = () => {
       <section className="flex items-center justify-center w-full">
         <Releases />
       </section>
-      <section className="flex items-center justify-center w-full">
+      {/* <section className="flex items-center justify-center w-full">
         <MostPopulars />
-      </section>
+      </section> */}
       {/* <section className="flex items-center justify-center w-full">
         <ComingSoon />
       </section> */}
