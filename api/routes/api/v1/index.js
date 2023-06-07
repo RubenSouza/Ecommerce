@@ -8,5 +8,7 @@ router.use("/platforms", require("./platforms"));
 router.use("/system-requirement", require("./systemRequirement"));
 router.use("/games", require("./games"));
 router.use("/populate", require("./populate"));
+router.use("/highlights", require("./highlights"));
+router.use("/home", require("./home"));
 
 module.exports = router;

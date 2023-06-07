@@ -1,4 +1,4 @@
-const mongoose = require("mongose");
+const mongoose = require("mongoose");
 
 const HomeSchema = new mongoose.Schema(
   {
@@ -8,12 +8,16 @@ const HomeSchema = new mongoose.Schema(
         highlight: { type: mongoose.Schema.Types.ObjectId, ref: "Highlight" },
       },
     ],
-    developers: [
+    publishers: [
       {
         name: { type: String, required: true, unique: false },
-        developer: { type: mongoose.Schema.Types.ObjectId, ref: "Developer" },
+        publisher: { type: mongoose.Schema.Types.ObjectId, ref: "Publisher" },
       },
     ],
+    showNews: {
+      type: Boolean,
+      default: true,
+    },
   },
   { timestamps: true }
 );

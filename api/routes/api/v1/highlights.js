@@ -29,3 +29,5 @@ router.delete(
   adminValidation.admin,
   HighlightController.delete
 );
+
+module.exports = router;

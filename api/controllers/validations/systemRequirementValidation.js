@@ -9,34 +9,11 @@ const SystemRequirementValidation = {
   register: {
     body: Joi.object({
       minimun: Joi.object({
-        os: Joi.string().required(),
-        cpu: Joi.string().required(),
-        ram: Joi.string().required(),
-        gpu: Joi.string().required(),
-        vram: Joi.string().required(),
-        directX: Joi.string().required(),
-        storage: Joi.string().required(),
-      }),
-      recommended: Joi.object({
-        os: Joi.string().required(),
-        cpu: Joi.string().required(),
-        ram: Joi.string().required(),
-        gpu: Joi.string().required(),
-        vram: Joi.string().required(),
-        directX: Joi.string().required(),
-        storage: Joi.string().required(),
-      }),
-    }),
-  },
-  update: {
-    body: Joi.object({
-      minimun: Joi.object({
         os: Joi.string().optional(),
-        cpu: Joi.string().optional(),
-        ram: Joi.string().optional(),
-        gpu: Joi.string().optional(),
-        vram: Joi.string().optional(),
-        directX: Joi.string().optional(),
+        processor: Joi.string().optional(),
+        memory: Joi.string().optional(),
+        graphics: Joi.string().optional(),
+        directx: Joi.string().optional(),
         storage: Joi.string().optional(),
       }),
       recommended: Joi.object({
@@ -45,7 +22,28 @@ const SystemRequirementValidation = {
         ram: Joi.string().optional(),
         gpu: Joi.string().optional(),
         vram: Joi.string().optional(),
-        directX: Joi.string().optional(),
+        directx: Joi.string().optional(),
+        storage: Joi.string().optional(),
+      }),
+    }),
+  },
+  update: {
+    body: Joi.object({
+      minimun: Joi.object({
+        os: Joi.string().optional(),
+        processor: Joi.string().optional(),
+        memory: Joi.string().optional(),
+        graphics: Joi.string().optional(),
+        directx: Joi.string().optional(),
+        storage: Joi.string().optional(),
+      }),
+      recommended: Joi.object({
+        os: Joi.string().optional(),
+        cpu: Joi.string().optional(),
+        ram: Joi.string().optional(),
+        gpu: Joi.string().optional(),
+        vram: Joi.string().optional(),
+        directx: Joi.string().optional(),
         storage: Joi.string().optional(),
       }),
     }),
