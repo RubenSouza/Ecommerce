@@ -64,7 +64,16 @@ const PublisherController = {
   async show(req, res, next) {
     const id = req.params.id;
     try {
-      const publisher = await Publisher.findById(id);
+      const publisher = await Publisher.findById(id).populate([
+        "games",
+        {
+          path: "games",
+          populate: {
+            path: "publishers",
+            model: "Publisher",
+          },
+        },
+      ]);
       return res.json({ publisher });
     } catch (error) {
       next(error);

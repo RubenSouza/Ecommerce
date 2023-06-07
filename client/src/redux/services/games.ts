@@ -32,6 +32,12 @@ export const gameApi = createApi({
       query: ({ pageId, sort, search }) =>
         `/games/search/?page=${pageId}&sort=${sort}&search=${search}`,
     }),
+    getHome: builder.query({
+      query: () => "/home/64807865637402416a785273",
+    }),
+    getPublisherGames: builder.query({
+      query: ({ publisherId }) => `/publishers/${publisherId}`,
+    }),
   }),
 });
 
@@ -41,4 +47,6 @@ export const {
   useGetCategoryGamesQuery,
   useGetCategoriesQuery,
   useGetSearchedGamesQuery,
+  useGetHomeQuery,
+  useGetPublisherGamesQuery,
 } = gameApi;

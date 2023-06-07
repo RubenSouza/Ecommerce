@@ -14,6 +14,8 @@ const getSort = sortType => {
       return { price: 1 };
     case "biggest-price":
       return { price: -1 };
+    case "release-date":
+      return { release_date: -1 };
 
     default:
       return {};

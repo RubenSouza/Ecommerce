@@ -69,8 +69,8 @@ const Game = () => {
 
   const game = gameData?.game;
 
-  const minimunRequirement = game?.system_requirements?.minimum;
-  const recommendedRequirement = game?.system_requirements?.recommended;
+  const minimunRequirement = game?.system_requirement?.minimun;
+  const recommendedRequirement = game?.system_requirement?.recommended;
 
   const firstGenre = game?.categories?.[0]?.name;
   const secondGenre = game?.categories?.[1]?.name;
@@ -151,7 +151,7 @@ const Game = () => {
         className="w-full xl:w-[1100px] px-4 xl:px-0 space-y-5 lg:space-y-0
       flex flex-col lg:flex-row justify-between text-base"
       >
-        <div className="w-full lg:w-[600px] space-y-8">
+        <div className="w-full lg:w-[600px] space-y-14">
           <div className="space-y-5">
             <Title title="Description" />
             <p className="text-base font-light">{game?.description}</p>

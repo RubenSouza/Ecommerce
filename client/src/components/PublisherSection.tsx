@@ -1,22 +1,27 @@
 import GameItem from "./GameItem";
 import GameCarousel from "./GameCarousel";
 import { Title } from "./Title";
-import { useGetGamesQuery } from "../redux/services/games";
+import { useGetPublisherGamesQuery } from "../redux/services/games";
 
-const Releases = () => {
+type Props = {
+  title: string;
+  publisherId: string;
+};
+
+const PublisherSection = ({ publisherId, title }: Props) => {
   const {
     data: gamesData,
-    isLoading: gamesIsLoading,
-    isFetching: gamesIsFetching,
-    isError: gamesIsError,
-  } = useGetGamesQuery({ pageId: 1, sort: "release-date", price: "" });
+    isLoading,
+    isFetching,
+    isError,
+  } = useGetPublisherGamesQuery({ publisherId });
 
-  const games = gamesData?.games.docs.slice(0, 10);
+  const games = gamesData?.publisher?.games?.slice(0, 10);
 
   const gamesList = games?.map((game: any) => (
     <GameItem
       cover={game?.cover}
-      developer={game?.developers?.[0]?.name}
+      developer={game?.publisher}
       name={game?.name}
       price={game?.price}
       slug={game?.slug}
@@ -26,7 +31,7 @@ const Releases = () => {
 
   return (
     <div className="w-full px-4 lg:px-0 lg:w-[1024px] h-full flex flex-col">
-      <Title title="New Releases" />
+      <Title title={title} />
       <div className="flex justify-between w-full h-[240px] md:h-[270px]">
         {gamesList && <GameCarousel slides={gamesList} />}
       </div>
@@ -34,4 +39,4 @@ const Releases = () => {
   );
 };
 
-export default Releases;
+export default PublisherSection;

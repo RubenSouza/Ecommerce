@@ -66,7 +66,7 @@ const HomeController = {
     const id = req.params.id;
     try {
       const home = await Home.findById(id)
-        .populate("highlights")
+        .populate("highlights.highlight")
         .populate("publishers");
       return res.json({ home });
     } catch (err) {
