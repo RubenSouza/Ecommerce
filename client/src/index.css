@@ -44,6 +44,14 @@ body {
   border-radius: 50%; /* define a forma dos pontos como redonda */
 }
 
+.mySwiper {
+  --swiper-theme-color: #e5e7eb;
+  --swiper-navigation-color: #e5e7eb;
+  --swiper-pagination-color: #e5e7eb;
+  --swiper-navigation-size: 40px;
+  --swiper-pagination-size: 10px;
+}
+
 .bubble {
   width: 140px;
   height: 130px;

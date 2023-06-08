@@ -7,7 +7,7 @@ const Footer = () => {
         className="w-full h-full px-5 lg:px-24 flex flex-col bg-white py-20
     text-primary-600 text-sm items-center"
       >
-        <div className="w-full h-full lg:w-[1024px] space-y-2">
+        <div className="w-full h-full xl:w-[1024px] space-y-2">
           <img src={darkLogo} alt="dark logo" className="w-24" />
           <div className="w-full h-full grid grid-cols-2 gap-x-16 gap-y-5 md:flex justify-between">
             <div>

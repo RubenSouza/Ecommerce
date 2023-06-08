@@ -31,7 +31,7 @@ export default function HomeCarousel(props: any) {
         centeredSlides={true}
         loop={true}
         autoplay={{
-          delay: 4500,
+          delay: 9500,
           disableOnInteraction: false,
         }}
         pagination={{

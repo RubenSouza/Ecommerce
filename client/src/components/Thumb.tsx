@@ -23,7 +23,7 @@ const Thumb = ({
   return (
     <div
       className="flex w-full md:w-[1024px] md:min-h-[580px] md:h-[580px] md:max-h-[580px] items-center 
-    justify-center px-5 lg:px-0"
+    justify-center px-5 xl:px-0"
     >
       <div className="w-full h-full relative">
         <img

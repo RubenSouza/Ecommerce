@@ -114,7 +114,7 @@ const Game = () => {
         />
       </div>
       <div
-        className="w-full lg:w-[1100px] flex flex-col 
+        className="w-full xl:w-[1100px] flex flex-col 
       md:flex-row justify-between px-4 xl:px-0 space-y-4 md:-space-y-4"
       >
         <h3 className="text-3xl font-semibold md:py-8 lg:py-0 w-[400px] flex-wrap">
@@ -266,7 +266,7 @@ const Game = () => {
           </div>
         </div>
       </div>
-      <div className="w-full lg:w-[1100px] py-10 space-y-4">
+      <div className="w-full xl:w-[1100px] py-10 space-y-4">
         <div className="px-4 xl:px-0">
           <Title title="You may also like" />
         </div>
@@ -275,7 +275,7 @@ const Game = () => {
         </div>
         <div
           className="flex justify-between w-full h-[240px] md:h-[270px] 
-  px-4 lg:px-0"
+  px-4 xl:px-0"
         >
           {relatedGames && <GameCarousel slides={relatedGames} />}
         </div>

@@ -35,7 +35,7 @@ export default function GameCarousel(props: any) {
           },
         }}
         modules={[Pagination]}
-        className="mySwiper"
+        className="gameSwiper"
       >
         {props.slides.map(
           (
