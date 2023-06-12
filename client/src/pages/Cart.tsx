@@ -10,6 +10,7 @@ import { useState } from "react";
 import CardItem from "../components/CardItem";
 import { Subtitle } from "../components/Subtitle";
 import { useSelector } from "react-redux";
+import { BsCartX } from "react-icons/bs";
 
 const Cart = () => {
   const [cardOpen, setCardOpen] = useState(false);
@@ -29,24 +30,37 @@ const Cart = () => {
   };
 
   return (
-    <div className="flex flex-col items-center py-10">
-      <div className="w-full lg:w-[1400px] px-5 ">
+    <div className="flex flex-col items-center py-10 px-5">
+      <div className="w-full max-w-[1400px]">
         <div className="w-full space-y-4">
           <Title title="My cart" />
         </div>
         <div className="flex flex-col lg:flex-row lg:space-x-6 my-4">
-          <div className="bg-primary-450 h-full w-full rounded-sm">
-            <div className="p-4 space-y-4">{cartItems}</div>
+          <div
+            className="bg-primary-450 h-full w-full min-h-[415px] rounded-sm 
+          flex flex-col justify-between"
+          >
+            {cartItems.length > 0 ? (
+              <div className="p-4 space-y-4">{cartItems}</div>
+            ) : (
+              <div
+                className="flex flex-col items-center space-y-4 justify-center 
+            text-lg h-[350px] pt-4 w-full font-normal"
+              >
+                <BsCartX className="w-10 h-10 " />
+                <p className="text-center uppercase">{`Your cart is empty...`}</p>
+              </div>
+            )}
             <div className="flex justify-between p-4 font-semibold">
               <h4>Total:</h4>
               <p>{`$${totalPrice?.toFixed(2)}`}</p>
             </div>
           </div>
           <div
-            className="bg-primary-450 w-full lg:w-[500px] min-h-[415px] max-h-[650px] h-full 
+            className="bg-primary-450 w-full lg:w-[450px] min-h-[415px] max-h-[650px] h-full 
             rounded-sm flex flex-col justify-between my-6 lg:my-0"
           >
-            <div className="p-4 space-y-4">
+            <div className="p-4 space-y-2">
               <Subtitle title="Payment Method" />
               <div>
                 <div className="flex flex-col space-y-2 p-2">
@@ -80,11 +94,11 @@ const Cart = () => {
                 </div>
               </div>
             </div>
-            <div className="text-sm p-4 px-6 lg:px-8 font-semibold">
+            <div className="text-sm py-2 px-6 lg:px-8 font-semibold">
               <div className="w-full h-[2px] bg-primary-460 my-3" />
               <div className="flex justify-between items-center">
                 <Link to={"/"}>
-                  <p>Explorer more</p>
+                  <p className="text-sm">Explorer more</p>
                 </Link>
                 <div className="w-[150px]">
                   <Button

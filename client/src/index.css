@@ -14,6 +14,8 @@
 }
 
 body {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
@@ -70,6 +72,24 @@ body {
     height: 0;
     border: 13px solid transparent;
     border-bottom-color: #0b0b0b;
+    border-top: 0;
+    margin-left: -13px;
+    margin-top: -13px;
+  }
+}
+
+.bubble4 {
+  @extend .bubble;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 13%;
+    width: 0;
+    height: 0;
+    border: 13px solid transparent;
+    border-bottom-color: #15171a;
     border-top: 0;
     margin-left: -13px;
     margin-top: -13px;

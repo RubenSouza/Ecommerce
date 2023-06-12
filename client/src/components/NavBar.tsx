@@ -1,6 +1,4 @@
 import Logo from "./Logo";
-import searchIcon from "../assets/icons/searchIcon.svg";
-import cartIcon from "../assets/icons/cartIcon.svg";
 import { Link, NavLink } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
 import { AiOutlineClose, AiOutlineHeart } from "react-icons/ai";
@@ -13,12 +11,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { setUser } from "../redux/features/userLogged";
 import { AiOutlineSearch } from "react-icons/ai";
 import { MdOutlineShoppingCart } from "react-icons/md";
+import CartMenu from "./CartMenu";
 
 const NavBar = () => {
   const dispatch = useDispatch();
   const user = useSelector((state: any) => state.userLogged.user);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [isCartMenuOpen, setIsCartMenuOpen] = useState(false);
   const totalItems = useSelector((state: any) => state.cart.totalItems);
 
   const activeStyle =
@@ -31,7 +31,10 @@ const NavBar = () => {
   };
 
   return (
-    <div className="w-full fixed top-0 px-5 flex items-center justify-center z-20 bg-primary-500">
+    <div
+      className="w-full fixed top-0 px-5 flex items-center 
+    justify-center z-20 bg-primary-500"
+    >
       <div className="w-[1400px] flex py-6 text-sm justify-between">
         <div className="md:hidden flex items-center justify-center cursor-pointer">
           <HiOutlineMenuAlt1
@@ -152,19 +155,31 @@ const NavBar = () => {
           </div>
           <div className="flex space-x-4 items-center justify-center">
             <AiOutlineSearch className="w-6 h-6" />
-            <Link to={"/cart"}>
-              {" "}
-              <div className="relative">
-                <MdOutlineShoppingCart className="w-6 h-6" />
-                <div
-                  className="absolute -top-3 -right-2 bg-[#3CD3C1]/80 rounded-full w-5 h-5 
+            {/* <Link to={"/cart"}> */}{" "}
+            <div className="relative">
+              <MdOutlineShoppingCart
+                className="w-6 h-6 cursor-pointer"
+                onClick={() => setIsCartMenuOpen(!isCartMenuOpen)}
+              />
+              <div
+                className="absolute -top-3 -right-2 bg-[#3CD3C1]/80 rounded-full w-5 h-5 
                 flex items-center justify-center text-primary-110 text-xs font-bold"
-                >
-                  {totalItems}
-                </div>
+              >
+                {totalItems}
               </div>
-            </Link>
-
+              {isCartMenuOpen && (
+                <div className="relative">
+                  <div
+                    className="fixed top-0 bottom-0 right-0 left-0 bg-primary-700/20 z-20"
+                    onClick={() => setIsCartMenuOpen(!isCartMenuOpen)}
+                  />
+                  <div onClick={() => setIsCartMenuOpen(false)}>
+                    <CartMenu />
+                  </div>
+                </div>
+              )}
+            </div>
+            {/* </Link> */}
             {user ? (
               <div className=" hidden lg:flex flex-col relative" id="userMenu">
                 <div

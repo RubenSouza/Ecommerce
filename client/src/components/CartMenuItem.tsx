@@ -9,7 +9,7 @@ type Props = {
   id: string;
 };
 
-const CartItem = ({ id }: Props) => {
+const CartMenuItem = ({ id }: Props) => {
   const {
     data: gameData,
     isLoading,
@@ -39,11 +39,11 @@ const CartItem = ({ id }: Props) => {
 
   return (
     <>
-      <div className="flex h-[80px] space-x-2 w-full">
+      <div className="flex h-[62px] space-x-2 w-full">
         <img
           src={game?.cover}
           alt="game Image"
-          className="h-[80px] min-w-[130px] max-w-[130px] rounded-sm"
+          className="h-[60px] rounded-sm"
         />
         <div className="flex justify-between items-start w-full">
           <div className="space-y-2">
@@ -57,9 +57,6 @@ const CartItem = ({ id }: Props) => {
               {`$${game?.price?.toFixed(2)}`}
             </p>
           </div>
-          <div className="cursor-pointer">
-            <FaTrashAlt className="w-4 h-4" onClick={handleRemoveFromCart} />
-          </div>
         </div>
       </div>
       <div className="w-full h-[2px] bg-primary-460 my-16" />
@@ -67,4 +64,4 @@ const CartItem = ({ id }: Props) => {
   );
 };
 
-export default CartItem;
+export default CartMenuItem;

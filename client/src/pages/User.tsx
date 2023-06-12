@@ -7,8 +7,8 @@ import Passowrd from "../components/Password";
 
 const User = () => {
   return (
-    <div className="w-full flex justify-center items-center py-10">
-      <div className="w-[1400px] h-full  px-5 flex flex-col lg:flex-row justify-between lg:space-x-6">
+    <div className="w-full flex justify-center items-center py-10 px-5">
+      <div className="w-[1400px] h-full flex flex-col lg:flex-row justify-between lg:space-x-6">
         <div className="">
           <Title title="My Account" />
           <div className="my-8">
