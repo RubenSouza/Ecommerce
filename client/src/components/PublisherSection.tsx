@@ -28,14 +28,15 @@ const PublisherSection = ({ publisherId, title }: Props) => {
       name={game?.name}
       price={game?.price}
       slug={game?.slug}
-      key={game?.id}
+      key={game?._id}
+      id={game?._id}
     />
   ));
 
   return (
     <div className="w-full px-4 xl:px-0 lg:w-[1024px] h-full flex flex-col">
       <Title title={title} />
-      <div className="flex justify-between w-full h-[240px] md:h-[270px]">
+      <div className="flex justify-between w-full h-[240px] md:h-[300px]">
         {gamesList && <GameCarousel slides={gamesList} />}
       </div>
     </div>

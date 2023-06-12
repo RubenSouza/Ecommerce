@@ -7,8 +7,10 @@ import Game from "./Game";
 import Favorites from "./Favorites";
 import Cart from "./Cart";
 import User from "./User";
+import { useSelector } from "react-redux";
 
 const Main = () => {
+  const user = useSelector((state: any) => state.userLogged.user);
   return (
     <div
       className="flex flex-col h-full w-full
@@ -24,7 +26,7 @@ const Main = () => {
           <Route path="/game/:id" element={<Game />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/user/*" element={<User />} />
+          {user && <Route path="/user/*" element={<User />} />}
         </Routes>
       </div>
       <div className="w-full h-full bottom">

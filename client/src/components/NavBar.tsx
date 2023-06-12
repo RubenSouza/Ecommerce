@@ -19,6 +19,7 @@ const NavBar = () => {
   const user = useSelector((state: any) => state.userLogged.user);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const totalItems = useSelector((state: any) => state.cart.totalItems);
 
   const activeStyle =
     "transition ease-in-out delay-100 hover:scale-105 border-b-2 border-[#F231A5]";
@@ -153,7 +154,15 @@ const NavBar = () => {
             <AiOutlineSearch className="w-6 h-6" />
             <Link to={"/cart"}>
               {" "}
-              <MdOutlineShoppingCart className="w-6 h-6" />
+              <div className="relative">
+                <MdOutlineShoppingCart className="w-6 h-6" />
+                <div
+                  className="absolute -top-3 -right-2 bg-[#3CD3C1]/80 rounded-full w-5 h-5 
+                flex items-center justify-center text-primary-110 text-xs font-bold"
+                >
+                  {totalItems}
+                </div>
+              </div>
             </Link>
 
             {user ? (
@@ -168,33 +177,39 @@ const NavBar = () => {
                   <IoIosArrowDown />
                 </div>
                 {isUserMenuOpen && (
-                  <div
-                    className=" bg-primary-700 rounded-md shadow-sm shadow-gray-800 hidden
+                  <div>
+                    <div
+                      className="fixed top-0 bottom-0 right-0 left-0"
+                      onClick={() => setIsUserMenuOpen(false)}
+                    />
+                    <div
+                      className=" bg-primary-700 rounded-md shadow-sm shadow-gray-800 hidden
                      absolute top-10 -right-6 lg:flex flex-col justify-center items-center 
                      text-primary-100 font-semibold text-sm space-y-3 bubble bubble3 menuButton"
-                    onClick={() => setIsUserMenuOpen(false)}
-                  >
-                    <Link to={"/user/"}>
-                      <div className="flex space-x-1 justify-start items-center w-[90px]  ">
-                        <BiUserCircle className="w-6 h-6" />
-                        <p>Profile</p>
-                      </div>
-                    </Link>
-                    <Link to={"/favorites"}>
-                      <div className="flex space-x-1 justify-start items-center w-[90px]">
-                        <AiOutlineHeart className="w-6 h-6" />
-                        <p>Favorites</p>
-                      </div>
-                    </Link>
-                    <Link to={"/"}>
-                      <div
-                        className="flex space-x-1 justify-start items-center w-[90px] pb-1"
-                        onClick={handleLogout}
-                      >
-                        <RiLogoutBoxRLine className="w-5 h-5" />
-                        <p>Sign Out</p>
-                      </div>
-                    </Link>
+                      onClick={() => setIsUserMenuOpen(false)}
+                    >
+                      <Link to={"/user/"}>
+                        <div className="flex space-x-1 justify-start items-center w-[90px]  ">
+                          <BiUserCircle className="w-6 h-6" />
+                          <p>Profile</p>
+                        </div>
+                      </Link>
+                      <Link to={"/favorites"}>
+                        <div className="flex space-x-1 justify-start items-center w-[90px]">
+                          <AiOutlineHeart className="w-6 h-6" />
+                          <p>Favorites</p>
+                        </div>
+                      </Link>
+                      <Link to={"/"}>
+                        <div
+                          className="flex space-x-1 justify-start items-center w-[90px] pb-1"
+                          onClick={handleLogout}
+                        >
+                          <RiLogoutBoxRLine className="w-5 h-5" />
+                          <p>Sign Out</p>
+                        </div>
+                      </Link>
+                    </div>
                   </div>
                 )}
               </div>

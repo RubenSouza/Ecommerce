@@ -47,6 +47,7 @@ const GamesSearched = () => {
             developer={game?.developers?.[0]?.name}
             key={game?._id}
             slug={game?.slug}
+            id={game?._id}
           />
         ))}
       </div>

@@ -9,9 +9,15 @@ import Button from "../components/Button";
 import { useState } from "react";
 import CardItem from "../components/CardItem";
 import { Subtitle } from "../components/Subtitle";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
   const [cardOpen, setCardOpen] = useState(false);
+  const cart = useSelector((state: any) => state.cart);
+  const totalPrice = cart.totalPrice;
+  const cartItems = cart.items.map((item: any) => (
+    <CartItem id={item.id} key={item.id} />
+  ));
 
   const handlePurchase = () => {
     if (!cardOpen) {
@@ -30,22 +36,15 @@ const Cart = () => {
         </div>
         <div className="flex flex-col lg:flex-row lg:space-x-6 my-4">
           <div className="bg-primary-450 h-full w-full rounded-sm">
-            <div className="p-4 space-y-4">
-              <CartItem />
-              <div className="w-full h-[2px] bg-primary-460 my-16" />
-              <CartItem />
-              <div className="w-full h-[2px] bg-primary-460 my-16" />
-              <CartItem />
-              <div className="w-full h-[2px] bg-primary-460 my-16" />
-            </div>
+            <div className="p-4 space-y-4">{cartItems}</div>
             <div className="flex justify-between p-4 font-semibold">
               <h4>Total:</h4>
-              <p>R$ 330</p>
+              <p>{`$${totalPrice?.toFixed(2)}`}</p>
             </div>
           </div>
           <div
-            className="bg-primary-450 w-full lg:w-[500px] min-h-[415px] rounded-sm flex flex-col justify-between
-          my-6 lg:my-0"
+            className="bg-primary-450 w-full lg:w-[500px] min-h-[415px] max-h-[650px] h-full 
+            rounded-sm flex flex-col justify-between my-6 lg:my-0"
           >
             <div className="p-4 space-y-4">
               <Subtitle title="Payment Method" />
