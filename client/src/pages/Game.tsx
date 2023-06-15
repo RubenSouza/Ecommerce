@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsFillCartPlusFill } from "react-icons/bs";
 import GalleryCarousel from "../components/GalleryCarousel";
@@ -13,6 +13,7 @@ import {
 } from "../redux/services/games";
 import ScreenLoading from "../components/ScreenLoading";
 import { useSelector } from "react-redux";
+import GameAddToCart from "../components/GameAddToCart";
 
 const Game = () => {
   const params = useParams<{ id: string }>();
@@ -43,19 +44,17 @@ const Game = () => {
     sort,
   });
 
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+  const gameRef = useRef<HTMLDivElement>(null);
 
-    return () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+  useEffect(() => {
+    const scrollToStart = () => {
+      if (gameRef.current) {
+        gameRef.current.scrollIntoView({ behavior: "instant" });
+      }
     };
-  }, [gameData]);
+
+    scrollToStart();
+  }, [gameData, relatedGamesData]);
 
   const relatedGamesList = relatedGamesData?.games?.docs?.slice(0, 8);
 
@@ -105,7 +104,8 @@ const Game = () => {
   ));
 
   return (
-    <div className="w-screen flex flex-col items-center py-10">
+    <div className="w-screen h-full flex flex-col items-center py-10">
+      <div className="absolute -top-20 h-2" ref={gameRef}></div>
       <div className="w-full lg:h-[600px] h-[400px]">
         <img
           src={game?.cover}
@@ -131,13 +131,11 @@ const Game = () => {
             2
           )}`}</p>
           <div className="m-auto w-full space-y-2 ">
-            <div
-              className="flex items-center justify-center
-            rounded-md bg-[#f76195] h-12 w-full space-x-2 text-primary-50 font-semibold"
-            >
-              <BsFillCartPlusFill className="w-4 h-4" />
-              <button>Add to Cart</button>
-            </div>
+            <GameAddToCart
+              name={game?.name}
+              price={game?.price}
+              id={game?._id}
+            />
             <div className="flex justify-center space-x-2 text-[#f231a5] font-semibold w-full">
               <AiOutlineHeart className="w-6 h-6" />
               <p>Wishlist it</p>
@@ -275,7 +273,7 @@ const Game = () => {
           <img src={popularBadge} className="w-full lg:w-[1100px]" />
         </div>
         <div
-          className="flex justify-between w-full h-[240px] md:h-[270px] 
+          className="flex justify-between w-full h-[240px] md:h-[300px] 
   px-4 xl:px-0"
         >
           {relatedGames && <GameCarousel slides={relatedGames} />}

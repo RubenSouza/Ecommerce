@@ -43,19 +43,27 @@ const CartMenuItem = ({ id }: Props) => {
         <img
           src={game?.cover}
           alt="game Image"
-          className="h-[60px] rounded-sm"
+          className="min-h-[60px] min-w-[100px] rounded-sm"
         />
         <div className="flex justify-between items-start w-full">
-          <div className="space-y-2">
+          <div className="space-y-2 w-full">
             <Link to={`/game/${game?.slug}`}>
               <h4 className="font-semibold">{game?.name}</h4>
             </Link>
-            <p
-              className="bg-[#3CD3C1] rounded-sm text-sm font-semibold 
+            <div className="flex justify-between w-full items-start">
+              <p
+                className="bg-button-200 rounded-sm text-sm font-semibold 
             text-primary-100 w-[70px] p-1 flex items-center justify-center"
-            >
-              {`$${game?.price?.toFixed(2)}`}
-            </p>
+              >
+                {`$${game?.price?.toFixed(2)}`}
+              </p>
+              <p
+                className="text-button-100 text-[11px] font-light cursor-pointer"
+                onClick={handleRemoveFromCart}
+              >
+                remove
+              </p>
+            </div>
           </div>
         </div>
       </div>

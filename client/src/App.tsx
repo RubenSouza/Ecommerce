@@ -33,18 +33,17 @@ function App() {
   if (isLoading) return <Loading />;
   else {
     return (
-      <div>
-        <div
-          className="w-full bg-primary-500
-          min-h-screen text-primary-100
-          overflow-x-hidden"
-        >
-          <Routes>
-            <Route path="/*" element={<Main />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </Routes>
-        </div>
+      <div
+        className="w-full bg-primary-500 text-primary-100 overflow-x-hidden h-screen
+        scrollbar-none lg:scrollbar-thin overflow-y-scroll  scrollbar-track-gray-400/40
+      scrollbar-thumb-[#F7AB0A]/80
+      "
+      >
+        <Routes>
+          <Route path="/*" element={<Main />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
       </div>
     );
   }

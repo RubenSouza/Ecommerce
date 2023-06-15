@@ -15,11 +15,12 @@ const CartMenu = () => {
     <div
       className="absolute top-6 -right-12 flex items-center w-[350px] min-h-[100px] 
       max-h-[350px] justify-center text-primary-110 text-xs bubble4 rounded-sm
-      font-bold bg-primary-450 z-50"
+      font-bold bg-primary-450 z-50 "
     >
       <div className="bg-primary-450  h-full w-full rounded-sm">
         <div
-          className="p-4 py-5 space-y-4 h-full max-h-[300px] overflow-y-scroll
+          className="p-4 py-5 space-y-4 h-full max-h-[300px] overflow-y-auto 
+          scrollbar-thin
         "
         >
           {cartItems.length > 0 ? (
@@ -27,7 +28,7 @@ const CartMenu = () => {
           ) : (
             <div
               className="flex flex-col items-center space-y-4 justify-center 
-            text-sm h-[140px] w-full font-normal"
+            text-sm h-[140px] w-full font-normal overflow-hidden"
             >
               <BsCartX className="w-8 h-8 " />
               <p className="text-center uppercase">{`Your cart is empty...`}</p>

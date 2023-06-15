@@ -26,13 +26,16 @@ const NavBar = () => {
   const inactiveStyle = "transition ease-in-out delay-100 hover:scale-105 ";
 
   const handleLogout = () => {
-    localStorage.removeItem("user");
     dispatch(setUser(null));
   };
 
+  const jsonUser = JSON.parse(user);
+
+  const userName = jsonUser?.username;
+
   return (
     <div
-      className="w-full fixed top-0 px-5 flex items-center 
+      className="w-full lg:w-[99.5%] xl:w-[99.6%] fixed top-0 px-5 flex items-center 
     justify-center z-20 bg-primary-500"
     >
       <div className="w-[1400px] flex py-6 text-sm justify-between">
@@ -106,7 +109,7 @@ const NavBar = () => {
                     {user && (
                       <>
                         <NavLink
-                          to={"/profile"}
+                          to={"/user"}
                           end
                           className={({ isActive }) =>
                             isActive ? activeStyle : inactiveStyle
@@ -155,7 +158,6 @@ const NavBar = () => {
           </div>
           <div className="flex space-x-4 items-center justify-center">
             <AiOutlineSearch className="w-6 h-6" />
-            {/* <Link to={"/cart"}> */}{" "}
             <div className="relative">
               <MdOutlineShoppingCart
                 className="w-6 h-6 cursor-pointer"
@@ -165,7 +167,7 @@ const NavBar = () => {
                 className="absolute -top-3 -right-2 bg-[#3CD3C1]/80 rounded-full w-5 h-5 
                 flex items-center justify-center text-primary-110 text-xs font-bold"
               >
-                {totalItems}
+                <p>{totalItems}</p>
               </div>
               {isCartMenuOpen && (
                 <div className="relative">
@@ -173,7 +175,7 @@ const NavBar = () => {
                     className="fixed top-0 bottom-0 right-0 left-0 bg-primary-700/20 z-20"
                     onClick={() => setIsCartMenuOpen(!isCartMenuOpen)}
                   />
-                  <div onClick={() => setIsCartMenuOpen(false)}>
+                  <div>
                     <CartMenu />
                   </div>
                 </div>
@@ -184,11 +186,11 @@ const NavBar = () => {
               <div className=" hidden lg:flex flex-col relative" id="userMenu">
                 <div
                   className="hidden md:flex space-x-1 items-center 
-                justify-center cursor-pointer w-[100px]"
+                justify-center cursor-pointer w-full max-w-[200px]"
                   onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
                 >
                   <BiUserCircle className="w-6 h-6" />
-                  <p>Rúben</p>
+                  <p>{userName}</p>
                   <IoIosArrowDown />
                 </div>
                 {isUserMenuOpen && (

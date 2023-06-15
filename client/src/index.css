@@ -8,9 +8,10 @@
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
+
 .hide-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 body {
@@ -67,7 +68,7 @@ body {
     content: "";
     position: absolute;
     top: 0;
-    left: 70%;
+    left: 75%;
     width: 0;
     height: 0;
     border: 13px solid transparent;

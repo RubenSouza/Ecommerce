@@ -1,6 +1,6 @@
 import { useGetGamesQuery } from "../redux/services/games";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import GameItem from "../components/GameItem";
 import Paginate from "../components/Paginate";
 import ComponentLoading from "./ComponentLoading";
@@ -17,24 +17,22 @@ const GamesExplorerContent = () => {
     isError,
   } = useGetGamesQuery({ pageId: page, sort: sort, price });
 
+  const explorerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-
-    return () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+    const scrollToStart = () => {
+      if (explorerRef.current) {
+        explorerRef.current.scrollIntoView({ behavior: "smooth" });
+      }
     };
-  }, [games]);
 
+    scrollToStart();
+  }, [games]);
   if (isLoading || isFetching) return <ComponentLoading />;
 
   return (
     <div className="flex flex-col items-center space-y-4 w-full h-full">
+      <div className="absolute -top-20 h-2" ref={explorerRef}></div>
       <div
         className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4
         gap-4"
@@ -47,6 +45,7 @@ const GamesExplorerContent = () => {
             developer={game?.developers?.[0]?.name}
             key={game?._id}
             slug={game?.slug}
+            id={game?._id}
           />
         ))}
       </div>

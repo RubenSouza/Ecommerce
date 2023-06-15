@@ -11,12 +11,16 @@ import { useSelector } from "react-redux";
 
 const Main = () => {
   const user = useSelector((state: any) => state.userLogged.user);
+
   return (
     <div
-      className="flex flex-col h-full w-full
+      className="flex flex-col min-h-screen w-full
     items-center"
     >
-      <div className="flex flex-col justify-center items-center relative w-full h-20">
+      <div
+        className="flex flex-col justify-center items-center relative w-full h-20"
+        id="nav"
+      >
         <NavBar />
       </div>
       <div className="relative min-h-screen w-full pb-20">

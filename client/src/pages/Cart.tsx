@@ -1,12 +1,10 @@
 import CartItem from "../components/CartItem";
 import visa from "../assets/visa.svg";
 import mastercard from "../assets/masterCard.svg";
-import GameItem from "../components/GameItem";
-import Highlight from "../components/Highlight";
 import { Title } from "../components/Title";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CardItem from "../components/CardItem";
 import { Subtitle } from "../components/Subtitle";
 import { useSelector } from "react-redux";
@@ -29,8 +27,21 @@ const Cart = () => {
     }
   };
 
+  const cartRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const scrollToStart = () => {
+      if (cartRef.current) {
+        cartRef.current.scrollIntoView({ behavior: "instant" });
+      }
+    };
+
+    scrollToStart();
+  }, []);
+
   return (
     <div className="flex flex-col items-center py-10 px-5">
+      <div className="absolute -top-20 h-2" ref={cartRef} />
       <div className="w-full max-w-[1400px]">
         <div className="w-full space-y-4">
           <Title title="My cart" />
@@ -112,24 +123,6 @@ const Cart = () => {
           </div>
         </div>
         <div className="w-full h-[2px] bg-primary-460 my-16" />
-        <div className="w-full space-y-4">
-          <Title title="You may also like" />
-          <div className="w-full">
-            <Highlight />
-          </div>
-          <div>
-            <div
-              className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4
-            xl:grid-cols-5 gap-5 md:gap-10 lg:gap-x-10 lg:gap-y-5"
-            >
-              {/* <GameItem />
-              <GameItem />
-              <GameItem />
-              <GameItem />
-              <GameItem /> */}
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
