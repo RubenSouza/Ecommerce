@@ -61,7 +61,7 @@ const CartMenuItem = ({ id }: Props) => {
                 className="text-button-100 text-[11px] font-light cursor-pointer"
                 onClick={handleRemoveFromCart}
               >
-                remove
+                Remove
               </p>
             </div>
           </div>

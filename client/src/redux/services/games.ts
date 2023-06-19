@@ -1,14 +1,15 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+const user = localStorage.getItem("user");
+const jsonUser = user ? JSON.parse(user) : null;
+const accessToken = jsonUser?.accessToken.toString();
+
 export const gameApi = createApi({
   reducerPath: "gameApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3001/v1/api",
     prepareHeaders: headers => {
-      headers.set(
-        "Authorization",
-        `Bearer ${sessionStorage.getItem("accessToken")}`
-      );
+      headers.set("Authorization", `Bearer ${accessToken}`);
 
       return headers;
     },
@@ -38,6 +39,9 @@ export const gameApi = createApi({
     getPublisherGames: builder.query({
       query: ({ publisherId }) => `/publishers/${publisherId}`,
     }),
+    getFavorites: builder.query({
+      query: () => "/favorites",
+    }),
   }),
 });
 
@@ -49,4 +53,5 @@ export const {
   useGetSearchedGamesQuery,
   useGetHomeQuery,
   useGetPublisherGamesQuery,
+  useGetFavoritesQuery,
 } = gameApi;

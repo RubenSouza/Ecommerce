@@ -57,9 +57,13 @@ const CartItem = ({ id }: Props) => {
               {`$${game?.price?.toFixed(2)}`}
             </p>
           </div>
-          <div className="cursor-pointer">
-            <FaTrashAlt className="w-4 h-4" onClick={handleRemoveFromCart} />
-          </div>
+          {/* <FaTrashAlt className="w-4 h-4" onClick={handleRemoveFromCart} /> */}
+          <p
+            className="text-button-100 text-[11px] font-light cursor-pointer h-full flex items-center justify-center"
+            onClick={handleRemoveFromCart}
+          >
+            Remove
+          </p>
         </div>
       </div>
       <div className="w-full h-[2px] bg-primary-460 my-16" />

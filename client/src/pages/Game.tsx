@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { BsFillCartPlusFill } from "react-icons/bs";
 import GalleryCarousel from "../components/GalleryCarousel";
 import GameItem from "../components/GameItem";
@@ -12,14 +12,18 @@ import {
   useGetGameQuery,
 } from "../redux/services/games";
 import ScreenLoading from "../components/ScreenLoading";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import GameAddToCart from "../components/GameAddToCart";
+import { fetchFavorites } from "../utils/fetchFavorites";
+import { setFavorite } from "../redux/features/favorites";
 
 const Game = () => {
+  const [isFavorite, setIsFavorite] = useState(false);
   const params = useParams<{ id: string }>();
   const id = params.id;
   const page = useSelector((state: any) => state.querys.page);
   const sort = useSelector((state: any) => state.querys.sort);
+  const favorites = useSelector((state: any) => state.favorites.favorites);
 
   const {
     data: gameData,
@@ -58,14 +62,6 @@ const Game = () => {
 
   const relatedGamesList = relatedGamesData?.games?.docs?.slice(0, 8);
 
-  if (
-    isLoading ||
-    isFetching ||
-    relatedGamesIsLoading ||
-    relatedGamesIsFetching
-  )
-    return <ScreenLoading />;
-
   const game = gameData?.game;
 
   const minimunRequirement = game?.system_requirement?.minimun;
@@ -103,6 +99,38 @@ const Game = () => {
     />
   ));
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const id = game?._id;
+
+    const foundFavorite = favorites.find((item: any) => item._id === id);
+    if (foundFavorite) {
+      setIsFavorite(true);
+    } else {
+      setIsFavorite(false);
+    }
+  }, [gameData, id, relatedGamesData, favorites]);
+
+  const handleAddFavorite = () => {
+    const id = game?._id;
+    const name = game?.name;
+    const price = game?.price;
+    const cover = game?.cover;
+    const slug = game?.slug;
+    const developerName = game?.developers?.[0].name;
+    fetchFavorites(id);
+    dispatch(setFavorite({ name, _id: id, price, cover, slug, developerName }));
+  };
+
+  if (
+    isLoading ||
+    isFetching ||
+    relatedGamesIsLoading ||
+    relatedGamesIsFetching
+  )
+    return <ScreenLoading />;
+
   return (
     <div className="w-screen h-full flex flex-col items-center py-10">
       <div className="absolute -top-20 h-2" ref={gameRef}></div>
@@ -136,10 +164,25 @@ const Game = () => {
               price={game?.price}
               id={game?._id}
             />
-            <div className="flex justify-center space-x-2 text-[#f231a5] font-semibold w-full">
-              <AiOutlineHeart className="w-6 h-6" />
-              <p>Wishlist it</p>
-            </div>
+            {isFavorite ? (
+              <div
+                className="flex justify-center space-x-2 text-[#f231a5] font-semibold w-full
+                cursor-pointer hover:text-[#f231a5]"
+                onClick={handleAddFavorite}
+              >
+                <AiFillHeart className="w-6 h-6" />
+                <p>Wishlisted</p>
+              </div>
+            ) : (
+              <div
+                className="flex justify-center space-x-2 text-[#f231a5] font-semibold w-full
+                cursor-pointer hover:text-[#f231a5]"
+                onClick={handleAddFavorite}
+              >
+                <AiOutlineHeart className="w-6 h-6" />
+                <p>Wishlist it</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

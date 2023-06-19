@@ -1,9 +1,11 @@
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { BsCartCheck, BsCartPlus } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart, removeFromCart } from "../redux/features/cart";
 import { useEffect, useState } from "react";
+import { setFavorite } from "../redux/features/favorites";
+import { fetchFavorites } from "../utils/fetchFavorites";
 
 type Props = {
   name: string;
@@ -17,8 +19,11 @@ type Props = {
 const GameItem = ({ name, cover, developer, slug, price, id }: Props) => {
   const [isInTheCart, setIsInTheCart] = useState(false);
   const [cartButton, setCartButton] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
   const cart = useSelector((state: any) => state.cart);
   const cartItems = cart.items;
+  const favoritesItems = useSelector((state: any) => state.favorites);
+  const favorites = favoritesItems?.favorites;
 
   const developerName = developer;
 
@@ -26,12 +31,18 @@ const GameItem = ({ name, cover, developer, slug, price, id }: Props) => {
 
   useEffect(() => {
     const found = cartItems.find((item: any) => item.id === id);
+    const foundFavorite = favorites.find((item: any) => item._id === id);
     if (found) {
       setIsInTheCart(true);
     } else {
       setIsInTheCart(false);
     }
-  }, [cartItems, id, cartButton]);
+    if (foundFavorite) {
+      setIsFavorite(true);
+    } else {
+      setIsFavorite(false);
+    }
+  }, [cartItems, id, cartButton, favorites]);
 
   const handleAddToCart = () => {
     setCartButton(!cartButton);
@@ -41,6 +52,11 @@ const GameItem = ({ name, cover, developer, slug, price, id }: Props) => {
   const handleRemoveFromCart = () => {
     setCartButton(!cartButton);
     dispatch(removeFromCart(id));
+  };
+
+  const handleAddFavorite = () => {
+    fetchFavorites(id);
+    dispatch(setFavorite({ name, _id: id, price, cover, slug, developerName }));
   };
 
   return (
@@ -63,7 +79,17 @@ const GameItem = ({ name, cover, developer, slug, price, id }: Props) => {
           </p>
         </div>
         <div className="flex lg:flex-col md:space-x-2 items-center lg:items-end lg:pt-2 w-[30px] ">
-          <AiOutlineHeart className="hidden md:inline w-5 h-5 text-red-700" />
+          {isFavorite ? (
+            <AiFillHeart
+              className="hidden md:inline w-5 h-5 text-red-700 cursor-pointer"
+              onClick={handleAddFavorite}
+            />
+          ) : (
+            <AiOutlineHeart
+              className="hidden md:inline w-5 h-5 text-red-700 cursor-pointer"
+              onClick={handleAddFavorite}
+            />
+          )}
           <div className="lg:pt-4 lg:pb-1 flex items-center space-x-1">
             <p
               className="bg-[#3CD3C1] rounded-md text-sm font-semibold 

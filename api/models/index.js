@@ -7,3 +7,4 @@ require("./systemRequirement");
 require("./game");
 require("./highlight");
 require("./home");
+require("./favorite");

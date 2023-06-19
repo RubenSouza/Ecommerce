@@ -7,10 +7,23 @@ import Game from "./Game";
 import Favorites from "./Favorites";
 import Cart from "./Cart";
 import User from "./User";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useGetFavoritesQuery } from "../redux/services/games";
+import { useEffect } from "react";
+import { setFavorites } from "../redux/features/favorites";
 
 const Main = () => {
   const user = useSelector((state: any) => state.userLogged.user);
+
+  const { data: favorites, isLoading, error } = useGetFavoritesQuery("");
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (favorites) {
+      dispatch(setFavorites(favorites?.favorites?.games));
+    }
+  }, [favorites]);
 
   return (
     <div
