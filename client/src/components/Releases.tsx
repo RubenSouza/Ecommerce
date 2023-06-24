@@ -31,7 +31,7 @@ const Releases = () => {
   return (
     <div className="w-full px-4 xl:px-0 lg:w-[1024px] h-full flex flex-col">
       <Title title="New Releases" />
-      <div className="flex justify-between w-full h-[240px] md:h-[300px]">
+      <div className="flex justify-between w-full h-[250px] md:h-[300px]">
         {gamesList && <GameCarousel slides={gamesList} />}
       </div>
     </div>

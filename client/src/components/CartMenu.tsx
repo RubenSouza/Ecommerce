@@ -13,14 +13,14 @@ const CartMenu = () => {
 
   return (
     <div
-      className="absolute top-6 -right-12 flex items-center w-[350px] min-h-[100px] 
-      max-h-[350px] justify-center text-primary-110 text-xs bubble4 rounded-sm
-      font-bold bg-primary-450 z-50 "
+      className="absolute top-6 -right-2 lg:-right-12 flex items-center 
+      w-[350px] min-h-[100px] max-h-[350px] justify-center text-primary-110 
+      text-xs bubble4 rounded-sm font-bold bg-primary-450 z-50 "
     >
-      <div className="bg-primary-450  h-full w-full rounded-sm">
+      <div className="bg-primary-450 h-full w-full rounded-sm">
         <div
           className="p-4 py-5 space-y-4 h-full max-h-[300px] overflow-y-auto 
-          scrollbar-thin
+          lg:scrollbar-thin
         "
         >
           {cartItems.length > 0 ? (

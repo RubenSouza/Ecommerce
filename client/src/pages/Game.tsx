@@ -316,7 +316,7 @@ const Game = () => {
           <img src={popularBadge} className="w-full lg:w-[1100px]" />
         </div>
         <div
-          className="flex justify-between w-full h-[240px] md:h-[300px] 
+          className="flex justify-between w-full h-[250px] md:h-[300px] 
   px-4 xl:px-0"
         >
           {relatedGames && <GameCarousel slides={relatedGames} />}

@@ -15,14 +15,17 @@ const Success = () => {
   if (isLoading) return <ScreenLoading />;
 
   return (
-    <div className="w-full h-full flex flex-col items-center py-20 space-y-6">
+    <div
+      className="w-full h-full flex flex-col items-center 
+    py-20 space-y-6"
+    >
       <h1 className="text-2xl font-bold">Successful Purchase</h1>
       <div className="flex space-x-8 items-center justify-center">
-        <div className="w-[300px] bg-button-100/80 h-[1px]" />
+        <div className="w-[80px] md:w-[200px] lg:w-[300px] bg-button-100/80 h-[1px]" />
         <img src={successIcon} alt="successIcon" />
-        <div className="w-[300px] bg-button-100/80 h-[1px]" />
+        <div className="w-[80px] md:w-[200px] lg:w-[300px] bg-button-100/80 h-[1px]" />
       </div>
-      <div className="w-[450px] text-center">
+      <div className="w-[350px] md:w-[450px] text-center">
         <p>
           All your payment data will be sent to your e-mail. Go to{" "}
           <span className="font-bold text-button-100">
