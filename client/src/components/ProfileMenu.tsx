@@ -1,8 +1,5 @@
 import { BiUserCircle } from "react-icons/bi";
-import { FaCreditCard } from "react-icons/fa";
 import { GrUnorderedList } from "react-icons/gr";
-import { BsFillKeyFill } from "react-icons/bs";
-
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -36,25 +33,11 @@ const ProfileMenu = () => {
           <p>Profile</p>
         </NavLink>
         <NavLink
-          to={"/user/cards"}
-          className={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
-        >
-          <FaCreditCard className="w-5 h-5" />
-          <p>My Cards</p>
-        </NavLink>
-        <NavLink
           to={"/user/orders"}
           className={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
         >
           <GrUnorderedList className="w-5 h-5" />
           <p>My Orders</p>
-        </NavLink>
-        <NavLink
-          to={"/user/change-password"}
-          className={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
-        >
-          <BsFillKeyFill className="w-5 h-5" />
-          <p>Change password</p>
         </NavLink>
         <NavLink
           to={"/"}

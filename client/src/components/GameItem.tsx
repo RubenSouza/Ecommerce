@@ -30,8 +30,8 @@ const GameItem = ({ name, cover, developer, slug, price, id }: Props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const found = cartItems.find((item: any) => item.id === id);
-    const foundFavorite = favorites.find((item: any) => item._id === id);
+    const found = cartItems?.find((item: any) => item.id === id);
+    const foundFavorite = favorites?.find((item: any) => item._id === id);
     if (found) {
       setIsInTheCart(true);
     } else {

@@ -8,3 +8,4 @@ require("./game");
 require("./highlight");
 require("./home");
 require("./favorite");
+require("./order");

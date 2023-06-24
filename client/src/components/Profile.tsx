@@ -1,7 +1,14 @@
+import { useSelector } from "react-redux";
 import Button from "./Button";
-import { Subtitle } from "./SubTitle";
+import { Subtitle } from "./Subtitle";
 
 const Profile = () => {
+  const user = useSelector((state: any) => state.userLogged.user);
+  const jsonUser = JSON.parse(user);
+
+  const userName = jsonUser.username;
+  const userEmail = jsonUser.email;
+
   return (
     <div className="w-full h-full flex flex-col">
       <Subtitle title="Profile" />
@@ -12,13 +19,13 @@ const Profile = () => {
         >
           <div className="w-full space-y-1">
             <label htmlFor="name" className="text-sm  text-primary-200">
-              Complete Name
+              Username
             </label>
             <input
               type="text"
               name="name"
               id="name"
-              placeholder="Rúben Eliel Oliveira Souza"
+              placeholder={userName}
               autoComplete="off"
               className="w-full border rounded-sm py-3 text-primary-700 placeholder:text-primary-200"
             />
@@ -31,7 +38,7 @@ const Profile = () => {
               type="text"
               name="email"
               id="email"
-              placeholder="emailteste@gmail.com"
+              placeholder={userEmail}
               disabled={true}
               className="w-full border rounded-sm py-3 bg-primary-150 cursor-not-allowed"
             />

@@ -14,7 +14,8 @@
     "mongoose": "^7.1.0",
     "mongoose-aggregate-paginate-v2": "^1.0.6",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "stripe": "^12.9.0"
   },
   "scripts": {
     "dev": "nodemon server.js"

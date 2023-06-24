@@ -1,11 +1,12 @@
 import GameItem from "../components/GameItem";
-import popularBadge from "../assets/popularBadge.svg";
 import { Title } from "../components/Title";
 import { useSelector } from "react-redux";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import ScreenLoading from "../components/ScreenLoading";
 
 const Favorites = () => {
   const favoritesList = useSelector((state: any) => state.favorites.favorites);
+  const [isLoading, setIsLoading] = useState(true);
 
   const favorites = favoritesList?.map((game: any) => (
     <GameItem
@@ -31,6 +32,14 @@ const Favorites = () => {
     scrollToStart();
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
+
+  if (isLoading) return <ScreenLoading />;
+
   return (
     <div className="flex flex-col items-center py-10">
       <div className="absolute -top-20 h-2" ref={favoritesRef} />
@@ -44,20 +53,6 @@ const Favorites = () => {
             {favorites}
           </div>
         </div>
-        <div className="w-full h-[2px] bg-primary-460 my-16" />
-        {/* <div className="w-full space-y-4">
-          <Title title="You may also like" />
-          <div className="w-full">
-            <img src={popularBadge} className="w-full" />
-          </div>
-          <div>
-            <div
-              className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4
-              xl:grid-cols-5 gap-5 md:gap-10 lg:gap-x-10 lg:gap-y-5"
-            >
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   );

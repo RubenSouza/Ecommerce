@@ -2,13 +2,12 @@ import { Route, Routes } from "react-router-dom";
 import ProfileMenu from "../components/ProfileMenu";
 import { Title } from "../components/Title";
 import Profile from "../components/Profile";
-import MyCards from "../components/MyCards";
-import Passowrd from "../components/Password";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import ScreenLoading from "../components/ScreenLoading";
 
 const User = () => {
   const cartRef = useRef<HTMLDivElement>(null);
-
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const scrollToStart = () => {
       if (cartRef.current) {
@@ -18,6 +17,14 @@ const User = () => {
 
     scrollToStart();
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
+
+  if (isLoading) return <ScreenLoading />;
 
   return (
     <div className="w-full flex justify-center items-center py-10 px-5">
@@ -34,8 +41,6 @@ const User = () => {
             <div className="p-4">
               <Routes>
                 <Route path="/" element={<Profile />} />
-                <Route path="/cards" element={<MyCards />} />
-                <Route path="/change-password" element={<Passowrd />} />
               </Routes>
             </div>
           </div>

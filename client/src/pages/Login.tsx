@@ -54,7 +54,9 @@ const Login = () => {
             className="flex flex-col space-y-2 justify-center items-center 
           h-full w-full px-8 pt-8"
           >
-            <Logo className="w-38" />
+            <Link to={"/"}>
+              <Logo className="w-38" />
+            </Link>
             <h1 className="text-[33px] font-bold py-3">
               Login to Your Account
             </h1>

@@ -28,7 +28,7 @@ const Register = () => {
       );
 
       if (fetchUser) {
-        window.location.href = "/";
+        window.location.href = "/login";
       }
     } catch (error: any) {
       toast.error(error.response.data);

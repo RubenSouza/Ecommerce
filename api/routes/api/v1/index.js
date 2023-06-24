@@ -11,5 +11,6 @@ router.use("/populate", require("./populate"));
 router.use("/highlights", require("./highlights"));
 router.use("/home", require("./home"));
 router.use("/favorites", require("./favorites"));
+router.use("/orders", require("./orders"));
 
 module.exports = router;

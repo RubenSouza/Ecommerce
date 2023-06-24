@@ -157,7 +157,9 @@ const NavBar = () => {
             )}
           </div>
           <div className="flex space-x-4 items-center justify-center">
-            <AiOutlineSearch className="w-6 h-6" />
+            <Link to={"/explorer"}>
+              <AiOutlineSearch className="w-6 h-6" />
+            </Link>
             <div className="relative">
               <MdOutlineShoppingCart
                 className="w-6 h-6 cursor-pointer"
