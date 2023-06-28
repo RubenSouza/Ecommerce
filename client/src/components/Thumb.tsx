@@ -1,7 +1,6 @@
 import Button from "./Button";
 import { Link } from "react-router-dom";
 import Badge from "./badge";
-const LOCAL_URL = import.meta.env.VITE_LOCAL_URL;
 
 type Props = {
   title: string;
@@ -44,7 +43,7 @@ const Thumb = ({
             <p className="pt-2">{description.substring(0, 70)}</p>
           </div>
           <div className="w-[150px] py-3">
-            <Link to={LOCAL_URL + link}>
+            <Link to={link}>
               <Button className="w-full h-[48px]" content="Buy Now" />
             </Link>
           </div>
