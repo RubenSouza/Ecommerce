@@ -9,12 +9,7 @@ type Props = {
 };
 
 const CartMenuItem = ({ id }: Props) => {
-  const {
-    data: gameData,
-    isLoading,
-    isFetching,
-    isError,
-  } = useGetGameQuery({ gameId: id });
+  const { data: gameData } = useGetGameQuery({ gameId: id });
 
   const game = gameData?.game;
 
