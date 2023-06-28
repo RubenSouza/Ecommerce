@@ -43,8 +43,8 @@ const Login = () => {
     <div className="h-screen">
       <div className="flex justify-center items-center h-full ">
         <div
-          className="bg-primary-450 h-[580px] w-[450px] z-20 rounded-lg
-        shadow-lg shadow-black "
+          className="bg-primary-450 h-[580px] w-[350px] md:w-[450px] 
+          z-20 rounded-lg shadow-lg shadow-black "
         >
           <div
             className="flex flex-col space-y-2 justify-center items-center 
@@ -53,19 +53,24 @@ const Login = () => {
             <Link to={"/"}>
               <Logo className="w-38" />
             </Link>
-            <h1 className="text-[33px] font-bold py-3">
+            <h1
+              className="text-[28px] text-center md:text-[33px] 
+            md:text-left font-bold py-3"
+            >
               Login to Your Account
             </h1>
             <form onSubmit={handleSubmit}>
               <input
-                className="w-full h-14 rounded-lg mb-3 p-6  shadow-md bg-primary-600"
+                className="w-full h-14 rounded-lg mb-3 p-6 text-sm md:text-base
+                shadow-md bg-primary-600"
                 placeholder="Email"
                 required={true}
                 type="email"
                 onChange={e => setEmail(e.target.value)}
               />
               <input
-                className="w-full h-14 rounded-lg mb-3 p-6  shadow-md bg-primary-600"
+                className="w-full h-14 rounded-lg mb-3 p-6 text-sm md:text-base
+                 shadow-md bg-primary-600"
                 placeholder="Password"
                 required={true}
                 type="password"
@@ -81,9 +86,13 @@ const Login = () => {
               </button>
             </form>
             <div className="flex space-x-2 pb-3 py-3">
-              <p className="text-gray-500 text-md">Not a member yet?</p>
+              <p className="text-gray-500 text-[15px] md:text-md">
+                Not a member yet?
+              </p>
               <Link to={"/register"}>
-                <p className="underline text-md text-bold">Register Now</p>
+                <p className="underline text-[15px] md:text-md font-bold">
+                  Register Now
+                </p>
               </Link>
             </div>
             <div className="flex text-gray-500 justify-between w-full text-sm pt-5">
