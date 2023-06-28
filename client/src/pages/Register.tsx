@@ -11,6 +11,7 @@ const Register = () => {
   const [username, setUsername] = useState<string>();
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
+  const URL = import.meta.env.VITE_PUBLIC_API_URL as string;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,10 +23,7 @@ const Register = () => {
     };
 
     try {
-      const fetchUser = await axios.post(
-        `${import.meta.env.BASE_URL}/v1/api/users/register`,
-        registerData
-      );
+      const fetchUser = await axios.post(`${URL}/users/register`, registerData);
 
       if (fetchUser) {
         window.location.href = "/login";

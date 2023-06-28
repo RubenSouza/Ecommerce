@@ -25,17 +25,23 @@ const favoritesSlice = createSlice({
     },
     setFavorite: (state, action) => {
       const { _id, name, slug, cover, price } = action.payload;
-      const existingFavoriteIndex = state.favorites.findIndex(
-        favorite => favorite._id === _id
-      );
 
-      if (existingFavoriteIndex !== -1) {
-        // Jogo já faz parte da lista de favoritos, remover da lista
-        state.favorites.splice(existingFavoriteIndex, 1);
-      } else {
-        // Jogo não está na lista de favoritos, adicionar à lista
+      if (state.favorites.length === 0) {
         const favorite = { _id, name, slug, cover, price };
         state.favorites.push(favorite);
+      } else {
+        const existingFavoriteIndex = state.favorites.findIndex(
+          favorite => favorite._id === _id
+        );
+
+        if (existingFavoriteIndex !== -1) {
+          // Jogo já faz parte da lista de favoritos, remover da lista
+          state.favorites.splice(existingFavoriteIndex, 1);
+        } else {
+          // Jogo não está na lista de favoritos, adicionar à lista
+          const favorite = { _id, name, slug, cover, price };
+          state.favorites.push(favorite);
+        }
       }
     },
   },

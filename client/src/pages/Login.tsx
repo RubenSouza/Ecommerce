@@ -10,10 +10,9 @@ import { useSelector, useDispatch } from "react-redux";
 const Login = () => {
   const dispatch = useDispatch();
   const user = useSelector((state: any) => state.userLogged.user);
-  const token = user?.accessToken;
-  console.log(token);
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
+  const URL = import.meta.env.VITE_PUBLIC_API_URL as string;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -24,10 +23,7 @@ const Login = () => {
     };
 
     try {
-      const fetchUserLogin = await axios.post(
-        `${import.meta.env.BASE_URL}/v1/api/users/login`,
-        userData
-      );
+      const fetchUserLogin = await axios.post(`${URL}/users/login`, userData);
       if (fetchUserLogin) {
         dispatch(setUser(fetchUserLogin.data));
         window.location.href = "/";
