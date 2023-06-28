@@ -3,11 +3,12 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const user = localStorage.getItem("user");
 const jsonUser = user ? JSON.parse(user) : null;
 const accessToken = jsonUser?.accessToken.toString();
+const URL = import.meta.env.VITE_PUBLIC_API_URL;
 
 export const gameApi = createApi({
   reducerPath: "gameApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3001/v1/api",
+    baseUrl: URL,
     prepareHeaders: headers => {
       headers.set("Authorization", `Bearer ${accessToken}`);
 
