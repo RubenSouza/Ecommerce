@@ -31,6 +31,7 @@ const Home = () => {
     };
     scrollToStart();
   }, []);
+
   if (isLoading || isFetching) return <ScreenLoading />;
 
   return (

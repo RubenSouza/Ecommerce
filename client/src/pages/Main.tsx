@@ -18,10 +18,12 @@ const Main = () => {
 
   const { data: favorites } = useGetFavoritesQuery("");
 
+  console.log(favorites);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (favorites) {
+    if (favorites && favorites?.favorites?.games) {
       dispatch(setFavorites(favorites?.favorites?.games));
     }
   }, [favorites]);

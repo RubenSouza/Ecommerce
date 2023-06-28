@@ -19,7 +19,6 @@ function App() {
 
       if (decodedToken.exp * 1000 < Date.now()) {
         localStorage.removeItem("user");
-        window.location.href = "/";
       }
     }
   }, [user, isLoading]);
@@ -29,7 +28,7 @@ function App() {
     return (
       <div
         className="w-full bg-primary-500 text-primary-100 overflow-x-hidden h-screen
-        scrollbar-none lg:scrollbar-thin overflow-y-scroll  scrollbar-track-gray-400/40
+        scrollbar-none lg:scrollbar-thin overflow-y-scroll scrollbar-track-gray-400/40
       scrollbar-thumb-[#F7AB0A]/80
       "
       >

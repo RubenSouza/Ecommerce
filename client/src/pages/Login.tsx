@@ -1,6 +1,6 @@
 import toast, { Toaster } from "react-hot-toast";
 import waves from "../assets/waves.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Logo from "../components/Logo";
@@ -13,7 +13,6 @@ const Login = () => {
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
   const URL = import.meta.env.VITE_PUBLIC_API_URL as string;
-  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -27,7 +26,7 @@ const Login = () => {
       const fetchUserLogin = await axios.post(`${URL}/users/login`, userData);
       if (fetchUserLogin) {
         dispatch(setUser(fetchUserLogin.data));
-        navigate("/");
+        window.location.href = "/";
       }
     } catch (error: any) {
       toast.error(error.response.data);
