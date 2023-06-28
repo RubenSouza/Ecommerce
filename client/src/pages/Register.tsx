@@ -23,7 +23,7 @@ const Register = () => {
 
     try {
       const fetchUser = await axios.post(
-        "http://localhost:3001/v1/api/users/register",
+        `${import.meta.env.BASE_URL}/v1/api/users/register`,
         registerData
       );
 

@@ -25,7 +25,7 @@ const Login = () => {
 
     try {
       const fetchUserLogin = await axios.post(
-        "http://localhost:3001/v1/api/users/login",
+        `${import.meta.env.BASE_URL}/v1/api/users/login`,
         userData
       );
       if (fetchUserLogin) {
