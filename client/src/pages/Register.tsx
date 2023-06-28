@@ -52,7 +52,9 @@ const Register = () => {
             className="flex flex-col space-y-1 justify-center items-center 
           h-full w-full px-8"
           >
-            <Logo className="w-38" />
+            <Link to={"/"}>
+              <Logo className="w-38" />
+            </Link>
             <h1 className="text-[33px] font-bold py-3">Create Your Account</h1>
             <form onSubmit={handleSubmit}>
               <input
