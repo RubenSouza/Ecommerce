@@ -6,6 +6,8 @@ const morgan = require("morgan");
 const cors = require("cors");
 const helmet = require("helmet");
 
+const PORT = process.env.PORT || 3001;
+
 //Start express
 
 const app = express();
@@ -58,7 +60,7 @@ app.use("/", require("./routes"));
 
 //APP Listen
 
-app.listen(3001, error => {
+app.listen(PORT, error => {
   if (error) throw error;
-  console.log(`Server is working in http://localhost:${3001}`);
+  console.log(`Server is working in http://localhost:${PORT}`);
 });

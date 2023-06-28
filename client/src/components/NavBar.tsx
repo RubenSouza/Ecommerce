@@ -185,7 +185,7 @@ const NavBar = () => {
             </div>
             {/* </Link> */}
             {user ? (
-              <div className=" hidden lg:flex flex-col relative" id="userMenu">
+              <div className=" hidden md:flex flex-col relative" id="userMenu">
                 <div
                   className="hidden md:flex space-x-1 items-center 
                 justify-center cursor-pointer w-full max-w-[200px]"
@@ -233,7 +233,7 @@ const NavBar = () => {
                 )}
               </div>
             ) : (
-              <div className="hidden lg:inline">
+              <div className="hidden md:inline">
                 <Link to={"/login"}>
                   <Button className="w-[107px] h-[40px]" content="Sign In" />
                 </Link>
