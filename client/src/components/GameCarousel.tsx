@@ -9,6 +9,7 @@ import "swiper/css/navigation";
 
 // import required modules
 
+//@ts-expect-error - Swiper is not a module
 import { Pagination } from "swiper";
 
 export default function GameCarousel(props: any) {

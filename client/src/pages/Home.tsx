@@ -1,15 +1,13 @@
-// import imageTeste from "../assets/imageTeste.svg";
-
 import Releases from "../components/Releases";
 import HomeCarousel from "../components/HomeCarousel";
 import Thumb from "../components/Thumb";
 import { useGetHomeQuery } from "../redux/services/games";
 import PublisherSection from "../components/PublisherSection";
 import ScreenLoading from "../components/ScreenLoading";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const Home = () => {
-  const { data: home, isLoading, isFetching, isError } = useGetHomeQuery("");
+  const { data: home, isLoading, isFetching } = useGetHomeQuery("");
 
   const slides = home?.home?.highlights?.map((highlight: any) => (
     <Thumb
@@ -28,7 +26,7 @@ const Home = () => {
   useEffect(() => {
     const scrollToStart = () => {
       if (startRef.current) {
-        startRef.current.scrollIntoView({ behavior: "instant" });
+        startRef.current.scrollIntoView({ behavior: "auto" });
       }
     };
     scrollToStart();

@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import { BsFillCartPlusFill } from "react-icons/bs";
 import GalleryCarousel from "../components/GalleryCarousel";
 import GameItem from "../components/GameItem";
 import GameCarousel from "../components/GameCarousel";
@@ -29,7 +28,6 @@ const Game = () => {
     data: gameData,
     isLoading,
     isFetching,
-    isError,
   } = useGetGameQuery({ gameId: id });
 
   const relatedCategory =
@@ -41,7 +39,6 @@ const Game = () => {
     data: relatedGamesData,
     isLoading: relatedGamesIsLoading,
     isFetching: relatedGamesIsFetching,
-    isError: relatedGamesIsError,
   } = useGetCategoryGamesQuery({
     categoryId: relatedCategory,
     pageId: page,
@@ -53,7 +50,7 @@ const Game = () => {
   useEffect(() => {
     const scrollToStart = () => {
       if (gameRef.current) {
-        gameRef.current.scrollIntoView({ behavior: "instant" });
+        gameRef.current.scrollIntoView({ behavior: "auto" });
       }
     };
 

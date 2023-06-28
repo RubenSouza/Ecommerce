@@ -14,7 +14,6 @@ const GamesExplorerContent = () => {
     data: games,
     isLoading,
     isFetching,
-    isError,
   } = useGetGamesQuery({ pageId: page, sort: sort, price });
 
   const explorerRef = useRef<HTMLDivElement>(null);

@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Home from "./Home";
@@ -7,20 +7,16 @@ import Game from "./Game";
 import Favorites from "./Favorites";
 import Cart from "./Cart";
 import User from "./User";
+import Success from "./Success";
 import { useDispatch, useSelector } from "react-redux";
 import { useGetFavoritesQuery } from "../redux/services/games";
 import { useEffect } from "react";
 import { setFavorites } from "../redux/features/favorites";
-import Success from "./Success";
 
 const Main = () => {
   const user = useSelector((state: any) => state.userLogged.user);
 
-  const {
-    data: favorites,
-    isLoading: isFavoritesLoading,
-    error,
-  } = useGetFavoritesQuery("");
+  const { data: favorites } = useGetFavoritesQuery("");
 
   const dispatch = useDispatch();
 

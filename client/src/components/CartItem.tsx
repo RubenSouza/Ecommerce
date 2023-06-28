@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { FaTrashAlt } from "react-icons/fa";
 import { useGetGameQuery } from "../redux/services/games";
 import { removeFromCart, updateCartItemPrice } from "../redux/features/cart";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,12 +9,7 @@ type Props = {
 };
 
 const CartItem = ({ id }: Props) => {
-  const {
-    data: gameData,
-    isLoading,
-    isFetching,
-    isError,
-  } = useGetGameQuery({ gameId: id });
+  const { data: gameData } = useGetGameQuery({ gameId: id });
 
   const game = gameData?.game;
 
@@ -57,7 +51,6 @@ const CartItem = ({ id }: Props) => {
               {`$${game?.price?.toFixed(2)}`}
             </p>
           </div>
-          {/* <FaTrashAlt className="w-4 h-4" onClick={handleRemoveFromCart} /> */}
           <p
             className="text-button-100 text-[11px] font-light cursor-pointer h-full flex items-center justify-center"
             onClick={handleRemoveFromCart}

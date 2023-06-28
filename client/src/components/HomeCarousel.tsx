@@ -11,6 +11,7 @@ import "swiper/css/navigation";
 
 // import required modules
 
+//@ts-expect-error - Swiper is not a module
 import { Autoplay, Pagination, Navigation } from "swiper";
 
 export default function HomeCarousel(props: any) {

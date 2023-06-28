@@ -15,7 +15,6 @@ const CategoryExplorerContent = () => {
     data: games,
     isLoading,
     isFetching,
-    isError,
   } = useGetCategoryGamesQuery({
     categoryId: genre,
     pageId: page,

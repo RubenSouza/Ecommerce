@@ -10,7 +10,6 @@ import { useSelector } from "react-redux";
 function App() {
   const user = useSelector((state: any) => state.userLogged.user);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [isLogged, setIsLogged] = useState<boolean>(false);
 
   useEffect(() => {
     setIsLoading(false);
@@ -21,12 +20,7 @@ function App() {
       if (decodedToken.exp * 1000 < Date.now()) {
         localStorage.removeItem("user");
         window.location.href = "/";
-        setIsLogged(false);
       }
-
-      setIsLogged(true);
-    } else {
-      setIsLogged(false);
     }
   }, [user, isLoading]);
 

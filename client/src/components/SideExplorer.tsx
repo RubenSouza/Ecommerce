@@ -20,7 +20,7 @@ const SideExplorer = () => {
   const firstGenre = searchParams.get("genre");
   const firstPrice = searchParams.get("price");
 
-  const { data: categories, isLoading, isError } = useGetCategoriesQuery("");
+  const { data: categories, isLoading } = useGetCategoriesQuery("");
 
   const categoriesList = categories?.category
     .slice(0, 17)

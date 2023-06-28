@@ -31,7 +31,7 @@ const Cart = () => {
   useEffect(() => {
     const scrollToStart = () => {
       if (cartRef.current) {
-        cartRef.current.scrollIntoView({ behavior: "instant" });
+        cartRef.current.scrollIntoView({ behavior: "auto" });
       }
     };
 

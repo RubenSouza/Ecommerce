@@ -2,19 +2,15 @@ import GameItem from "./GameItem";
 import GameCarousel from "./GameCarousel";
 import { Title } from "./Title";
 import { useGetGamesQuery } from "../redux/services/games";
-import ScreenLoading from "./ScreenLoading";
 
 const Releases = () => {
-  const {
-    data: gamesData,
-    isLoading: gamesIsLoading,
-    isFetching: gamesIsFetching,
-    isError: gamesIsError,
-  } = useGetGamesQuery({ pageId: 1, sort: "release-date", price: "" });
+  const { data: gamesData } = useGetGamesQuery({
+    pageId: 1,
+    sort: "release-date",
+    price: "",
+  });
 
   const games = gamesData?.games.docs.slice(0, 10);
-
-  // if (gamesIsLoading || gamesIsFetching) return <ScreenLoading />;
 
   const gamesList = games?.map((game: any) => (
     <GameItem

@@ -14,7 +14,6 @@ const GamesSearched = () => {
     data: games,
     isLoading,
     isFetching,
-    isError,
   } = useGetSearchedGamesQuery({ pageId: page, sort: sort, search });
 
   const explorerRef = useRef<HTMLDivElement>(null);

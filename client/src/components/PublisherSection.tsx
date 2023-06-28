@@ -14,7 +14,6 @@ const PublisherSection = ({ publisherId, title }: Props) => {
     data: gamesData,
     isLoading,
     isFetching,
-    isError,
   } = useGetPublisherGamesQuery({ publisherId });
 
   if (isLoading || isFetching) return <ScreenLoading />;

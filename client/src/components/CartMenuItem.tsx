@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { FaTrashAlt } from "react-icons/fa";
 import { useGetGameQuery } from "../redux/services/games";
 import { removeFromCart, updateCartItemPrice } from "../redux/features/cart";
 import { useDispatch, useSelector } from "react-redux";

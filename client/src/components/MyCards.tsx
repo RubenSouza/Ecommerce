@@ -1,5 +1,5 @@
 import ProfileCardItem from "./ProfileCardItem";
-import { Subtitle } from "./SubTitle";
+import { Subtitle } from "./Subtitle";
 
 const MyCards = () => {
   return (

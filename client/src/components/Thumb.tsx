@@ -1,4 +1,3 @@
-import badgeImg from "../assets/badge.svg";
 import Button from "./Button";
 import { Link } from "react-router-dom";
 import Badge from "./badge";

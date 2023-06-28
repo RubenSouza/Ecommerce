@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import SearchBar from "../components/SearchBar";
 import SideExplorer from "../components/SideExplorer";
 import { IoFilter } from "react-icons/io5";
 import { AiOutlineClose } from "react-icons/ai";
 import GamesExplorerContent from "../components/GamesExplorerContent";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import CategoryExplorerContent from "../components/CategoryExplorerContent";
 import GamesSearched from "../components/GamesSearched";
 

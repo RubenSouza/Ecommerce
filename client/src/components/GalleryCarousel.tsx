@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import ModalImage from "react-modal-image";
+import { useState } from "react";
 
 // Import Swiper React components
 
@@ -12,8 +11,8 @@ import "swiper/css/navigation";
 
 // import required modules
 
+//@ts-expect-error - Swiper is not a module
 import { Pagination } from "swiper";
-import { AiOutlineClose } from "react-icons/ai";
 
 export default function GalleryCarousel(props: any) {
   const [activeIndex, setActiveIndex] = useState(0);

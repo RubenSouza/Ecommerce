@@ -1,20 +1,17 @@
-import popularBadge from "../assets/popularBadge.svg";
-import GameCarousel from "./GameCarousel";
-import GameItem from "./GameItem";
 import PopularBanner from "./PopularBanner";
 import { Title } from "./Title";
 
 const MostPopulars = () => {
-  const games = [
-    // <GameItem />,
-    // <GameItem />,
-    // <GameItem />,
-    // <GameItem />,
-    // <GameItem />,
-    // <GameItem />,
-    // <GameItem />,
-    // <GameItem />,
-  ];
+  // const games = [
+  //   <GameItem />,
+  //   <GameItem />,
+  //   <GameItem />,
+  //   <GameItem />,
+  //   <GameItem />,
+  //   <GameItem />,
+  //   <GameItem />,
+  //   <GameItem />,
+  // ];
 
   return (
     <div className="w-full  lg:w-[1024px] h-full flex flex-col">

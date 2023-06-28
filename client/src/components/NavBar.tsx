@@ -5,7 +5,7 @@ import { AiOutlineClose, AiOutlineHeart } from "react-icons/ai";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { BiUserCircle } from "react-icons/bi";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "./Button";
 import { useSelector, useDispatch } from "react-redux";
 import { setUser } from "../redux/features/userLogged";

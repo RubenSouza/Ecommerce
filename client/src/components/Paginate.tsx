@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -20,6 +20,7 @@ export default function BasicPagination({ totalPages }: Props) {
     event: React.ChangeEvent<unknown>,
     page: number
   ) => {
+    event.preventDefault();
     searchParams.set("page", page.toString());
     navigate({ search: searchParams.toString() });
   };
