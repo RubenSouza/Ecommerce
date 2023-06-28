@@ -18,8 +18,6 @@ const Main = () => {
 
   const { data: favorites } = useGetFavoritesQuery("");
 
-  console.log(favorites);
-
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -41,12 +41,12 @@ const Favorites = () => {
   return (
     <div className="flex flex-col items-center py-10 px-5">
       <div className="absolute -top-20 h-2" ref={favoritesRef} />
-      <div className="w-full xl:w-[1400px]">
+      <div className="w-full max-w-[1400px] h-full flex">
         <div className="w-full space-y-4">
           <Title title="Favorites" />
           <div
-            className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 
-            xl:grid-cols-5 gap-5 md:gap-10 lg:gap-x-10 lg:gap-y-5"
+            className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 
+            lg:grid-cols-4 xl:grid-cols-5 gap-5 md:gap-5 xl:gap-x-0"
           >
             {favorites}
           </div>

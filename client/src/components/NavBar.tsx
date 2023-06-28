@@ -187,9 +187,8 @@ const NavBar = () => {
                 </div>
               )}
             </div>
-            {/* </Link> */}
             {user ? (
-              <div className=" hidden md:flex flex-col relative" id="userMenu">
+              <div className="hidden md:flex flex-col relative" id="userMenu">
                 <div
                   className="hidden md:flex space-x-1 items-center 
                 justify-center cursor-pointer w-full max-w-[200px]"
@@ -207,7 +206,7 @@ const NavBar = () => {
                     />
                     <div
                       className=" bg-primary-700 rounded-md shadow-sm shadow-gray-800 hidden
-                     absolute top-10 -right-6 lg:flex flex-col justify-center items-center 
+                     absolute top-10 -right-4 lg:-right-6 sm:flex flex-col justify-center items-center 
                      text-primary-100 font-semibold text-sm space-y-3 bubble bubble3 menuButton"
                       onClick={() => setIsUserMenuOpen(false)}
                     >
