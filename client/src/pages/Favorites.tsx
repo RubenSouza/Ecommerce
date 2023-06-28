@@ -33,17 +33,17 @@ const Favorites = () => {
   }, []);
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
+    // setTimeout(() => {
+    setIsLoading(false);
+    // }, 1000);
   }, []);
 
   if (isLoading) return <ScreenLoading />;
 
   return (
-    <div className="flex flex-col items-center py-10">
+    <div className="flex flex-col items-center py-10 px-5">
       <div className="absolute -top-20 h-2" ref={favoritesRef} />
-      <div className="w-full xl:w-[1400px] px-5 ">
+      <div className="w-full xl:w-[1400px]">
         <div className="w-full space-y-4">
           <Title title="Favorites" />
           <div

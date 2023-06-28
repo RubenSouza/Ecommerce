@@ -21,8 +21,8 @@ const Thumb = ({
 }: Props) => {
   return (
     <div
-      className="flex w-full md:w-[1024px] md:min-h-[580px] md:h-[580px] md:max-h-[580px] items-center 
-    justify-center px-5 xl:px-0"
+      className="flex w-full md:w-[1024px] md:min-h-[580px] 
+      md:h-[580px] md:max-h-[580px] items-center justify-center px-5 xl:px-0"
     >
       <div className="w-full h-full relative">
         <img
@@ -31,22 +31,24 @@ const Thumb = ({
           className="rounded-md w-full h-full object-cover"
         />
 
-        <div className="absolute w-full h-full top-0 ">
+        <div className="sm:absolute w-full h-full top-0 ">
           <Badge badge={badge} badgeColor={badgeColor} />
         </div>
         <div
-          className="bg-slate-950 md:absolute bottom-0 right-0 left-0 md:bg-primary-700/80 md:h-[170px] 
-        h-[200px] px-10 pt-6 "
+          className="bg-slate-950 md:absolute bottom-0 right-0 left-0 
+          md:bg-primary-700/80 md:h-[170px] h-[200px] px-10 pt-6 "
         >
           <div className="w-full ">
-            <h3 className="text-xl font-bold">{title}</h3>
-            <p className="pt-2">{description.substring(0, 70)}</p>
+            <h3 className="text-lg lg:text-xl font-bold">{title}</h3>
+            <p className="pt-2 text-sm lg:text-base ">
+              {description.substring(0, 70)}
+            </p>
           </div>
-          <div className="w-[150px] py-3">
-            <Link to={link}>
+          <Link to={link}>
+            <div className="w-[150px] py-3">
               <Button className="w-full h-[48px]" content="Buy Now" />
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

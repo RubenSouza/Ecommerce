@@ -138,15 +138,19 @@ const NavBar = () => {
                             content="Sign In"
                           />
                         </Link>
-                        <div className="text-sm flex items-center justify-center w-full my-2">
+                        <div
+                          className="text-sm flex items-center justify-center w-full
+                        my-2"
+                        >
                           <p>OR</p>
                         </div>
                         <Link to={"/register"}>
                           <div
-                            className="text-sm w-full flex items-center justify-center font-bold text-[#F231A5]
-                        underline"
+                            className="text-sm w-full flex flex-col items-center justify-center 
+                            font-bold text-[#F231A5] space-y-[2px]"
                           >
                             <p>Register your account</p>
+                            <div className="bg-[#F231A5] h-[2px] w-[150px]" />
                           </div>
                         </Link>
                       </div>
