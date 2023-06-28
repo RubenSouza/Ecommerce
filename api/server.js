@@ -6,11 +6,13 @@ const morgan = require("morgan");
 const cors = require("cors");
 const helmet = require("helmet");
 
-const PORT = process.env.PORT || 3001;
-
 //Start express
 
 const app = express();
+
+//PORT
+
+const PORT = process.env.PORT || 3001;
 
 //.Env files
 
@@ -18,15 +20,28 @@ dotenv.config();
 
 //Mongo DB connection
 
-mongoose
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Db connection is working!"))
-  .catch(error => {
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("Db connection is working!");
+  } catch (error) {
     console.log("Error: ", error);
-  });
+    process.exit(1);
+  }
+};
+
+// mongoose
+//   .connect(process.env.MONGO_URL, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
+//   .then(() => console.log("Db connection is working!"))
+//   .catch(error => {
+//     console.log("Error: ", error);
+//   });
 
 // JSON
 
@@ -60,7 +75,14 @@ app.use("/", require("./routes"));
 
 //APP Listen
 
-app.listen(PORT, error => {
-  if (error) throw error;
-  console.log(`Server is working in http://localhost:${PORT}`);
+connectDB().then(() => {
+  app.listen(PORT, error => {
+    if (error) throw error;
+    console.log(`Server is working in http://localhost:${PORT}`);
+  });
 });
+
+// app.listen(PORT, error => {
+//   if (error) throw error;
+//   console.log(`Server is working in http://localhost:${PORT}`);
+// });
