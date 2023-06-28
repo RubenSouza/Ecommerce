@@ -33,9 +33,7 @@ const Favorites = () => {
   }, []);
 
   useEffect(() => {
-    // setTimeout(() => {
     setIsLoading(false);
-    // }, 1000);
   }, []);
 
   if (isLoading) return <ScreenLoading />;

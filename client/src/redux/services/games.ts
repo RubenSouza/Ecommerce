@@ -18,21 +18,21 @@ export const gameApi = createApi({
   endpoints: builder => ({
     getGames: builder.query({
       query: ({ pageId, sort, price }) =>
-        `/games/?page=${pageId}&sort=${sort}&price=${price}`,
+        `/games?page=${pageId}&sort=${sort}&price=${price}`,
     }),
     getGame: builder.query({
       query: ({ gameId }) => `/games/${gameId}`,
     }),
     getCategoryGames: builder.query({
       query: ({ categoryId, pageId, sort, price }) =>
-        `/categories/${categoryId}/games/?page=${pageId}&sort=${sort}&price=${price}`,
+        `/categories/${categoryId}/games?page=${pageId}&sort=${sort}&price=${price}`,
     }),
     getCategories: builder.query({
       query: () => "/categories",
     }),
     getSearchedGames: builder.query({
       query: ({ pageId, sort, search }) =>
-        `/games/search/?page=${pageId}&sort=${sort}&search=${search}`,
+        `/games/search?page=${pageId}&sort=${sort}&search=${search}`,
     }),
     getHome: builder.query({
       query: () => "/home/64807865637402416a785273",
