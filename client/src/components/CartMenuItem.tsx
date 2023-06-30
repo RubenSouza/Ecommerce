@@ -3,13 +3,14 @@ import { useGetGameQuery } from "../redux/services/games";
 import { removeFromCart, updateCartItemPrice } from "../redux/features/cart";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { setLoading } from "../redux/features/cartMenuLoading";
 
 type Props = {
   id: string;
 };
 
 const CartMenuItem = ({ id }: Props) => {
-  const { data: gameData } = useGetGameQuery({ gameId: id });
+  const { data: gameData, isLoading } = useGetGameQuery({ gameId: id });
 
   const game = gameData?.game;
 
@@ -22,11 +23,18 @@ const CartMenuItem = ({ id }: Props) => {
   const cart = useSelector((state: any) => state.cart);
 
   useEffect(() => {
+    if (isLoading) {
+      dispatch(setLoading(true));
+    } else {
+      dispatch(setLoading(false));
+    }
+  }, [isLoading, dispatch]);
+
+  useEffect(() => {
     const cartItem = cart.items.find((item: any) => item.id === id);
     const backendPrice = game?.price;
 
     if (cartItem && backendPrice && cartItem.price !== backendPrice) {
-      // Atualize o preço no carrinho
       dispatch(updateCartItemPrice({ id, price: backendPrice }));
     }
   }, [cart.items, game?.price, dispatch, id]);
