@@ -4,6 +4,7 @@ import { Title } from "../components/Title";
 import Profile from "../components/Profile";
 import { useEffect, useRef, useState } from "react";
 import ScreenLoading from "../components/ScreenLoading";
+import Orders from "../components/Orders";
 
 const User = () => {
   const cartRef = useRef<HTMLDivElement>(null);
@@ -38,9 +39,10 @@ const User = () => {
         </div>
         <div className="w-full my-16">
           <div className="bg-primary-450 min-h-[280px] w-full rounded-sm">
-            <div className="p-4">
+            <div className="p-4 w-full">
               <Routes>
                 <Route path="/" element={<Profile />} />
+                <Route path="/orders" element={<Orders />} />
               </Routes>
             </div>
           </div>

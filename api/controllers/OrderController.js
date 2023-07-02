@@ -7,7 +7,14 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET);
 const OrderController = {
   async index(req, res, next) {
     const user = req.payload.id;
-    return res.send({ ok: true, user });
+    try {
+      const orders = await Order.find({ user })
+        .populate("games")
+        .sort({ createdAt: -1 });
+      return res.json({ orders });
+    } catch (error) {
+      next(error);
+    }
   },
   async createPaymentIntent(req, res, next) {
     const user = req.payload.id;
