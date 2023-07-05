@@ -20,7 +20,7 @@ const OrderController = {
   async getUniqueGames(req, res, next) {
     const user = req.payload.id;
     const { page } = req.query || 1;
-    const limit = 21;
+    const limit = 20;
 
     try {
       // Obter todas as orders do usuário

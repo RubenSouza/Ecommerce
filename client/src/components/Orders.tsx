@@ -42,10 +42,13 @@ items-center h-[280px]"
           </div>
         </div>
       ) : (
-        <div className="min-w-full h-full py-4 ">
+        <div className="w-full h-full py-4  ">
           <table className="w-full bg-primary-700 rounded-md">
-            <thead className="text-left uppercase ">
-              <tr>
+            <thead
+              className="text-left uppercase hidden 
+            md:table-header-group w-full"
+            >
+              <tr className="">
                 <th className="py-2 px-4 border-b border-primary-400 font-bold">
                   Payment ID
                 </th>
@@ -69,3 +72,27 @@ items-center h-[280px]"
 };
 
 export default Orders;
+
+{
+  /* <div className="min-w-full h-full py-4  ">
+<table className="w-full bg-primary-700 rounded-md">
+  <thead className="text-left uppercase">
+    <tr>
+      <th className="py-2 px-4 border-b border-primary-400 font-bold">
+        Payment ID
+      </th>
+      <th className="py-2 border-b border-primary-400 font-bold">
+        {`Game(S)`}
+      </th>
+      <th className="py-2 px-4 text-center border-b border-primary-400 font-bold">
+        Payment Method
+      </th>
+      <th className="py-2 px-4 text-center border-b border-primary-400 font-bold">
+        Total
+      </th>
+    </tr>
+  </thead>
+  <tbody className="text-xs">{orderItems}</tbody>
+</table>
+</div> */
+}

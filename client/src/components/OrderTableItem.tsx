@@ -26,27 +26,37 @@ const OrderTableItem = ({
   const formattedDate = `${day}/${month}/${year}`;
 
   return (
-    <tr className="border-t border-primary-400">
+    <tr className="border-t border-primary-400 flex flex-col md:table-row">
       <td className="py-2 px-4">
         <div>
+          <p className="text-base font-bold pb-2 md:hidden uppercase">
+            Payment ID
+          </p>
           <p className="text-primary-200">{formattedDate}</p>
           <p>{paymentId}</p>
         </div>
       </td>
       <td className="py-2 px-4 ">
-        <ul className="text-primary-200 list-disc ">{gamesTitles}</ul>
+        <p className="text-base font-bold pb-2 md:hidden uppercase">{`Game(S)`}</p>
+        <ul className="text-primary-200 list-disc px-4 md:px-0">
+          {gamesTitles}
+        </ul>
       </td>
-      <td className="py-2 px-4 text-center">
+      <td className="py-2 px-4 md:text-center">
         <div>
+          <p className="text-base font-bold pb-2 md:hidden uppercase">
+            Payment Method
+          </p>
           <p className="text-primary-200 py-2 uppercase">{paymentMethod}</p>
           <p className="text-primary-200">**** **** **** {lastFour}</p>
         </div>
       </td>
       <td
-        className="py-2 px-4  text-center text-sm
-  text-primary-200"
+        className="py-2 px-4  md:text-center text-sm
+  "
       >
-        $ {total.toFixed(2)}
+        <p className="text-base font-bold pb-2 md:hidden uppercase ">Total</p>
+        <p className="text-primary-200">$ {total.toFixed(2)}</p>
       </td>
     </tr>
   );
