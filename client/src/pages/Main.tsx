@@ -8,6 +8,7 @@ import Favorites from "./Favorites";
 import Cart from "./Cart";
 import User from "./User";
 import Success from "./Success";
+import Library from "./Library";
 import { useDispatch, useSelector } from "react-redux";
 import { useGetFavoritesQuery } from "../redux/services/games";
 import { useEffect } from "react";
@@ -41,6 +42,7 @@ const Main = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/explorer/*" element={<Explorer />} />
+          <Route path="/library" element={<Library />} />
           <Route path="/game/:id" element={<Game />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/cart" element={<Cart />} />

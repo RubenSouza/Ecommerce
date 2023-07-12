@@ -46,6 +46,9 @@ export const gameApi = createApi({
     getOrders: builder.query({
       query: () => "/orders",
     }),
+    getOrdersGames: builder.query({
+      query: ({ pageId }) => `/orders/games?page=${pageId}`,
+    }),
   }),
 });
 
@@ -59,4 +62,5 @@ export const {
   useGetPublisherGamesQuery,
   useGetFavoritesQuery,
   useGetOrdersQuery,
+  useGetOrdersGamesQuery,
 } = gameApi;

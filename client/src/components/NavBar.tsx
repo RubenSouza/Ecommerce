@@ -72,6 +72,17 @@ const NavBar = () => {
               >
                 <p>Explorer</p>
               </NavLink>
+              {user && (
+                <NavLink
+                  to={"/library"}
+                  end
+                  className={({ isActive }) =>
+                    isActive ? activeStyle : inactiveStyle
+                  }
+                >
+                  <p>Library</p>
+                </NavLink>
+              )}
             </div>
             {isMobileMenuOpen && (
               <div
@@ -108,6 +119,16 @@ const NavBar = () => {
 
                     {user && (
                       <>
+                        <NavLink
+                          to={"/library"}
+                          end
+                          className={({ isActive }) =>
+                            isActive ? activeStyle : inactiveStyle
+                          }
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          <p>Library</p>
+                        </NavLink>
                         <NavLink
                           to={"/user"}
                           end
