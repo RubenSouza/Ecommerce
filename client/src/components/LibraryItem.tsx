@@ -1,4 +1,3 @@
-import { AiOutlineDownload } from "react-icons/ai";
 import { BsInfoSquareFill } from "react-icons/bs";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { Link } from "react-router-dom";

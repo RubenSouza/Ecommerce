@@ -1,7 +1,6 @@
-// import GameItem from "../components/GameItem";
 import { Title } from "../components/Title";
 import { useSelector } from "react-redux";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import ScreenLoading from "../components/ScreenLoading";
 import { useGetOrdersGamesQuery } from "../redux/services/games";
 import Paginate from "../components/Paginate";
