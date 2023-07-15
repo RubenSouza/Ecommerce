@@ -47,7 +47,20 @@ const Cart = () => {
             <Title title="My cart" />
           </div>
           <div className="flex flex-col lg:flex-row lg:space-x-6 my-4">
-            <CartItems cartItems={cartItems} totalPrice={totalPrice} />
+            <div className="flex flex-col w-full">
+              <CartItems cartItems={cartItems} totalPrice={totalPrice} />
+              <p className="py-4 text-xs">
+                Esse é um projeto para fins de estudo, não utilize dados reais
+                de pagamento. Acesse a lista de cartões de teste{" "}
+                <a
+                  href="https://stripe.com/docs/testing#cards"
+                  target="_blank"
+                  className="text-button-100"
+                >
+                  clicando aqui.
+                </a>
+              </p>
+            </div>
             <Payment cartItemsIds={cartItemsIds} />
           </div>
           <div className="w-full h-[2px] bg-primary-460 my-16" />
