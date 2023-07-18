@@ -5,9 +5,12 @@ import ScreenLoading from "../components/ScreenLoading";
 import { useGetOrdersGamesQuery } from "../redux/services/games";
 import Paginate from "../components/Paginate";
 import LibraryItem from "../components/LibraryItem";
+import { useNavigate } from "react-router-dom";
 
 const Library = () => {
   const page = useSelector((state: any) => state.querys.page);
+  const user = useSelector((state: any) => state.userLogged.user);
+  const navigate = useNavigate();
 
   const { data: gameData, isLoading } = useGetOrdersGamesQuery({
     pageId: page,
@@ -34,6 +37,12 @@ const Library = () => {
 
     scrollToStart();
   }, [games]);
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user]);
 
   if (isLoading) return <ScreenLoading />;
 

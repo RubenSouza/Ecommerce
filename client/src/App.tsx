@@ -1,15 +1,18 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Main from "./pages/Main";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import jwtDecode from "jwt-decode";
 import { useEffect, useState } from "react";
 import Loading from "./components/ScreenLoading";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setUser } from "./redux/features/userLogged";
 
 function App() {
+  const dispatch = useDispatch();
   const user = useSelector((state: any) => state.userLogged.user);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const location = useLocation();
 
   useEffect(() => {
     setIsLoading(false);
@@ -18,10 +21,10 @@ function App() {
       const decodedToken: any = jwtDecode(jsonUser?.accessToken);
 
       if (decodedToken.exp * 1000 < Date.now()) {
-        localStorage.removeItem("user");
+        dispatch(setUser(null));
       }
     }
-  }, [user, isLoading]);
+  }, [user, isLoading, dispatch, location]);
 
   if (isLoading) return <Loading />;
   else {

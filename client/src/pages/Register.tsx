@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import Logo from "../components/Logo";
+import NavBar from "../components/NavBar";
 
 const Register = () => {
   const user = JSON.parse(localStorage.getItem("user") as string) || null;
@@ -44,6 +45,7 @@ const Register = () => {
   return (
     <div className="h-screen">
       <div className="flex justify-center items-center h-full">
+        <NavBar />
         <div
           className="bg-primary-450 h-[590px] w-[350px] md:w-[450px] 
           z-20 rounded-lg shadow-lg shadow-black"

@@ -3,10 +3,13 @@ import { Title } from "../components/Title";
 import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
 import ScreenLoading from "../components/ScreenLoading";
+import { useNavigate } from "react-router-dom";
 
 const Favorites = () => {
   const favoritesList = useSelector((state: any) => state.favorites.favorites);
+  const user = useSelector((state: any) => state.userLogged.user);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   const favorites = favoritesList?.map((game: any) => (
     <GameItem
@@ -35,6 +38,12 @@ const Favorites = () => {
   useEffect(() => {
     setIsLoading(false);
   }, []);
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user]);
 
   if (isLoading) return <ScreenLoading />;
 

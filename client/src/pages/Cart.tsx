@@ -20,12 +20,6 @@ const Cart = () => {
 
   const promise = loadStripe(import.meta.env.VITE_STRIPE_SECRET_KEY as string);
 
-  useEffect(() => {
-    if (!user) {
-      navigate("/login");
-    }
-  }, [user]);
-
   const cartRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -37,6 +31,12 @@ const Cart = () => {
 
     scrollToStart();
   }, []);
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user]);
 
   return (
     <Elements stripe={promise}>

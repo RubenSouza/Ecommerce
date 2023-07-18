@@ -6,6 +6,7 @@ import axios from "axios";
 import Logo from "../components/Logo";
 import { setUser } from "../redux/features/userLogged";
 import { useSelector, useDispatch } from "react-redux";
+import NavBar from "../components/NavBar";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ const Login = () => {
 
   return (
     <div className="h-screen">
+      <NavBar />
       <div className="flex justify-center items-center h-full ">
         <div
           className="bg-primary-450 h-[580px] w-[350px] md:w-[450px] 

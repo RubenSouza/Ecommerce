@@ -9,14 +9,12 @@ import Cart from "./Cart";
 import User from "./User";
 import Success from "./Success";
 import Library from "./Library";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useGetFavoritesQuery } from "../redux/services/games";
 import { useEffect } from "react";
 import { setFavorites } from "../redux/features/favorites";
 
 const Main = () => {
-  const user = useSelector((state: any) => state.userLogged.user);
-
   const { data: favorites } = useGetFavoritesQuery("");
 
   const dispatch = useDispatch();
@@ -47,7 +45,7 @@ const Main = () => {
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/success" element={<Success />} />
-          {user && <Route path="/user/*" element={<User />} />}
+          <Route path="/user/*" element={<User />} />
         </Routes>
       </div>
       <div className="w-full h-full bottom">

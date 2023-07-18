@@ -1,14 +1,18 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import ProfileMenu from "../components/ProfileMenu";
 import { Title } from "../components/Title";
 import Profile from "../components/Profile";
 import { useEffect, useRef, useState } from "react";
 import ScreenLoading from "../components/ScreenLoading";
 import Orders from "../components/Orders";
+import { useSelector } from "react-redux";
 
 const User = () => {
   const cartRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const user = useSelector((state: any) => state.userLogged.user);
+  const navigate = useNavigate();
+
   useEffect(() => {
     const scrollToStart = () => {
       if (cartRef.current) {
@@ -24,6 +28,12 @@ const User = () => {
       setIsLoading(false);
     }, 1000);
   }, []);
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user]);
 
   if (isLoading) return <ScreenLoading />;
 

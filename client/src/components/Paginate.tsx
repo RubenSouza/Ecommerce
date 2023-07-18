@@ -38,10 +38,10 @@ export default function BasicPagination({ totalPages }: Props) {
         onChange={handlePageChange}
         sx={{
           "& .MuiPaginationItem-root": {
-            color: "white", // Altere para a cor desejada
+            color: "white",
           },
           "& .Mui-selected": {
-            color: "blue", // Altere para a cor da página selecionada
+            color: "blue",
           },
         }}
       />
