@@ -28,12 +28,12 @@ const Favorites = () => {
   useEffect(() => {
     const scrollToStart = () => {
       if (favoritesRef.current) {
-        favoritesRef.current.scrollIntoView({ behavior: "smooth" });
+        favoritesRef.current.scrollIntoView({ behavior: "auto" });
       }
     };
 
     scrollToStart();
-  }, []);
+  }, [favoritesList, isLoading]);
 
   useEffect(() => {
     setIsLoading(false);
@@ -49,7 +49,7 @@ const Favorites = () => {
 
   return (
     <div className="flex flex-col items-center py-10 px-5">
-      <div className="absolute -top-20 h-2" ref={favoritesRef} />
+      <div className="absolute -top-20 h-20" ref={favoritesRef}></div>
       <div className="w-full max-w-[1400px] h-full flex">
         <div className="w-full space-y-4">
           <Title title="Favorites" />
