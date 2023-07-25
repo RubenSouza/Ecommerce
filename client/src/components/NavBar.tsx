@@ -47,12 +47,12 @@ const NavBar = () => {
         </div>
         <div className="flex items-center justify-center">
           <Link to={"/"}>
-            <Logo className="w-44" />
+            <Logo className="w-28" />
           </Link>
         </div>
         <div className="flex items-center justify-between md:w-full">
-          <div className="flex items-center justify-center">
-            <div className="hidden md:flex px-6 space-x-5 items-center font-semibold">
+          <div className="flex items-end justify-center">
+            <div className="hidden md:flex px-6 space-x-5 items-end font-semibold">
               <NavLink
                 to={"/"}
                 end

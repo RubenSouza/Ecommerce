@@ -8,7 +8,7 @@ const Footer = () => {
     text-primary-600 text-sm items-center"
       >
         <div className="w-full h-full xl:w-[1024px] space-y-2">
-          <Logo className="w-32" dark={true} />
+          <Logo className="w-28" dark={true} />
           <div className="w-full h-full grid grid-cols-2 gap-x-16 gap-y-5 md:flex justify-between">
             <div>
               <h5 className="font-bold">Contact</h5>
