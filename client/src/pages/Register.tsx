@@ -55,7 +55,7 @@ const Register = () => {
           h-full w-full px-8"
           >
             <Link to={"/"}>
-              <Logo className="w-38" />
+              <Logo className="w-56" />
             </Link>
             <h1
               className="text-[28px] text-center  md:text-[33px] 
