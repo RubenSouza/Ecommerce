@@ -1,4 +1,4 @@
-import darkLogo from "../assets/darkLogo.svg";
+import Logo from "./Logo";
 
 const Footer = () => {
   return (
@@ -8,13 +8,13 @@ const Footer = () => {
     text-primary-600 text-sm items-center"
       >
         <div className="w-full h-full xl:w-[1024px] space-y-2">
-          <img src={darkLogo} alt="dark logo" className="w-24" />
+          <Logo className="w-32" dark={true} />
           <div className="w-full h-full grid grid-cols-2 gap-x-16 gap-y-5 md:flex justify-between">
             <div>
               <h5 className="font-bold">Contact</h5>
               <div className="h-1 bg-[#33ddc9] w-8" />
-              <p>suporte@wongames.gg</p>
-              <p>+55 21 33283719</p>
+              <p>suporte@koigames.com</p>
+              <p>+55 83 81929969</p>
             </div>
             <div>
               <h5 className="font-bold">Follow US</h5>
@@ -35,9 +35,9 @@ const Footer = () => {
             <div>
               <h5 className="font-bold">Localization</h5>
               <div className="h-1 bg-[#3CD3C1] w-8" />
-              <p>Rua 7 de Maio</p>
-              <p>527 - 89020330</p>
-              <p>Rio de Janeiro, Brasil</p>
+              <p>Rua José Pereira</p>
+              <p>220 - 58401369</p>
+              <p>Campina Grande, Brasil</p>
             </div>
           </div>
         </div>

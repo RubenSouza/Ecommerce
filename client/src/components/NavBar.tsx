@@ -22,8 +22,8 @@ const NavBar = () => {
   const totalItems = useSelector((state: any) => state.cart.totalItems);
 
   const activeStyle =
-    "transition ease-in-out delay-100 hover:scale-105 border-b-2 border-[#F231A5]";
-  const inactiveStyle = "transition ease-in-out delay-100 hover:scale-105 ";
+    "transition ease-in-out delay-100 hover:scale-105 border-b-2 border-button-100";
+  const inactiveStyle = "transition ease-in-out delay-100 hover:scale-105";
 
   const handleLogout = () => {
     dispatch(setUser(null));
@@ -47,7 +47,7 @@ const NavBar = () => {
         </div>
         <div className="flex items-center justify-center">
           <Link to={"/"}>
-            <Logo className="w-28" />
+            <Logo className="w-44" />
           </Link>
         </div>
         <div className="flex items-center justify-between md:w-full">

@@ -9,7 +9,7 @@ const ProfileMenu = () => {
   const dispatch = useDispatch();
 
   const activeStyle =
-    "w-full p-4 flex items-center space-x-2 cursor-pointer bg-[#F231A5]";
+    "w-full p-4 flex items-center space-x-2 cursor-pointer bg-[#f467a4]";
   const inactiveStyle =
     "w-full p-4 flex items-center space-x-2 cursor-pointer hover:bg-primary-400";
 

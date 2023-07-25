@@ -94,8 +94,8 @@ const SideExplorer = () => {
           <li className="flex items-center space-x-2">
             <input
               type="checkbox"
-              className="bg-transparent border-[1px] border-primary-400 text-[#F231A5] 
-              checked:bg-[#F231A5] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
+              className="bg-transparent border-[1px] border-primary-400 text-[#f467a4] 
+              checked:bg-[#f467a4] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
               onChange={() => handlePrice("10.01")}
               checked={priceFilter === "10.01"}
             />
@@ -104,8 +104,8 @@ const SideExplorer = () => {
           <li className="flex space-x-2">
             <input
               type="checkbox"
-              className="bg-transparent border-[1px] border-primary-400 text-[#F231A5] 
-              checked:bg-[#F231A5] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
+              className="bg-transparent border-[1px] border-primary-400 text-[#f467a4] 
+              checked:bg-[#f467a4] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
               onChange={() => handlePrice("15.01")}
               checked={priceFilter === "15.01"}
             />
@@ -115,8 +115,8 @@ const SideExplorer = () => {
           <li className="flex space-x-2">
             <input
               type="checkbox"
-              className="bg-transparent border-[1px] border-primary-400 text-[#F231A5] 
-              checked:bg-[#F231A5] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
+              className="bg-transparent border-[1px] border-primary-400 text-[#f467a4] 
+              checked:bg-[#f467a4] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
               onChange={() => handlePrice("25.01")}
               checked={priceFilter === "25.01"}
             />
@@ -126,8 +126,8 @@ const SideExplorer = () => {
           <li className="flex space-x-2">
             <input
               type="checkbox"
-              className="bg-transparent border-[1px] border-primary-400 text-[#F231A5] 
-              checked:bg-[#F231A5] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
+              className="bg-transparent border-[1px] border-primary-400 text-[#f467a4] 
+              checked:bg-[#f467a4] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
               onChange={() => handlePrice("50.01")}
               checked={priceFilter === "50.01"}
             />
@@ -137,8 +137,8 @@ const SideExplorer = () => {
           <li className="flex space-x-2">
             <input
               type="checkbox"
-              className="bg-transparent border-[1px] border-primary-400 text-[#F231A5] 
-              checked:bg-[#F231A5] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
+              className="bg-transparent border-[1px] border-primary-400 text-[#f467a4] 
+              checked:bg-[#f467a4] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
               onChange={() => handlePrice("75.01")}
               checked={priceFilter === "75.01"}
             />
@@ -148,8 +148,8 @@ const SideExplorer = () => {
           <li className="flex space-x-2">
             <input
               type="checkbox"
-              className="bg-transparent border-[1px] border-primary-400 text-[#F231A5] 
-              checked:bg-[#F231A5] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
+              className="bg-transparent border-[1px] border-primary-400 text-[#f467a4] 
+              checked:bg-[#f467a4] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
               onChange={() => handlePrice("100.01")}
               checked={priceFilter === "100.01"}
             />
@@ -159,8 +159,8 @@ const SideExplorer = () => {
           <li className="flex space-x-2">
             <input
               type="checkbox"
-              className="bg-transparent border-[1px] border-primary-400 text-[#F231A5] 
-              checked:bg-[#F231A5] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
+              className="bg-transparent border-[1px] border-primary-400 text-[#f467a4] 
+              checked:bg-[#f467a4] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0"
             />
 
             <label>With discount</label>
@@ -177,8 +177,8 @@ const SideExplorer = () => {
               name="order"
               defaultChecked
               onChange={() => handleSort("a-to-z")}
-              className="bg-transparent border-[2px] border-primary-400 text-[#F231A5] 
-              checked:bg-[#F231A5] w-4 h-4 rounded-full focus:ring-0 focus:ring-offset-0"
+              className="bg-transparent border-[2px] border-primary-400 text-[#f467a4] 
+              checked:bg-[#f467a4] w-4 h-4 rounded-full focus:ring-0 focus:ring-offset-0"
             />
             <label>A to Z</label>
           </li>
@@ -187,8 +187,8 @@ const SideExplorer = () => {
               type="radio"
               name="order"
               onChange={() => handleSort("biggest-price")}
-              className="bg-transparent border-[2px] border-primary-400 text-[#F231A5] 
-              checked:bg-[#F231A5] w-4 h-4 rounded-full focus:ring-0 focus:ring-offset-0"
+              className="bg-transparent border-[2px] border-primary-400 text-[#f467a4] 
+              checked:bg-[#f467a4] w-4 h-4 rounded-full focus:ring-0 focus:ring-offset-0"
             />
             <label>Biggest price</label>
           </li>
@@ -197,8 +197,8 @@ const SideExplorer = () => {
               type="radio"
               name="order"
               onChange={() => handleSort("lowest-price")}
-              className="bg-transparent border-[2px] border-primary-400 text-[#F231A5] 
-              checked:bg-[#F231A5] w-4 h-4 rounded-full focus:ring-0 focus:ring-offset-0"
+              className="bg-transparent border-[2px] border-primary-400 text-[#f467a4] 
+              checked:bg-[#f467a4] w-4 h-4 rounded-full focus:ring-0 focus:ring-offset-0"
             />
             <label>Lowest price</label>
           </li>
@@ -214,8 +214,8 @@ const SideExplorer = () => {
                 type="checkbox"
                 name="category"
                 checked={categoryFilter === category?.slug}
-                className="bg-transparent border-[1px] border-primary-400 text-[#F231A5] 
-              checked:bg-[#F231A5] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0 form-checkbox"
+                className="bg-transparent border-[1px] border-primary-400 text-[#f467a4] 
+              checked:bg-[#f467a4] w-4 h-4 rounded-sm focus:ring-0 focus:ring-offset-0 form-checkbox"
                 onChange={() => handleCategory(category?.slug)}
               />
               <label>{category?.name}</label>
