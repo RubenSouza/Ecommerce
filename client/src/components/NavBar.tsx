@@ -52,7 +52,7 @@ const NavBar = () => {
         </div>
         <div className="flex items-center justify-between md:w-full">
           <div className="flex items-end justify-center">
-            <div className="hidden md:flex px-6 space-x-5 items-end font-semibold">
+            <div className="hidden md:flex px-8 space-x-5 items-end font-semibold">
               <NavLink
                 to={"/"}
                 end
@@ -181,7 +181,7 @@ const NavBar = () => {
               </div>
             )}
           </div>
-          <div className="flex space-x-4 items-center justify-center">
+          <div className="flex space-x-4 items-end justify-center">
             <Link to={"/explorer"}>
               <AiOutlineSearch className="w-6 h-6" />
             </Link>

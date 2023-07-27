@@ -54,6 +54,7 @@ const Home = () => {
             <PublisherSection
               publisherId={publisher.publisher}
               title={publisher.name}
+              key={i}
             />
           </section>
         ))}

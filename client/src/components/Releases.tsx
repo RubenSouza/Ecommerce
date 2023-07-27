@@ -2,8 +2,17 @@ import GameItem from "./GameItem";
 import GameCarousel from "./GameCarousel";
 import { Title } from "./Title";
 import { useGetGamesQuery } from "../redux/services/games";
+import { useState } from "react";
 
 const Releases = () => {
+  const [showPrevButton, setShowPrevButton] = useState(false);
+  const [showNextButton, setShowNextButton] = useState(true);
+
+  const handleSlideChange = (swiper: any) => {
+    setShowPrevButton(!swiper.isBeginning);
+    setShowNextButton(!swiper.isEnd);
+  };
+
   const { data: gamesData } = useGetGamesQuery({
     pageId: 1,
     sort: "release-date",
@@ -24,11 +33,46 @@ const Releases = () => {
     />
   ));
 
+  const navId = "nav-releases";
+
+  const isMobile = window.innerWidth < 800;
+
   return (
-    <div className="w-full px-4 xl:px-0 lg:w-[1024px] h-full flex flex-col">
-      <Title title="New Releases" />
-      <div className="flex justify-between w-full h-[250px] md:h-[300px]">
-        {gamesList && <GameCarousel slides={gamesList} />}
+    <div
+      className="w-full px-4 xl:px-0 lg:max-w-[1400px] h-full 
+    flex items-center flex-col
+    "
+    >
+      <div className="w-full lg:w-[1024px] ">
+        <Title title="New Releases" />
+      </div>
+      <div
+        className="flex justify-between items-start h-[250px] w-full md:h-[300px]
+        "
+      >
+        {!isMobile && (
+          <div
+            className={`swiper-button-prev relative ${navId}   ${
+              showPrevButton ? "visible" : "invisible"
+            }`}
+          />
+        )}
+        <div className="w-full lg:w-[1024px] h-full">
+          {gamesList && (
+            <GameCarousel
+              slides={gamesList}
+              navId={navId}
+              onSlideChange={handleSlideChange}
+            />
+          )}
+        </div>
+        {!isMobile && (
+          <div
+            className={`swiper-button-next relative ${navId}  ${
+              showNextButton ? "visible" : "invisible"
+            }`}
+          />
+        )}
       </div>
     </div>
   );

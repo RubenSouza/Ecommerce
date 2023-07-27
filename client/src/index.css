@@ -53,6 +53,20 @@ body {
   --swiper-pagination-color: #e5e7eb;
   --swiper-navigation-size: 40px;
   --swiper-pagination-size: 10px;
+  --swiper-navigation-sides-offset: 10px;
+}
+
+.myGameSwiper {
+  --swiper-theme-color: #e5e7eb;
+  --swiper-navigation-color: #e5e7eb;
+  --swiper-pagination-color: #e5e7eb;
+  --swiper-navigation-size: 40px;
+  --swiper-pagination-size: 10px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #e5e7eb;
 }
 
 .bubble {
