@@ -54,7 +54,7 @@ const Library = () => {
           <Title title="My games" />
           <div
             className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 
-                  lg:grid-cols-4 xl:grid-cols-5 gap-5 md:gap-5 xl:gap-x-0"
+                  lg:grid-cols-4 xl:grid-cols-5 gap-5 xl:gap-x-14 xl:gap-y-8"
           >
             {games}
           </div>
@@ -70,3 +70,10 @@ const Library = () => {
 };
 
 export default Library;
+
+{
+  /* <div
+            className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 
+                  lg:grid-cols-4 xl:grid-cols-5 gap-5 xl:gap-x-0"
+          ></div> */
+}

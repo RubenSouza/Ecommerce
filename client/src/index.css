@@ -21,6 +21,10 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+::-ms-reveal {
+  display: none;
+}
+
 .footer {
   transform: matrix(-1, 0, 0, 1, 0, 0);
 }

@@ -7,12 +7,14 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Logo from "../components/Logo";
 import NavBar from "../components/NavBar";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
 
 const Register = () => {
   const user = JSON.parse(localStorage.getItem("user") as string) || null;
   const [username, setUsername] = useState<string>();
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
+  const [showPassword, setShowPassword] = useState<boolean>(false);
   const URL = import.meta.env.VITE_PUBLIC_API_URL as string;
   const navigate = useNavigate();
 
@@ -34,6 +36,10 @@ const Register = () => {
     } catch (error: any) {
       toast.error(error.response.data);
     }
+  };
+
+  const handleShowPassword = () => {
+    setShowPassword(prevShowPassword => !prevShowPassword);
   };
 
   useEffect(() => {
@@ -80,14 +86,26 @@ const Register = () => {
                 type="email"
                 onChange={e => setEmail(e.target.value)}
               />
-              <input
-                className="w-full h-14 rounded-lg mb-3 p-6 text-sm md:text-base
-                shadow-md bg-primary-600"
-                placeholder="Password"
-                required={true}
-                type="password"
-                onChange={e => setPassword(e.target.value)}
-              />
+              <div className="relative">
+                <input
+                  className="w-full h-14 rounded-lg mb-3 p-6 text-sm md:text-base
+                 shadow-md bg-primary-600"
+                  placeholder="Password"
+                  required={true}
+                  type={showPassword ? "text" : "password"}
+                  onChange={e => setPassword(e.target.value)}
+                />
+                <div
+                  className="absolute right-4 top-4 cursor-pointer"
+                  onClick={handleShowPassword}
+                >
+                  {showPassword ? (
+                    <BsEyeSlash className="text-gray-500 h-6 w-6" />
+                  ) : (
+                    <BsEye className="text-gray-500 h-6 w-6" />
+                  )}
+                </div>
+              </div>
               <button
                 className="w-full h-14 mt-3 rounded-lg 
               bg-gradient-to-r from-[#ef6b2e] via-[#bc5c78] to-[#9d5399]

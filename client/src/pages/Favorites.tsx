@@ -55,7 +55,7 @@ const Favorites = () => {
           <Title title="Favorites" />
           <div
             className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 
-            lg:grid-cols-4 xl:grid-cols-5 gap-5 md:gap-5 xl:gap-x-0"
+            lg:grid-cols-4 xl:grid-cols-5 gap-5 md:gap-5 xl:gap-x-14 xl:gap-y-8"
           >
             {favorites}
           </div>

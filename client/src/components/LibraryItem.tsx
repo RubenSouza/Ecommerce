@@ -11,7 +11,7 @@ type Props = {
 
 const LibraryItem = ({ cover, slug, name }: Props) => {
   return (
-    <div className="min-w-[160px] w-full max-w-[240px] relative">
+    <div className="min-w-[160px] w-full max-w-[240px] relative ">
       <img
         src={cover}
         alt="game image"
