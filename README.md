@@ -1,4 +1,4 @@
-<img src = "./src/assets/wallpaper.png" width="1080px">
+<img src = "./client/src/assets/ecommerceCapa.png" width="1080px">
 
 # 💻 KOI GAMES
 
