@@ -2,7 +2,7 @@
 
 # 💻 KOI GAMES
 
-<p>     O Koi Games E-commerce é um projeto desenvolvido como parte de um estudo em desenvolvimento web, com o propósito de simular a experiência de compra de jogos em uma loja virtual profissional de forma simples e intuitiva.
+<p>     O Koi Games E-commerce é um projeto full stack desenvolvido como parte de um estudo em desenvolvimento web, com o propósito de simular a experiência de compra de jogos em uma loja virtual profissional de forma simples e intuitiva.
 
 O objetivo principal deste projeto é proporcionar aos usuários uma plataforma onde eles possam explorar uma variedade de jogos, pesquisar detalhes sobre cada jogo, fazer login ou se registrar como cliente, adicionar jogos ao carrinho de compras e, por fim, realizar compras de jogos em mídia virtual.
 
