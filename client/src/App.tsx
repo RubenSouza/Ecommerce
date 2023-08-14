@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 import Main from "./pages/Main";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
