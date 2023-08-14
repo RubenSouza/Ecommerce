@@ -1,4 +1,5 @@
 import { Routes, Route, useLocation } from "react-router-dom";
+import ReactGA from "react-ga";
 import Main from "./pages/Main";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -13,6 +14,10 @@ function App() {
   const user = useSelector((state: any) => state.userLogged.user);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const location = useLocation();
+
+  const TRACKING_ID = import.meta.env.VITE_GA_TRACKING;
+
+  ReactGA.initialize(TRACKING_ID);
 
   useEffect(() => {
     setIsLoading(false);
