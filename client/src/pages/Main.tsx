@@ -13,6 +13,7 @@ import { useDispatch } from "react-redux";
 import { useGetFavoritesQuery } from "../redux/services/games";
 import { useEffect } from "react";
 import { setFavorites } from "../redux/features/favorites";
+import NotFoundPage from "./NotFoundPage";
 
 const Main = () => {
   const { data: favorites } = useGetFavoritesQuery("");
@@ -46,6 +47,7 @@ const Main = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/success" element={<Success />} />
           <Route path="/user/*" element={<User />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
       <div className="w-full h-full bottom">
