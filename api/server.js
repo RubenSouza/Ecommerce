@@ -33,16 +33,6 @@ const connectDB = async () => {
   }
 };
 
-// mongoose
-//   .connect(process.env.MONGO_URL, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
-//   .then(() => console.log("Db connection is working!"))
-//   .catch(error => {
-//     console.log("Error: ", error);
-//   });
-
 // JSON
 
 app.use(express.json());
@@ -81,8 +71,3 @@ connectDB().then(() => {
     console.log(`Server is working in http://localhost:${PORT}`);
   });
 });
-
-// app.listen(PORT, error => {
-//   if (error) throw error;
-//   console.log(`Server is working in http://localhost:${PORT}`);
-// });

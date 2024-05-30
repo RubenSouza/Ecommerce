@@ -148,7 +148,6 @@ const UserController = {
 
   async getAdmin(req, res, next) {
     let query = req.query.new;
-
     try {
       let user = query
         ? await User.find().sort({ _id: -1 }).limit(10)
