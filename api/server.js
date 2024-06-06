@@ -49,7 +49,7 @@ app.use(morgan("common"));
 //Body Parser
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //Cors
 
